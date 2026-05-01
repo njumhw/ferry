@@ -1,0 +1,46 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="搜索">
+  <div class="search-page">
+    <div id="search"></div>
+  </div>
+</Base>
+
+<style>
+  .search-page { padding-top: 40px; }
+</style>
+
+<style is:global>
+  .pagefind-ui__form::before { display: none; }
+  .pagefind-ui__search-input {
+    font-family: inherit !important;
+    font-size: 15px !important;
+    padding: 10px 16px !important;
+    border: 1px solid #e8e7e4 !important;
+    border-radius: 10px !important;
+    background: #fafaf8 !important;
+    color: #2d2d2a !important;
+    width: 100% !important;
+    outline: none !important;
+  }
+  .pagefind-ui__search-input:focus {
+    border-color: #a3a39e !important;
+  }
+  .pagefind-ui__result { border-bottom: 1px solid #f0efeb !important; padding: 16px 0 !important; }
+  .pagefind-ui__result-link { color: #1a1a18 !important; font-weight: 600 !important; font-size: 15px !important; }
+  .pagefind-ui__result-excerpt { color: #6b6b66 !important; font-size: 14px !important; line-height: 1.7 !important; }
+  .pagefind-ui__message { color: #b5b5ae !important; font-size: 13px !important; }
+</style>
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+<script is:inline>
+  window.addEventListener('DOMContentLoaded', function() {
+    var script = document.createElement('script');
+    script.src = '/pagefind/pagefind-ui.js';
+    script.onload = function() {
+      new PagefindUI({ element: '#search', showSubResults: false, showImages: false });
+    };
+    document.head.appendChild(script);
+  });
+</script>
