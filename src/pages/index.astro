@@ -8,29 +8,43 @@ const allVideos = await getCollection('videos');
 const sorted = allVideos.sort((a, b) =>
   b.data.metadata.published_at.localeCompare(a.data.metadata.published_at)
 );
+
+const guestMap = new Map<string, string>();
+for (const video of allVideos) {
+  for (const guest of video.data.metadata.guests) {
+    const slug = guest.toLowerCase().replace(/\s+/g, '-');
+    if (!guestMap.has(slug)) guestMap.set(slug, guest);
+  }
+}
+const guests = [...guestMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
 ---
 <Base title="首页">
-  <section class="hero">
-    <h1>Ferry <span class="zh">渡</span></h1>
-  </section>
-
-  <section class="channels">
-    <h2>频道</h2>
-    <div class="channel-list">
-      {Object.entries(channels).map(([slug, ch]) => (
-        <a href={`/channel/${slug}`} class="channel-badge">{ch.name}</a>
-      ))}
+  <div class="home">
+    <div class="toolbar">
+      <div class="filters">
+        <select id="channel-filter" class="filter-select">
+          <option value="">全部频道</option>
+          {Object.entries(channels).map(([slug, ch]) => (
+            <option value={slug}>{ch.name}</option>
+          ))}
+        </select>
+        <select id="guest-filter" class="filter-select">
+          <option value="">全部嘉宾</option>
+          {guests.map(([slug, name]) => (
+            <option value={slug}>{name}</option>
+          ))}
+        </select>
+      </div>
+      <span class="count" id="count">{allVideos.length} 期内容</span>
     </div>
-  </section>
 
-  <section class="videos">
-    <h2>最新内容</h2>
-    <div class="video-grid">
+    <div class="card-grid" id="card-grid">
       {sorted.map(video => (
         <VideoCard
           slug={video.id}
           title={video.data.metadata.title}
           channel={video.data.metadata.channel}
+          channelSlug={video.data.metadata.channel_slug}
           guests={video.data.metadata.guests}
           summary={video.data.summary_zh}
           tags={video.data.tags}
@@ -39,28 +53,76 @@ const sorted = allVideos.sort((a, b) =>
         />
       ))}
     </div>
-  </section>
+
+    <p class="empty" id="empty" style="display:none">没有匹配的内容</p>
+  </div>
 </Base>
 
 <style>
-  .hero { padding: 48px 0 32px; }
-  .hero h1 { font-size: 36px; font-weight: 800; letter-spacing: -1px; }
-  .zh { font-weight: 400; color: #888; }
+  .home { padding-top: 28px; }
 
-  .channels { margin: 32px 0; }
-  .channels h2 { font-size: 16px; font-weight: 600; margin-bottom: 12px; color: #444; }
-  .channel-list { display: flex; flex-wrap: wrap; gap: 8px; }
-  .channel-badge {
-    font-size: 13px;
-    padding: 4px 12px;
-    border-radius: 16px;
-    background: #f0f0ec;
-    color: #555;
-    transition: background 0.15s;
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 32px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #f0efeb;
   }
-  .channel-badge:hover { background: #e5e5e0; text-decoration: none; }
+  .filters { display: flex; gap: 10px; }
+  .filter-select {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 7px 28px 7px 12px;
+    border: 1px solid #e8e7e4;
+    border-radius: 8px;
+    background: #fafaf8;
+    color: #4a4a46;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23999' d='M5 7L1 3h8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    transition: all 0.15s;
+  }
+  .filter-select:hover { border-color: #d0cfcc; background: #f5f5f2; }
+  .filter-select:focus { outline: none; border-color: #a3a39e; }
+  .count { font-size: 13px; color: #b5b5ae; }
 
-  .videos { margin-top: 40px; }
-  .videos h2 { font-size: 16px; font-weight: 600; margin-bottom: 16px; color: #444; }
-  .video-grid { display: flex; flex-direction: column; gap: 16px; }
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 16px;
+  }
+
+  .empty { color: #b5b5ae; font-size: 14px; text-align: center; padding: 48px 0; }
 </style>
+
+<script>
+  const channelFilter = document.getElementById('channel-filter') as HTMLSelectElement;
+  const guestFilter = document.getElementById('guest-filter') as HTMLSelectElement;
+  const cards = document.querySelectorAll<HTMLAnchorElement>('#card-grid .video-card');
+  const countEl = document.getElementById('count')!;
+  const emptyEl = document.getElementById('empty')!;
+
+  function applyFilters() {
+    const ch = channelFilter.value;
+    const gu = guestFilter.value;
+    let visible = 0;
+
+    cards.forEach(card => {
+      const matchChannel = !ch || card.dataset.channel === ch;
+      const matchGuest = !gu || (card.dataset.guests || '').split(',').includes(gu);
+      const show = matchChannel && matchGuest;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+
+    countEl.textContent = `${visible} 期内容`;
+    emptyEl.style.display = visible === 0 ? '' : 'none';
+  }
+
+  channelFilter.addEventListener('change', applyFilters);
+  guestFilter.addEventListener('change', applyFilters);
+</script>

@@ -27,11 +27,11 @@ const videos = allVideos
   .filter(v => v.data.tags.some(t => t.toLowerCase().replace(/\s+/g, '-') === slug))
   .sort((a, b) => b.data.metadata.published_at.localeCompare(a.data.metadata.published_at));
 ---
-<Base title={`#${tag}`}>
-  <section class="tag-page">
+<Base title={tag}>
+  <section class="listing-page">
     <header class="page-header">
-      <h1>#{tag}</h1>
-      <p class="count">{videos.length} 期节目</p>
+      <h1>{tag}</h1>
+      <p class="count">{videos.length} 期</p>
     </header>
 
     <div class="video-grid">
@@ -40,6 +40,7 @@ const videos = allVideos
           slug={video.id}
           title={video.data.metadata.title}
           channel={video.data.metadata.channel}
+          channelSlug={video.data.metadata.channel_slug}
           guests={video.data.metadata.guests}
           summary={video.data.summary_zh}
           tags={video.data.tags}
@@ -52,9 +53,9 @@ const videos = allVideos
 </Base>
 
 <style>
-  .tag-page { padding-top: 32px; }
+  .listing-page { padding-top: 40px; }
   .page-header { margin-bottom: 32px; }
-  .page-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
-  .count { color: #888; font-size: 14px; }
-  .video-grid { display: flex; flex-direction: column; gap: 16px; }
+  .page-header h1 { font-size: 20px; font-weight: 650; color: #1a1a18; margin-bottom: 4px; letter-spacing: -0.3px; }
+  .count { color: #a3a39e; font-size: 13px; }
+  .video-grid { display: flex; flex-direction: column; }
 </style>

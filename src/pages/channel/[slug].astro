@@ -17,11 +17,10 @@ const videos = allVideos
   .sort((a, b) => b.data.metadata.published_at.localeCompare(a.data.metadata.published_at));
 ---
 <Base title={channel.name} description={channel.description}>
-  <section class="channel-page">
+  <section class="listing-page">
     <header class="page-header">
       <h1>{channel.name}</h1>
       <p class="desc">{channel.description}</p>
-      <a href={channel.url} class="external" target="_blank" rel="noopener">YouTube →</a>
     </header>
 
     {videos.length > 0 ? (
@@ -31,6 +30,7 @@ const videos = allVideos
             slug={video.id}
             title={video.data.metadata.title}
             channel={video.data.metadata.channel}
+            channelSlug={video.data.metadata.channel_slug}
             guests={video.data.metadata.guests}
             summary={video.data.summary_zh}
             tags={video.data.tags}
@@ -46,12 +46,10 @@ const videos = allVideos
 </Base>
 
 <style>
-  .channel-page { padding-top: 32px; }
+  .listing-page { padding-top: 40px; }
   .page-header { margin-bottom: 32px; }
-  .page-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
-  .desc { color: #666; font-size: 15px; margin-bottom: 8px; }
-  .external { font-size: 13px; color: #888; }
-  .external:hover { color: #1d4ed8; }
-  .video-grid { display: flex; flex-direction: column; gap: 16px; }
-  .empty { color: #999; font-size: 14px; }
+  .page-header h1 { font-size: 20px; font-weight: 650; color: #1a1a18; margin-bottom: 6px; letter-spacing: -0.3px; }
+  .desc { color: #8b8b85; font-size: 14px; }
+  .video-grid { display: flex; flex-direction: column; }
+  .empty { color: #a3a39e; font-size: 14px; }
 </style>
