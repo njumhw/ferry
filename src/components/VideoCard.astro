@@ -1,0 +1,62 @@
+---
+interface Props {
+  slug: string;
+  title: string;
+  channel: string;
+  guests: string[];
+  summary: string;
+  tags: string[];
+  duration: number;
+  publishedAt: string;
+}
+
+const { slug, title, channel, guests, summary, tags, duration, publishedAt } = Astro.props;
+
+const minutes = Math.floor(duration / 60);
+const durationStr = minutes >= 60 ? `${Math.floor(minutes / 60)}h ${minutes % 60}m` : `${minutes}m`;
+---
+<article class="video-card">
+  <a href={`/v/${slug}`}>
+    <div class="card-meta">
+      <span class="channel">{channel}</span>
+      <span class="dot">&middot;</span>
+      <span class="duration">{durationStr}</span>
+      <span class="dot">&middot;</span>
+      <span class="date">{publishedAt}</span>
+    </div>
+    <h3 class="card-title">{title}</h3>
+    <p class="card-guests">{guests.join(', ')}</p>
+    <p class="card-summary">{summary}</p>
+    <div class="card-tags">
+      {tags.map(tag => <span class="tag">{tag}</span>)}
+    </div>
+  </a>
+</article>
+
+<style>
+  .video-card {
+    border: 1px solid #e5e5e0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    transition: border-color 0.15s, box-shadow 0.15s;
+    background: #fff;
+  }
+  .video-card:hover {
+    border-color: #ccc;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .video-card a { color: inherit; text-decoration: none; display: block; }
+  .card-meta { font-size: 13px; color: #888; margin-bottom: 8px; }
+  .dot { margin: 0 6px; }
+  .card-title { font-size: 17px; font-weight: 600; line-height: 1.4; margin-bottom: 4px; }
+  .card-guests { font-size: 14px; color: #666; margin-bottom: 8px; }
+  .card-summary { font-size: 14px; color: #555; line-height: 1.6; margin-bottom: 12px; }
+  .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .tag {
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    background: #f0f0ec;
+    color: #666;
+  }
+</style>

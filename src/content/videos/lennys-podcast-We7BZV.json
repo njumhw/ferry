@@ -1,0 +1,78 @@
+{
+  "schema": "tripack-v1",
+  "metadata": {
+    "source_url": "https://www.youtube.com/watch?v=We7BZVKbCVw",
+    "video_id": "We7BZVKbCVw",
+    "title": "Head of Claude Code: What happens after coding is solved | Boris Cherny",
+    "channel": "Lenny's Podcast",
+    "channel_slug": "lennys-podcast",
+    "guests": [
+      "Boris Cherny"
+    ],
+    "host": "Lenny Rachitsky",
+    "duration_seconds": 5265,
+    "published_at": "2026-02-19",
+    "language_original": "en"
+  },
+  "summary_zh": "Anthropic Claude Code 负责人 Boris Cherny 分享了从内部 hack 到占据全球 4% GitHub 提交量的历程，讨论了编程即将被完全解决后工程师角色的转变、AI agent 向非技术领域扩展的趋势，以及 Anthropic 如何通过安全研究保障 AI 行为对齐。",
+  "tags": [
+    "AI Coding",
+    "Product",
+    "Founder Story",
+    "Interview",
+    "Strategic"
+  ],
+  "memo_zh": {
+    "intro": "Boris Cherny 是 Anthropic Claude Code 的负责人。Claude Code 在一年内从内部小工具成长为占据全球 4% GitHub 提交量的产品，正在从根本上改变软件工程的工作方式。Boris 本人从 2024 年 11 月起 100% 代码由 Claude Code 生成，每天提交 10-30 个 PR。",
+    "topics": [
+      {
+        "id": "01",
+        "title": "Claude Code 的起源：从两个点赞的内部 demo 到全球 4% 的 GitHub 提交",
+        "timestamp": "00:03:24",
+        "body_md": "**核心要点**：Claude Code 诞生于一次内部 hack，最初发布时并非爆款，经过数月迭代才真正起飞。\n\n- Boris 加入 Anthropic 后花一个月 hacking 原型、一个月做 post-training 理解模型，然后开始构建 Claude CLI\n- 内部发布时只获得两个点赞——没人认为终端形态的编码工具能成功\n- 选择终端形态的原因：模型进步太快，没有其他 form factor 能跟上；同时团队只有一人，终端是最快的构建方式\n- 2025 年 2 月外部发布时并非立即爆火，花了数月才让用户理解产品价值\n- Semi Analysis 报告：Claude Code 已占全球 4% 的 GitHub 公开提交量，私有仓库占比更高\n- 增长仍在加速——DAU 在最近一个月翻了一倍\n\n> \"When I first started Claude Code, it was just going to be a little hack... I announced it internally and it got two likes.\" —— Boris Cherny"
+      },
+      {
+        "id": "02",
+        "title": "编程已被解决：100% AI 生成代码的工作方式与下一个前沿",
+        "timestamp": "00:12:45",
+        "body_md": "**核心要点**：Boris 从 2024 年 11 月起不再手写任何代码，每天用 Claude Code 提交 10-30 个 PR。下一步是让 AI 主动发现问题和提出建议。\n\n- 100% 代码由 Claude Code 生成，但仍会 review 代码确保正确性和安全性\n- Anthropic 内部 Claude 自动 review 100% 的 PR，之后还有人工复查\n- 下一前沿：Claude 开始主动浏览反馈渠道、bug 报告、遥测数据，自己提出修复建议\n- 类比：从打字到印刷术——编程一直在变化，从打孔卡到软件，现在到 AI 生成\n- Boris 的祖父是苏联最早的程序员之一，使用打孔卡编程\n- 预测：一年内，大多数工程师不再需要 IDE\n\n> \"Coding is largely solved. At least for the kind of programming that I do, it's just a solved problem because Claude can do it.\" —— Boris Cherny"
+      },
+      {
+        "id": "03",
+        "title": "产品哲学：少即是多——故意人手不足的团队反而跑得更快",
+        "timestamp": "00:25:10",
+        "body_md": "**核心要点**：Anthropic 刻意让团队人数偏少（underfund），迫使工程师最大化利用 AI，反而实现了 200% 的人均产出提升。\n\n- 关键原则：underfund——给项目比直觉上少的人手，工程师被迫用 AI 填补空缺\n- Anthropic 工程团队扩大约 4 倍，但人均 PR 产出增长 200%（Boris 前 Meta 经验：传统优化一年只能提升几个百分点）\n- 给工程师无限 token 比省钱更重要——先实验再优化\n- 部分 Anthropic 工程师每月 token 消耗达数十万美元\n- 建议 CTO：不要过早优化成本，先让工程师有自由度尝试疯狂想法\n\n> \"Don't try to optimize. Don't try to cost cut at the beginning. Start by just giving engineers as many tokens as possible.\" —— Boris Cherny"
+      },
+      {
+        "id": "04",
+        "title": "Co-work：10 天构建、面向非技术人群的 AI agent 产品",
+        "timestamp": "00:38:20",
+        "body_md": "**核心要点**：Co-work 是将 Claude Code 的 agent 能力带给非工程师的产品，团队用 Claude Code 在 10 天内完成构建。\n\n- Co-work 本质是把 Claude Code 搬进桌面 App，面向非技术用户\n- 10 天完成开发，包含完整的虚拟机安全沙箱\n- 发布后立即爆火（对比 Claude Code 早期的缓慢增长）\n- Boris 日常用 Co-work 处理项目管理、跨系统同步、甚至缴纳停车罚单\n- Agent 的精确定义：能使用工具的 LLM，不只是对话，而是能行动\n\n> \"Over 10 days they just completely used Claude Code to build it... We shipped an entire virtual machine with it. And Claude Code just wrote all of this code.\" —— Boris Cherny"
+      },
+      {
+        "id": "05",
+        "title": "AI 安全的三层体系：从神经元监控到真实世界行为观测",
+        "timestamp": "00:45:30",
+        "body_md": "**核心要点**：Anthropic 的安全体系分三层——机械可解释性（底层神经元监控）、Evals（实验室测试）、真实世界部署观测。\n\n- 第一层：Mechanistic Interpretability——监控模型神经元，可追踪欺骗相关神经元的激活\n- 第二层：Evals——将模型放入合成场景测试其行为是否对齐\n- 第三层：真实世界部署——模型可能在前两层表现良好但在真实环境暴露问题\n- Claude Code 在外部发布前内部测试了 4-5 个月\n- Race to the Top：开源安全工具（如 sandbox），让整个行业一起提升安全标准\n- 超级定位（Superposition）：随着模型变大，单个神经元对应多个概念\n\n> \"As the model gets more sophisticated, seeing how it behaves in the wild becomes so important because it might look very good on the first two layers but not great on the third one.\" —— Boris Cherny"
+      },
+      {
+        "id": "06",
+        "title": "产品设计心法：模型即产品，最小化脚手架，跟随 latent demand",
+        "timestamp": "00:55:00",
+        "body_md": "**核心要点**：Claude Code 的设计哲学是让模型自己决定如何完成任务，而非把模型锁在预设框架里。\n\n- 传统 LLM 产品思路：把模型放进盒子，规定它做什么\n- Claude Code 的反转：产品就是模型本身，只给最少工具和脚手架\n- 模型自己决定使用哪些工具、以什么顺序执行\n- 核心概念：Latent Demand / On Distribution——观察模型\"想做什么\"，顺势而为\n- 实践 tip：CLAUDE.md 文件 + Plan Mode（shift+tab 两次）+ 多端尝试不同 form factor\n\n> \"For Claude Code, we inverted that. We said the product is the model. We want to expose it. We want to put the minimal scaffolding around it.\" —— Boris Cherny"
+      },
+      {
+        "id": "07",
+        "title": "个人故事：乌克兰-日本-硅谷，以及 AGI 之后做味噌",
+        "timestamp": "01:10:00",
+        "body_md": "**核心要点**：Boris 出生于乌克兰敖德萨（与 Lenny 同城），曾居住在日本乡村，AGI 后想做味噌。\n\n- Boris 和 Lenny 都出生于乌克兰敖德萨——录制时才发现这个巧合\n- 加入 Anthropic 前住在日本乡村，是镇上唯一的工程师和英语使用者\n- 通过交换腌菜和味噌与邻居建立友谊\n- 味噌教会了长期思维：白味噌至少 3 个月，红味噌 2-4 年\n- 曾短暂加入 Cursor（两周后回到 Anthropic）——离开后意识到 Anthropic 的 mission-driven 文化不可替代\n\n> \"If I wasn't at Anthropic, I'd probably be making miso.\" —— Boris Cherny"
+      }
+    ]
+  },
+  "translation_zh": {
+    "body_md": "**Lenny Rachitsky：** Boris，非常感谢你来参加播客。\n\n**Boris Cherny：** 谢谢你邀请我。\n\n**Lenny：** 我想从一个辛辣的问题开始。大约 6 个月前——不知道大家还记不记得——你实际上离开了 Anthropic，加入了 Cursor，然后两周后又回到了 Anthropic。那到底发生了什么？我觉得我从来没听过真实的故事。\n\n**Boris：** [笑] 那是我经历过的最快的跳槽。我加入 Cursor 是因为我是这个产品的忠实粉丝，说实话我见了团队之后非常impressed。他们是一个很棒的团队，我现在仍然这么认为，他们在构建非常酷的东西，而且比很多人更早看到了 AI 编码的方向。所以构建好产品的想法对我来说非常令人兴奋。\n\n我觉得一到那里我就开始意识到，我真正想念 Anthropic 的是使命感。这其实也是最初把我带到 Anthropic 的东西。在加入 Anthropic 之前，我在大公司工作，后来我想去一个实验室，以某种方式帮助塑造这个我们正在构建的疯狂事物的未来。把我吸引到 Anthropic 的是使命——一切都是关于安全的。当你跟 Anthropic 的人聊天，随便在走廊里找个人，问他们为什么在这里，答案永远是安全。\n\n这种使命驱动感真的非常打动我。我个人知道这是我快乐所需的东西。无论工作多令人兴奋，即使是在构建一个很酷的产品，它都不能替代那个东西。所以对我来说，其实很快就很明显我缺失了那个。\n\n**Lenny：** 好的，那让我顺着这个话题继续——回到 Anthropic 以及你在那里做的工作。这期播客会在 Claude Code 发布一周年左右播出。\n\n*[验证用节选——完整翻译约 3 万字，此处展示结构性示例]*"
+  },
+  "original_en": {
+    "body_md": "**Lenny Rachitsky:** Boris, thank you so much for being here and welcome to the podcast.\n\n**Boris Cherny:** Yeah, thanks for having me on.\n\n**Lenny:** I want to start with a spicy question. About 6 months ago, I don't know if people even remember this, you actually left Anthropic. You joined Cursor and then two weeks later, you went back to Anthropic. What happened there? I don't think I've ever heard the actual story.\n\n**Boris:** [laughter] It's the fastest job change that I've ever had. Um, I joined Cursor because I'm a big fan of the product and honestly I met the team and I was just really impressed. Uh, they're an awesome team. Uh, I still I still think they're awesome and they're just building really cool stuff and kind of they they saw where AI coding was going I think before a lot of people did. So the idea of building good product was just very exciting for me.\n\nI think as soon as I got there, what I started to realize is what I really missed about Ant was the mission. And that's actually what originally drove me to Ant also cuz uh but before I joined Anthropic, I was, you know, I was working in big tech and then at some point I wanted to work at a lab to just help shape the future of this crazy thing that that we're building in some way. And the thing that drew me to Anthropic was the mission. And it was, you know, it's all about safety. And when you talk to people at Anthropic, just like find someone in the hallway, if you ask them why they're here, the answer is always going to be safety.\n\nUm, and so this kind of like mission-drivenness just really really resonated with me. And I just know personally it's something I need in order to be happy. Um, and that's just a thing that I really missed. And I found that, you know, whatever the work might be, no matter how exciting, even if it's building a really cool product, it's just not really a substitute for that. Um, so for me it was actually pretty obvious that that I was missing that pretty quick.\n\n*[验证用节选——完整原文约 10 万字符，此处展示结构性示例]*"
+  }
+}

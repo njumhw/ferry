@@ -1,0 +1,60 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import VideoCard from '../../components/VideoCard.astro';
+
+export async function getStaticPaths() {
+  const allVideos = await getCollection('videos');
+  const tagSet = new Set<string>();
+
+  for (const video of allVideos) {
+    for (const tag of video.data.tags) {
+      tagSet.add(tag);
+    }
+  }
+
+  return [...tagSet].map(tag => ({
+    params: { slug: tag.toLowerCase().replace(/\s+/g, '-') },
+    props: { tag },
+  }));
+}
+
+const { slug } = Astro.params;
+const { tag } = Astro.props;
+
+const allVideos = await getCollection('videos');
+const videos = allVideos
+  .filter(v => v.data.tags.some(t => t.toLowerCase().replace(/\s+/g, '-') === slug))
+  .sort((a, b) => b.data.metadata.published_at.localeCompare(a.data.metadata.published_at));
+---
+<Base title={`#${tag}`}>
+  <section class="tag-page">
+    <header class="page-header">
+      <h1>#{tag}</h1>
+      <p class="count">{videos.length} 期节目</p>
+    </header>
+
+    <div class="video-grid">
+      {videos.map(video => (
+        <VideoCard
+          slug={video.id}
+          title={video.data.metadata.title}
+          channel={video.data.metadata.channel}
+          guests={video.data.metadata.guests}
+          summary={video.data.summary_zh}
+          tags={video.data.tags}
+          duration={video.data.metadata.duration_seconds}
+          publishedAt={video.data.metadata.published_at}
+        />
+      ))}
+    </div>
+  </section>
+</Base>
+
+<style>
+  .tag-page { padding-top: 32px; }
+  .page-header { margin-bottom: 32px; }
+  .page-header h1 { font-size: 24px; font-weight: 700; margin-bottom: 4px; }
+  .count { color: #888; font-size: 14px; }
+  .video-grid { display: flex; flex-direction: column; gap: 16px; }
+</style>

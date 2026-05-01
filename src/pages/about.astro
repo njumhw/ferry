@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+---
+<Base title="关于">
+  <section class="about">
+    <h1>关于 Lumen</h1>
+    <p>Lumen 收录高质量英文 AI 访谈节目，提供中文笔记、翻译与原文对照，让国内读者不翻墙即可获取一手信息。</p>
+
+    <h2>内容来源</h2>
+    <p>我们关注以下频道的深度对话：Lenny's Podcast、Sequoia Capital、Dwarkesh Patel、Latent Space、No Priors 等。所有内容均为 AI 辅助转写 + 人工校对。</p>
+
+    <h2>阅读方式</h2>
+    <ul>
+      <li><strong>纪要</strong> — 结构化摘要，快速了解核心观点</li>
+      <li><strong>中文翻译</strong> — 全文中文译本</li>
+      <li><strong>英文原文</strong> — 原始转写文本</li>
+    </ul>
+
+    <h2>技术栈</h2>
+    <p>Astro 静态生成，部署于阿里云 ECS + Nginx，内容以 JSON 格式管理。</p>
+  </section>
+</Base>
+
+<style>
+  .about { padding-top: 32px; max-width: 680px; }
+  .about h1 { font-size: 24px; font-weight: 700; margin-bottom: 16px; }
+  .about h2 { font-size: 17px; font-weight: 600; margin-top: 28px; margin-bottom: 8px; }
+  .about p { color: #444; font-size: 15px; line-height: 1.8; margin-bottom: 12px; }
+  .about ul { padding-left: 20px; margin-bottom: 12px; }
+  .about li { color: #444; font-size: 15px; line-height: 1.8; margin-bottom: 4px; }
+</style>

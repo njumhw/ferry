@@ -1,0 +1,90 @@
+---
+interface Props {
+  memoHtml: string;
+  translationHtml: string;
+  originalHtml: string;
+}
+
+const { memoHtml, translationHtml, originalHtml } = Astro.props;
+---
+<div class="tab-container">
+  <div class="tab-nav">
+    <button class="tab-btn active" data-tab="memo">纪要</button>
+    <button class="tab-btn" data-tab="translation">中文翻译</button>
+    <button class="tab-btn" data-tab="original">英文原文</button>
+  </div>
+  <div class="tab-panels">
+    <div class="tab-panel active" id="panel-memo" set:html={memoHtml} />
+    <div class="tab-panel" id="panel-translation" set:html={translationHtml} />
+    <div class="tab-panel" id="panel-original" set:html={originalHtml} />
+  </div>
+</div>
+
+<style>
+  .tab-nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.97);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid #e5e5e0;
+    display: flex;
+    gap: 4px;
+    padding: 0;
+    margin: 0 -24px 24px;
+    padding: 0 24px;
+  }
+  .tab-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 15px;
+    color: #6b6b66;
+    padding: 14px 20px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+  }
+  .tab-btn:hover { color: #1a1a1a; }
+  .tab-btn.active { color: #111; font-weight: 600; border-bottom-color: #111; }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  .tab-panel :global(h1) { font-size: 22px; margin: 24px 0 12px; }
+  .tab-panel :global(h2) { font-size: 18px; margin: 28px 0 12px; border-bottom: 1px solid #eee; padding-bottom: 6px; }
+  .tab-panel :global(h3) { font-size: 16px; margin: 20px 0 8px; }
+  .tab-panel :global(p) { margin: 8px 0; }
+  .tab-panel :global(ul), .tab-panel :global(ol) { padding-left: 20px; margin: 8px 0; }
+  .tab-panel :global(li) { margin: 4px 0; }
+  .tab-panel :global(blockquote) {
+    border-left: 3px solid #ddd;
+    padding-left: 16px;
+    color: #555;
+    margin: 12px 0;
+    font-style: italic;
+  }
+  .tab-panel :global(code) { background: #f5f5f0; padding: 2px 5px; border-radius: 3px; font-size: 0.9em; }
+  .tab-panel :global(strong) { font-weight: 600; }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const btns = document.querySelectorAll('.tab-btn');
+    const panels = document.querySelectorAll('.tab-panel');
+
+    function switchTab(tabId: string) {
+      btns.forEach(b => b.classList.toggle('active', b.getAttribute('data-tab') === tabId));
+      panels.forEach(p => p.classList.toggle('active', p.id === `panel-${tabId}`));
+      window.location.hash = tabId;
+    }
+
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => switchTab(btn.getAttribute('data-tab')!));
+    });
+
+    const hash = window.location.hash.slice(1);
+    if (hash && ['memo', 'translation', 'original'].includes(hash)) {
+      switchTab(hash);
+    }
+  });
+</script>
