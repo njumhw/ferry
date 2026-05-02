@@ -33,16 +33,17 @@ const guestSlugs = guests.map(g => g.toLowerCase().replace(/\s+/g, '-'));
   .video-card {
     display: flex;
     flex-direction: column;
-    padding: 20px 24px;
-    border: 1px solid #eeeee9;
+    padding: 22px 26px;
+    border: 1px solid rgba(0, 0, 0, 0.04);
     border-radius: 12px;
     background: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.03);
     transition: all 0.2s ease;
   }
   .video-card:hover {
-    border-color: #ddddd8;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
-    transform: translateY(-1px);
+    border-color: rgba(0, 0, 0, 0.06);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
   }
   .card-meta {
     font-size: 12px;

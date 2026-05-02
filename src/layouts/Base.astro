@@ -4,7 +4,7 @@ interface Props {
   description?: string;
 }
 
-const { title, description = 'Ferry 渡' } = Astro.props;
+const { title, description = 'FERRY 渡' } = Astro.props;
 ---
 <!DOCTYPE html>
 <html lang="zh-CN">
@@ -12,7 +12,7 @@ const { title, description = 'Ferry 渡' } = Astro.props;
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content={description} />
-  <title>{title} | Ferry</title>
+  <title>{title} | FERRY</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -21,7 +21,7 @@ const { title, description = 'Ferry 渡' } = Astro.props;
     body {
       font-family: 'Inter', -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", sans-serif;
       color: #2d2d2a;
-      background: #ffffff;
+      background: #f5f4f0;
       line-height: 1.7;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
@@ -36,9 +36,10 @@ const { title, description = 'Ferry 渡' } = Astro.props;
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(255, 255, 255, 0.92);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
+      background: rgba(245, 244, 240, 0.9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.04);
     }
     header .container {
       display: flex;
@@ -46,36 +47,44 @@ const { title, description = 'Ferry 渡' } = Astro.props;
       justify-content: space-between;
     }
     .logo {
-      font-size: 17px;
-      font-weight: 600;
+      font-size: 14px;
+      font-weight: 700;
       color: #1a1a18;
-      letter-spacing: -0.3px;
+      letter-spacing: 2.5px;
+    }
+    .logo .logo-zh {
+      font-weight: 400;
+      letter-spacing: 0;
+      margin-left: 6px;
+      color: #a3a39e;
+      font-size: 13px;
     }
     .logo:hover { opacity: 1; }
     nav { display: flex; gap: 20px; }
     nav a {
       color: #8b8b85;
-      font-size: 14px;
-      font-weight: 450;
+      font-size: 13px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
       transition: color 0.2s;
     }
     nav a:hover { color: #2d2d2a; opacity: 1; }
 
     footer {
-      border-top: 1px solid #f0efeb;
+      border-top: 1px solid rgba(0, 0, 0, 0.05);
       padding: 40px 0;
       margin-top: 80px;
       color: #b5b5ae;
-      font-size: 13px;
+      font-size: 12px;
       text-align: center;
-      letter-spacing: 0.5px;
+      letter-spacing: 2px;
     }
   </style>
 </head>
 <body>
   <header>
     <div class="container">
-      <a href="/" class="logo">Ferry 渡</a>
+      <a href="/" class="logo">FERRY<span class="logo-zh">渡</span></a>
       <nav>
         <a href="/">首页</a>
         <a href="/search">搜索</a>
@@ -87,7 +96,7 @@ const { title, description = 'Ferry 渡' } = Astro.props;
   </main>
   <footer>
     <div class="container">
-      Ferry 渡
+      FERRY
     </div>
   </footer>
 </body>

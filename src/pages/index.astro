@@ -73,7 +73,7 @@ const guests = [...guestMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
     justify-content: space-between;
     margin-bottom: 32px;
     padding-bottom: 20px;
-    border-bottom: 1px solid #f0efeb;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.04);
   }
   .filters { display: flex; gap: 10px; }
   .filter-select {
@@ -81,18 +81,19 @@ const guests = [...guestMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
     font-size: 13px;
     font-weight: 500;
     padding: 7px 28px 7px 12px;
-    border: 1px solid #e8e7e4;
+    border: 1px solid rgba(0, 0, 0, 0.06);
     border-radius: 8px;
-    background: #fafaf8;
+    background: #fff;
     color: #4a4a46;
     cursor: pointer;
     appearance: none;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.03);
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='10' viewBox='0 0 10 10'%3E%3Cpath fill='%23999' d='M5 7L1 3h8z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
     background-position: right 10px center;
     transition: all 0.15s;
   }
-  .filter-select:hover { border-color: #d0cfcc; background: #f5f5f2; }
+  .filter-select:hover { border-color: rgba(0, 0, 0, 0.1); }
   .filter-select:focus { outline: none; border-color: #a3a39e; }
   .count { font-size: 13px; color: #b5b5ae; }
 
