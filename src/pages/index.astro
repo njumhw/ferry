@@ -2,12 +2,18 @@
 import { getCollection } from 'astro:content';
 import Base from '../layouts/Base.astro';
 import VideoCard from '../components/VideoCard.astro';
-import { channels } from '../data/channels';
 
 const allVideos = await getCollection('videos');
 const sorted = allVideos.sort((a, b) =>
   b.data.metadata.published_at.localeCompare(a.data.metadata.published_at)
 );
+
+const channelMap = new Map<string, string>();
+for (const video of allVideos) {
+  const { channel_slug, channel } = video.data.metadata;
+  if (!channelMap.has(channel_slug)) channelMap.set(channel_slug, channel);
+}
+const channels = [...channelMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
 
 const guestMap = new Map<string, string>();
 for (const video of allVideos) {
@@ -24,8 +30,8 @@ const guests = [...guestMap.entries()].sort((a, b) => a[1].localeCompare(b[1]));
       <div class="filters">
         <select id="channel-filter" class="filter-select">
           <option value="">全部频道</option>
-          {Object.entries(channels).map(([slug, ch]) => (
-            <option value={slug}>{ch.name}</option>
+          {channels.map(([slug, name]) => (
+            <option value={slug}>{name}</option>
           ))}
         </select>
         <select id="guest-filter" class="filter-select">
