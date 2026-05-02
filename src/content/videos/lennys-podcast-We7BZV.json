@@ -1,16 +1,18 @@
 {
   "schema": "tripack-v1",
   "metadata": {
+    "source_url": "https://www.youtube.com/watch?v=We7BZVKbCVw",
     "video_id": "We7BZVKbCVw",
     "title": "Head of Claude Code: What happens after coding is solved | Boris Cherny",
     "channel": "Lenny's Podcast",
+    "channel_slug": "lennys-podcast",
     "guests": [
       "Boris Cherny"
     ],
     "host": "Lenny Rachitsky",
     "duration_seconds": 5265,
     "published_at": "2026-02-19",
-    "source_url": "https://www.youtube.com/watch?v=We7BZVKbCVw"
+    "language_original": "en"
   },
   "summary_zh": "Claude Code 负责人 Boris Cherny 讲述从终端原型到占 GitHub 4% commit 的增长故事，以及 coding solved 后 co-work 等 agent 化方向和产品方法论。",
   "tags": [
