@@ -57,6 +57,13 @@ const originalHtml = await marked.parse(original_en.body_md);
           </svg>
           <span class="copy-text">复制链接</span>
         </button>
+        <span class="sep">/</span>
+        <button class="download-md" id="download-md">
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M8 2v9m0 0l-3-3m3 3l3-3M2.5 12.5h11"/>
+          </svg>
+          <span>下载 MD</span>
+        </button>
       </div>
       <div class="tags">
         {tags.map(tag => <a href={`/tag/${tag.toLowerCase().replace(/\s+/g, '-')}`} class="tag">{tag}</a>)}
@@ -119,14 +126,50 @@ const originalHtml = await marked.parse(original_en.body_md);
   }
   .copy-link:hover { color: #2d2d2a; }
   .copy-link svg { position: relative; top: 1px; }
+  .download-md {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-family: inherit;
+    font-size: 13px;
+    color: #6b6b66;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    transition: color 0.15s;
+    vertical-align: baseline;
+  }
+  .download-md:hover { color: #2d2d2a; }
+  .download-md svg { position: relative; top: 1px; }
 </style>
 
-<script is:inline>
+<script is:inline define:vars={{ memoMd, translationMd: translation_zh.body_md, originalMd: original_en.body_md, title: metadata.title }}>
   document.getElementById('copy-link').addEventListener('click', function() {
     var text = this.querySelector('.copy-text');
     navigator.clipboard.writeText(window.location.href).then(function() {
       text.textContent = '已复制';
       setTimeout(function() { text.textContent = '复制链接'; }, 1500);
     });
+  });
+
+  document.getElementById('download-md').addEventListener('click', function() {
+    var content = '# ' + title + '\n\n';
+    content += '---\n\n';
+    content += '## 纪要\n\n' + memoMd + '\n\n';
+    content += '---\n\n';
+    content += '## 中文翻译\n\n' + translationMd + '\n\n';
+    content += '---\n\n';
+    content += '## 英文原文\n\n' + originalMd + '\n';
+
+    var blob = new Blob([content], { type: 'text/markdown;charset=utf-8' });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement('a');
+    a.href = url;
+    a.download = title.replace(/[^\w\s一-鿿-]/g, '').replace(/\s+/g, '-').substring(0, 80) + '.md';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
   });
 </script>
