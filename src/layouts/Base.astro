@@ -178,6 +178,29 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       border-radius: 10px;
     }
 
+    .owl-eye {
+      transition: r 0.15s ease;
+    }
+    .logo-icon.wink .owl-eye {
+      animation: wink 0.4s ease;
+    }
+    @keyframes wink {
+      0% { r: 0.8; }
+      30% { r: 0; }
+      60% { r: 1.1; }
+      100% { r: 0.8; }
+    }
+    .owl-count {
+      font-size: 11px;
+      color: #c5c5be;
+      font-weight: 500;
+      letter-spacing: 0.5px;
+      margin-left: 2px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+    .owl-count.visible { opacity: 1; }
+
     .back-top {
       position: fixed;
       bottom: 32px;
@@ -226,20 +249,21 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   <header>
     <div class="container">
       <a href="/" class="logo">
-        <svg class="logo-icon" width="22" height="22" viewBox="2 3 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+        <svg class="logo-icon" id="owl-btn" width="22" height="22" viewBox="2 3 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 9L6.5 4L9 8" />
           <path d="M15 8L17.5 4L20 9" />
           <path d="M4 9C3 11 3 13 4 15C5 17 7 18.5 12 18.5C17 18.5 19 17 20 15C21 13 21 11 20 9" />
           <circle cx="9" cy="12" r="2.2" />
           <circle cx="15" cy="12" r="2.2" />
-          <circle cx="9" cy="12" r="0.8" fill="currentColor" stroke="none" />
-          <circle cx="15" cy="12" r="0.8" fill="currentColor" stroke="none" />
+          <circle class="owl-eye" cx="9" cy="12" r="0.8" fill="currentColor" stroke="none" />
+          <circle class="owl-eye" cx="15" cy="12" r="0.8" fill="currentColor" stroke="none" />
           <path d="M6.5 9.5L9 10.8" />
           <path d="M17.5 9.5L15 10.8" />
           <path d="M11 15L12 16.5L13 15" />
           <path d="M7 18.5C7 21 9 22 12 22C15 22 17 21 17 18.5" />
         </svg>
         <span class="logo-text">OWL</span>
+        <span class="owl-count" id="owl-count"></span>
       </a>
       <nav>
         <button class="nav-contact" id="contact-btn">联系作者</button>
@@ -273,9 +297,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   </button>
 
   <footer>
-    <div class="container">
-      OWL
-    </div>
+    <div class="container">OWL</div>
   </footer>
   <script is:inline>
     var backTop = document.getElementById('back-top');
@@ -294,6 +316,27 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     });
     document.getElementById('contact-modal').addEventListener('click', function(e) {
       if (e.target === this) this.classList.remove('open');
+    });
+
+    var WORKER = 'https://owl-counter.njumwh.workers.dev';
+    var owlBtn = document.getElementById('owl-btn');
+    var owlCount = document.getElementById('owl-count');
+
+    fetch(WORKER).then(function(r) { return r.json(); }).then(function(d) {
+      owlCount.textContent = d.count;
+      owlCount.classList.add('visible');
+    });
+
+    owlBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      e.stopPropagation();
+      owlBtn.classList.remove('wink');
+      void owlBtn.offsetWidth;
+      owlBtn.classList.add('wink');
+      fetch(WORKER, { method: 'POST' }).then(function(r) { return r.json(); }).then(function(d) {
+        owlCount.textContent = d.count;
+        owlCount.classList.add('visible');
+      });
     });
   </script>
 </body>
