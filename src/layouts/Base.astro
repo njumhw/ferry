@@ -20,8 +20,10 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   <meta property="og:title" content={`${title} | OWL`} />
   <meta property="og:description" content={description} />
   <meta property="og:url" content={canonicalUrl} />
+  <meta property="og:image" content={`${siteUrl}/og-default.png`} />
   <meta property="og:site_name" content="OWL" />
-  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content={`${siteUrl}/og-default.png`} />
   <meta name="twitter:title" content={`${title} | OWL`} />
   <meta name="twitter:description" content={description} />
   <title>{title} | OWL</title>
