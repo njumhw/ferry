@@ -1,0 +1,98 @@
+---
+import { marked } from 'marked';
+
+interface Props {
+  pairs: Array<{ zh: string; en: string }>;
+}
+
+const { pairs } = Astro.props;
+const rendered = await Promise.all(pairs.map(async (p) => ({
+  zh: await marked.parse(p.zh),
+  en: await marked.parse(p.en),
+})));
+---
+<div class="bilingual" data-mode="both">
+  <div class="bl-toggle">
+    <button class="bl-btn active" data-mode="both">对照</button>
+    <button class="bl-btn" data-mode="zh">中文</button>
+    <button class="bl-btn" data-mode="en">English</button>
+  </div>
+  <div class="bl-grid">
+    {rendered.map(pair => (
+      <div class="bl-zh" set:html={pair.zh} />
+      <div class="bl-en" set:html={pair.en} />
+    ))}
+  </div>
+</div>
+
+<style>
+  .bl-toggle {
+    display: flex;
+    gap: 0;
+    margin-bottom: 24px;
+    border-bottom: 1px solid #f0efeb;
+  }
+  .bl-btn {
+    background: none;
+    border: none;
+    font: inherit;
+    font-size: 13px;
+    font-weight: 450;
+    color: #a3a39e;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s;
+  }
+  .bl-btn:hover { color: #6b6b66; }
+  .bl-btn.active {
+    color: #1a1a18;
+    font-weight: 600;
+    border-bottom-color: #1a1a18;
+  }
+
+  .bl-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 28px;
+  }
+
+  .bl-zh, .bl-en {
+    padding: 14px 0;
+    border-bottom: 1px solid #f0efeb;
+  }
+  .bl-zh :global(p) { margin: 6px 0; font-size: 15px; line-height: 1.85; color: #3d3d3a; }
+  .bl-zh :global(strong) { font-weight: 600; color: #1a1a18; }
+  .bl-en :global(p) { margin: 6px 0; font-size: 14px; line-height: 1.8; color: #8b8b85; }
+  .bl-en :global(strong) { font-weight: 600; color: #6b6b66; }
+
+  /* Mode: zh only */
+  .bilingual[data-mode="zh"] .bl-grid { grid-template-columns: 1fr; }
+  .bilingual[data-mode="zh"] .bl-en { display: none; }
+
+  /* Mode: en only */
+  .bilingual[data-mode="en"] .bl-grid { grid-template-columns: 1fr; }
+  .bilingual[data-mode="en"] .bl-zh { display: none; }
+
+  /* Mobile: default to zh-only, toggle still available */
+  @media (max-width: 768px) {
+    .bl-grid { grid-template-columns: 1fr; }
+    .bilingual[data-mode="both"] .bl-en { display: none; }
+    .bilingual[data-mode="both"] .bl-zh { border-bottom: 1px solid #f0efeb; }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.bilingual');
+    if (!container) return;
+    const btns = container.querySelectorAll('.bl-btn');
+    btns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        btns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        container.setAttribute('data-mode', btn.getAttribute('data-mode')!);
+      });
+    });
+  });
+</script>

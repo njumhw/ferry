@@ -1,11 +1,14 @@
 ---
+import BilingualPanel from './BilingualPanel.astro';
+
 interface Props {
   memoHtml: string;
   translationHtml: string;
   originalHtml: string;
+  bilingualPairs?: Array<{ zh: string; en: string }>;
 }
 
-const { memoHtml, translationHtml, originalHtml } = Astro.props;
+const { memoHtml, translationHtml, originalHtml, bilingualPairs } = Astro.props;
 ---
 <div class="tab-container">
   <div class="tab-nav">
@@ -15,7 +18,12 @@ const { memoHtml, translationHtml, originalHtml } = Astro.props;
   </div>
   <div class="tab-panels">
     <div class="tab-panel active" id="panel-memo" set:html={memoHtml} />
-    <div class="tab-panel" id="panel-translation" set:html={translationHtml} />
+    <div class="tab-panel" id="panel-translation">
+      {bilingualPairs && bilingualPairs.length > 0
+        ? <BilingualPanel pairs={bilingualPairs} />
+        : <Fragment set:html={translationHtml} />
+      }
+    </div>
     <div class="tab-panel" id="panel-original" set:html={originalHtml} />
   </div>
 </div>

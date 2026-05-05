@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 }
 
 const { video } = Astro.props;
-const { metadata, memo_zh, translation_zh, original_en, tags } = video.data;
+const { metadata, memo_zh, translation_zh, original_en, tags, bilingual } = video.data;
 
 const minutes = Math.floor(metadata.duration_seconds / 60);
 const durationStr = minutes >= 60 ? `${Math.floor(minutes / 60)}h ${minutes % 60}m` : `${minutes}m`;
@@ -70,7 +70,7 @@ const originalHtml = await marked.parse(original_en.body_md);
       </div>
     </header>
 
-    <TabSwitcher memoHtml={memoHtml} translationHtml={translationHtml} originalHtml={originalHtml} />
+    <TabSwitcher memoHtml={memoHtml} translationHtml={translationHtml} originalHtml={originalHtml} bilingualPairs={bilingual} />
   </article>
 </Base>
 

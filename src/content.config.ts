@@ -30,6 +30,10 @@ const videos = defineCollection({
     }),
     translation_zh: z.object({ body_md: z.string() }),
     original_en: z.object({ body_md: z.string() }),
+    bilingual: z.array(z.object({
+      zh: z.string(),
+      en: z.string(),
+    })).optional(),
   }),
 });
 
