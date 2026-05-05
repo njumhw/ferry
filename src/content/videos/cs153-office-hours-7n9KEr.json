@@ -5,13 +5,14 @@
     "channel": "CS 153: Frontier Systems",
     "video_id": "7n9KErYlbIc",
     "source_url": "https://www.youtube.com/watch?v=7n9KErYlbIc",
-    "channel_slug": "cs153-frontier-systems",
+    "channel_slug": "cs-153-frontier-systems",
     "guests": [
       "Anjney Midha",
       "Mike Abbott"
     ],
     "duration_seconds": 3420,
-    "published_at": "2026-05-02"
+    "published_at": "2026-05-02",
+    "host": "CS 153 Students"
   },
   "summary_zh": "a16z 合伙人 Anjney Midha 与 Mike Abbott 在 Stanford CS 153 首次直播答疑中讨论 scaling laws 适用边界、GPU 集群 4K 卡新门槛、通用内核愿景、企业系统采购模式、行动预测模型以及创业文化与信任。",
   "tags": [

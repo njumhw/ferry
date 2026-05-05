@@ -3,11 +3,15 @@
   "metadata": {
     "title": "Anthropic's Boris Cherny: Why Coding Is Solved, and What Comes Next",
     "channel": "Sequoia Capital",
-    "duration": "24分36秒",
-    "upload_date": "2026-05-04",
     "video_id": "SlGRN8jh2RI",
-    "source_type": "auto_subtitle",
-    "processed_at": "2026-05-05"
+    "source_url": "https://www.youtube.com/watch?v=SlGRN8jh2RI",
+    "channel_slug": "sequoia-capital",
+    "guests": [
+      "Boris Cherny"
+    ],
+    "host": "Lauren Reader",
+    "duration_seconds": 1476,
+    "published_at": "2026-05-04"
   },
   "summary_zh": "Claude Code 创造者 Boris Cherny 在 Sequoia 活动上分享 Claude Code 意外诞生的故事、编码已被解决的判断、/loop 范式、跨学科通才团队、SaaS 七大护城河重排以及软件民主化的'印刷术时刻'。",
   "tags": [
@@ -23,42 +27,42 @@
     "intro": "- **Claude Code 诞生于 Anthropic Labs 内部孵化团队**，最初 6 个月几乎不可用——Boris 只用它写约 10% 的代码；真正的指数增长从 2025 年 5 月 Opus 4 发布开始，此后每次模型迭代（4.5 → 4.6 → 4.7）都带来新的增长拐点。\n- **Boris 现在 100% 由模型写代码**，日常产出数十个 PR，最高纪录一天 150 个 PR；大部分工作在手机上完成，同时运行 5-10 个 session、数百个 agent，夜间放出数千个 agent 做深度工作。\n- **`/loop` 是他认为最重要的范式**——用 cron 定时循环调度 Claude 做持续性任务（看护 PR、修 CI、每 30 分钟从 Twitter 聚合反馈），Routines 是同一概念的服务端版本。\n- **AI 让七大商业护城河（Seven Powers）重新洗牌**——切换成本和流程壁垒被削弱，但网络效应、规模经济、稀缺资源等仍然成立；未来 10 年创业公司数量将增长 10 倍。\n- **软件开发正在经历\"印刷术时刻\"**——类比 1400 年代欧洲印刷术让识字率从 10% 最终升至 70%，编程将从专业技能变成人人可用的基础能力，最好的会计软件将由会计师而非工程师来构建。",
     "topics": [
       {
-        "id": 1,
+        "id": "1",
         "title": "Claude Code 的意外诞生：6 个月的 pre-PMF 赌注",
         "body_md": "**核心要点**：Claude Code 源于 Anthropic Labs 孵化团队的一个\"产品溢出\"（product overhang）判断——模型能力远超当时产品形态，团队选择为\"下一代模型\"预先构建产品，忍受 6 个月的不好用期。\n\n- Anthropic Labs 是一个小型创新团队，创造了 Claude Code、MCP 和桌面应用，完成后解散，现在由 Instagram 联合创始人 Mike Krieger 带领重组进入\"第二轮\"\n- 2024 年底编码的最先进水平还是\"按 Tab 补全一行代码\"（Sonnet 3.5 开启的能力），但团队判断可以跳到\"让 agent 写全部代码\"\n- 前 6 个月 Claude Code 几乎不好用，Boris 只用它写约 10% 的代码\n- 初始发布后并未爆发——指数增长从 Opus 4（2025 年 5 月）开始，每次模型升级（4.5 → 4.6 → 4.7）带来新拐点\n- 选择 TypeScript + React 是因为它们在模型训练分布中占比高，早期模型不够聪明，语言和框架的选择至关重要\n\n> \"We were building for the next model. And that was the idea pretty much the whole time.\" —— Boris Cherny"
       },
       {
-        "id": 2,
+        "id": "2",
         "title": "Boris 的个人工作流：手机为主，数百个 agent 并行",
         "body_md": "**核心要点**：Boris 现在 100% 由模型写代码，大部分工作在手机的 Claude App 上完成——同时维护 5-10 个 session、数百个 agent，夜间放出数千个做深度任务。\n\n- 日常产出数十个 PR，最高纪录一天 150 个 PR（\"试试能推多远\"）\n- 手机上通过 Claude App 的 code tab 管理多个 session\n- 每个 session 内有大量 sub-agent 并行工作\n- 夜间放出数千个 agent 做\"更深层的工作\"\n- Claude Code 代码库本身\"很简单\"——TypeScript + React，没有大秘密（代码已泄露，公众可见）\n- 从 2025 年 10-11 月起模型开始写 100% 的代码"
       },
       {
-        "id": 3,
+        "id": "3",
         "title": "`/loop` 是未来：持续运行的自主 agent 循环",
         "body_md": "**核心要点**：Boris 认为 `/loop` 是目前最酷也最简单有效的功能——用 cron 调度 Claude 定时执行重复任务，他自己有数十个 loop 同时运行；Routines 是 loop 的服务端版本，关闭笔记本也能继续运行。\n\n- Loop 本质：让 Claude 用 cron 定时执行任务——每分钟、每 5 分钟、每天\n- Boris 的 loop 清单：看护 PR（修 CI、自动 rebase）、保持 CI 健康（修 flaky test）、每 30 分钟从 Twitter 聚合用户反馈\n- Routines = loop 的服务端版本，笔记本关闭后仍然运行\n- 4.7 模型开始自发使用 loop——比如被要求拉取数据时会主动说\"我注意到数据在变化，我会每 30 分钟给你报告一次\"，并通过 Slack MCP 发送\n- Boris 的观点：不应该由用户来学习如何更好地使用工具，而应该由模型自然地做到这些\n\n> \"I sort of feel like loops are the future at this point.\" —— Boris Cherny"
       },
       {
-        "id": 4,
+        "id": "4",
         "title": "团队的未来：跨学科通才取代单一专家",
         "body_md": "**核心要点**：未来的团队成员将是跨学科的通才——不仅是全栈工程师，而是同时精通产品、设计、数据科学和工程的人；Claude Code 团队已经是这样运作：每个人都在写代码，包括工程经理、产品经理、设计师、财务。\n\n- 当前\"通才\"还是指工程师（做 iOS + Web + Server），未来的通才将跨越学科边界\n- Claude Code 团队的每一个人都写代码——工程经理、产品经理、设计师、数据科学家、财务、用户研究员\n- Anthropic 全公司层面：所有 SQL 由模型编写，没有手写代码；Claude 之间通过 Slack 互相沟通协调\n- Anthropic 领先外部的不是技术（相同模型对所有人开放），而是组织结构和流程变革"
       },
       {
-        "id": 5,
+        "id": "5",
         "title": "SaaS 格局重塑：七大护城河的重新排序",
         "body_md": "**核心要点**：AI 让 Hamilton Helmer 的\"七大商业护城河\"重新洗牌——切换成本和流程壁垒被削弱（Claude 4.7 可以\"爬山\"任何流程），但网络效应、规模经济、稀缺资源等仍然成立。\n\n- 切换成本下降：模型可以帮你从一个产品迁移到另一个产品\n- 流程壁垒下降：Claude 越来越擅长理解和执行流程，4.7 是第一个可以\"给定目标就能迭代到完成\"的模型\n- 网络效应、规模经济、稀缺资源——这些护城河不受 AI 影响\n- 未来 10 年创业公司数量将增长 10 倍——小团队可以构建与大公司同等价值的产品\n- 大公司面临内部阻力（业务流程变革、全员再培训），而从零开始的创业者可以 AI 原生构建\n\n> \"I think it's the best time to build. It's the best time to be a startup.\" —— Boris Cherny"
       },
       {
-        "id": 6,
+        "id": "6",
         "title": "软件民主化：编程正在经历\"印刷术时刻\"",
         "body_md": "**核心要点**：Boris 将当前类比 1400 年代欧洲印刷术——印刷术发明后 50 年出版的文献超过之前一千年的总和，书籍成本下降 100 倍，识字率从 10% 最终升至 70%；编程将以更快的速度经历同样的转变。\n\n- 印刷术前欧洲只有约 10% 的人识字，他们受雇于不识字的国王和领主\n- 编写会计软件的最佳人选不是工程师而是会计师——因为领域知识是难的部分，编码是简单的部分\n- 编程将成为像发短信一样基础的技能——每个人都会，但专业程序员仍然存在（就像专业作家仍然存在）"
       },
       {
-        "id": 7,
+        "id": "7",
         "title": "产品 vs 模型：YC 的核心教训仍然成立",
         "body_md": "**核心要点**：Claude Code 的成功约 50/50 归功于模型能力和产品设计——即使模型变得更强，\"构建人们热爱的东西\"这个 YC 核心教条仍然是关键，但 harness（产品外壳）的重要性会随模型改善而降低。\n\n- Boris 做过 YC，是 YC 公司的第一个员工——\"build something people love\"被反复灌输\n- 团队对产品细节极度关注，确保全天使用体验出色\n- 随着模型改善，安全机制（prompt injection 防护、静态命令验证、权限模式、human in the loop）将变得不那么重要——\"模型会自己做对的事\"\n- 未来关注方向：让 loop 成为一等功能、更容易运行大量 agent、Claude Design"
       },
       {
-        "id": 8,
+        "id": "8",
         "title": "本地 vs 云端：模型会自己做决定",
         "body_md": "**核心要点**：Boris 认为本地与云端的争论最终\"不重要\"——几年后模型将自己决定使用本地模型还是云端计算，这不再是工程师做的决定。\n\n- 有人倡导本地 AI，开源模型在追赶中\n- Boris 的回答：再过几年，模型会自己启动 agent、构建环境、选择执行方式\n- 对于知识工作（非编程），MCP 是通用答案——连接 Salesforce、Google Docs、Google Calendar\n- 没有 MCP 的系统通过 computer use 覆盖——Anthropic 在 computer use 方面\"遥遥领先\"，4.7 版本表现相当好但速度慢"
       }
