@@ -85,5 +85,1283 @@
   },
   "original_en": {
     "body_md": "Why are we working on AI in the first place? I'm just gonna arbitrarily pick Jared. Why are you doing AI at all?\n\nI mean, I was working on physics for a long time and I got bored, and I wanted to hang out with more of my friends, so yeah.\n\nYeah, I thought Dario pitched you on it.\n\nI don't think I explicitly pitched you at any point. I just kind of, like, showed you results of, like, AI models and then was trying to make the point that, like, they're very general and they don't only apply to one thing and then just at some point, after I showed you enough of them, you were like, \"Oh yeah, that seems like it's right.\"\n\nHow long had you been a professor before? Like, when you started?\n\nI think like six years or so. I think I helped recruit Sam.\n\nI talked to you and you were like, \"I think I've created a good bubble here-\"\n\nYeah.\n\n\"And like my goal is to get Tom to come back.\" That worked.\n\nAnd did you meet everyone through Google when you were doing the interpretability stuff, Chris?\n\nNo. So I guess I actually met a bunch of you when I was 19 and I was visiting-\n\nOh yeah?\n\nIn the Bay Area for the first time. So I guess I met Dario and Jared then, and I guess they were postdocs, which I thought was very cool at the time. And then I was working at Google Brain and Dario joined and we sat side by side, actually, for a while. We had desks beside each other, and I worked with Tom there as well. And then, of course, I got to work with all of you at OpenAI when I went there.\n\nYeah.\n\nSo I guess I've known a lot of you for, like, more than a decade, which is kind of wild.\n\nIf I remember correctly, I met Dario in 2015 when I went to a conference you were at and I tried to interview you and Google PR said I would've read all of your research papers that you needed to-\n\nUh, yeah, I think I was writing \"Concrete problems in AI safety\" when I was at Google.\n\nI think you wrote a story about that paper.\n\nI did.\n\nI remember right before I started working with you, I think you invited me to the office and I got to like come chat and just like tell me everything about AI. And you like explained, I remember afterwards being like, \"Oh, I guess this stuff is much more serious than I realized. And you were, like, probably explaining the big blob of compute and like parameter counting and how many neurons are in the brain and everything.\n\nAnd I feel like Dario often has that effect on people; \"This is much more serious than I realized.\"\n\nYeah, I'm the bringer of happy tidings.\n\nBut I remember when we were at OpenAI when there was the scaling law stuff and just making things bigger and it started to feel like it was working, and then it kind of kept on eerily working on a bunch of different projects, which I think is how we all ended up working closely together, 'cause it was first GPT-2 and then scaling laws and GPT-3 and we ended up-\n\nYeah, we were the blob of people that were making things work.\n\nYeah.\n\nThat's right.\n\nI think we're also excited about safety, 'cause in that era there was sort of this idea that AI would become very powerful but, like, potentially not understand human values or not even be able to communicate with us. And so I think we were all pretty excited about language models as a way to kind of guarantee that AI systems would have to understand kind of implicit knowledge that-\n\nAnd RL from human feedback on top of language models, which was the whole reason for scaling these models up was that, you know, the models weren't smart enough to do RLHF on top of, so that's the kind of intertwinement of safety and scaling of the models that we, you know, still believe in today.\n\nYeah, I think there was also an element of like the scaling work was done as part of the safety team that, you know-\n\nMm-hmm.\n\nDario started at OpenAI, because we thought that forecasting AI trends was important to be able to have us taken seriously and take safety seriously as a problem.\n\nCorrect.\n\nYeah, and we took, I remember being in some airport in England sampling from GPT-2 and using it to write fake news articles and Slacking Dario and being like, \"Oh, this stuff actually works. It might have, like, huge policy implications.\" I think Dario said something like, \"Yes.\" His typical way. But then we worked on that a bunch as well as the release stuff, which was kind of wild.\n\nYeah, I remember the release stuff. I think that was when we first started working together.\n\nYeah.\n\nThat was a fun time.\n\nYes.\n\nThe GPT-2 launch.\n\nYeah. But I think it was good for us 'cause we did a kind of slightly strange, safety-oriented thing altogether, and then we ended up doing Anthropic, which is a much larger, slightly strange, safety-oriented thing-\n\nThat's right.\n\nTogether.\n\nSo I guess just like going back to the concrete problems, 'cause I remember, so I joined OpenAI in like 2016, like one of the first 20 employees or whatever with you, Dario, and I remember at that time the concrete problems in AI safety seemed like it was like the first mainstream AI safety-\n\nYes.\n\nPaper, I guess? I don't really know if I ever asked you what the story was for how that came about.\n\nChris knows the story, 'cause he was involved in it. I think, you know, we were both at Google. I forget what other project I was working on, but like with many things, it was my attempt to kind of procrastinate from whatever other project I was working on that I've now completely forgotten what it was. But I think it was like Chris and I decided to write down what are some open problems in terms of AI safety, and also AI safety you usually talked about in this very kind of abstruse, abstract way. Can we kind of ground it in the ML that was going on at the time? I mean, now there's been, like, you know, six, seven years of work in that vein, but it was almost a strange idea at the time.\n\nYeah, I think there's a way in which it was almost a kind of political project, where at the time, a lot of people didn't take safety seriously. So I think that there was sort of this goal to collate a list of problems that sort of people agreed were reasonable, often already existed in literature, and then get a bunch of people across different institutions who are credible to be authors. And like, I remember I had this whole long period where I just talked to 20 different researchers at Brain to build support for publishing the paper. Like in some ways, if you look at it in terms of the problems and a lot of things that emphasized, I think it, you know, hasn't held up that well in that it's, you know, I think it's not really the right problems, but I think if you sort of see it instead as a consensus-building exercise, that there's something here that is real and that is worth taking seriously, then it was a pretty important moment.\n\nI mean, you end up in this really weird sci-fi world where I remember at the start of Anthropic, we were talking about constitutional AI and I think Jared said, \"Oh, we're just gonna write a constitution for a language model and that'll change all of its behavior.\" And I remember that sounded incredibly crazy at the time, but why did you guys think that was gonna work? Because I remember that was one of the first early, like, big research ideas we had at the company.\n\nYeah, I mean, I think Dario and I had talked about it for a while. I guess I think simple things just work really, really well in AI. And so like, I think the first versions of that were quite complicated, but then we kind of like whittled away into, like, just use the fact that AI systems are good at solving multiple choice exams and give them a prompt that tells them what they're looking for and that was kind of a lot of what we needed.\n\nAnd then we were able to just write down these principles.\n\nI mean, it goes back to, like, the big blob of compute or the bitter lesson or the scaling hypothesis. If you can identify, you know, something that you can give the AI data for and that's kind of a clear target, you'll get it to do it. So like here's this set of instructions, here's this set of principles. AI language models can like read that set of principles and they can compare it to the behavior that they themselves are engaging in. And so like you've got your training target there, so once you know that, I think my view and Jared's view is there's a way to get it to work; you just have to fiddle with enough of the details.\n\nYeah. I think it was always weird for me, especially in these early eras, 'cause like I was in physics and then coming from physics, and I think now we forget about this 'cause everyone's excited about AI, but like, I remember talking to Dario about concrete problems and other things, and I just got the sense that AI researchers were very, very kind of psychologically damaged by the AI winter where they just kind of felt like having really ambitious ideas or ambitious visions was, like, very disallowed. And that's kind of how I imagine it was in terms of talking about safety. In order to care about safety, you have to believe that AI systems could actually be really powerful and really useful, and I think that there was kind of a prohibition against being ambitious.\n\nAnd I think one of the benefits is that physicists are very arrogant and so they're constantly doing really ambitious things and talking about things in terms of grand schemes, and so-\n\nYeah.\n\nI mean, I think that's definitely true. Like I remember in 2014, it was like there were just like, I don't know, there were just some things you couldn't say, right? But I actually think it was kind of an extension of problems that exist across academia, other than maybe theoretical physics, where they've kind of evolved into very risk-averse institutions for a number of reasons. And even the industrial parts of AI had kind of transplanted or fork lifted that mentality. And it took a long time. I think it took it until like 2022 to get out of that mentality.\n\nThere's a weird thing about like, what does it mean to be conservative and respectful, where you might think like, one version you could have is that what it means to be conservative is to take the risks or the potential harms of what you're doing really seriously and worry about that. But another kind of conservatism is to be like, \"Ah, you know, taking an idea too seriously and believing that it might succeed is sort of like scientific arrogance.\" And so I think there's like kind of two different kinds of conservatism or caution, and I think we were sort of in a regime that was very controlled by that one. I mean, you see it historically, right? Like if you look at the early discussions in 1939 between, you know, people involved in nuclear physics about what the nuclear bombs were, sort of a serious concern. You see exactly the same thing with Fermi resisting these ideas, because it just seemed kind of like a crazy thing. And other people, like Szilard or Teller, taking the ideas seriously because they were worried about the risks.\n\nYeah. Perhaps the deepest lesson that I've learned in the last 10 years, and probably, you know, all of you have learned some form of it as well, is there can be this kind of seeming consensus, these things that kind of everyone knows, that, I don't know, seem sort of wise, seem like they're common sense, but really, they're just kind of herding behavior masquerading as maturity and sophistication.\n\nMm-hmm.\n\nAnd when you've seen the consensus can change overnight- And when you've seen it happen a number of times, you suspected but you didn't really bet on it and you're like, \"Oh man, I kind of thought this, but what do I know?\" You know, \"How how can I be right and all these people are wrong?\" You see that a few times, then you just start saying, \"Nope, this is the bet we're gonna make. I don't know for sure if we're right, but like, just ignore all this other stuff, see it happen, and, I don't know, even if you're right 50% of the time being right 50% of the time contributes so much,\" right? You're adding so much that is not being added by anyone else.\n\nYeah.\n\nAnd it feels like that's where we are today with some safety stuff, where there's like a consensus view that a lot of this safety stuff is unusual or doesn't naturally fall out of the technology. And then at Anthropic, we do all of this research where weird safety misalignment problems fall out as a natural dividend of the tech we're building, so it feels like we're in that counter-consensus view right now.\n\nBut I feel like that has been shifting over the past, even just like 18-\n\nWe've been helping to shift-\n\nWe've definitely been helping.\n\nNo, I mean-\n\nYeah.\n\nBy publishing and doing research.\n\nConstant publishing.\n\nThis constant force. Yeah.\n\nBut I also think, just, world sentiment around AI has shifted really dramatically, and, you know, it's more common in the user research that we do to hear just customers, regular people say, \"I'm really worried about what the impact of AI on the world more broadly is going to be.\" And sometimes that means, you know, jobs or bias or toxicity, but it also sometimes means like, is this just gonna mess up the world, right? How is this gonna contribute to fundamentally changing how humans work together, operate? Which is, I wouldn't have predicted that actually, you know?\n\nOh yeah. But yeah, for whatever reason, it seems like people in the ML research sphere have always been more pessimistic about AI becoming very powerful-\n\nYeah.\n\nThan the general public.\n\nMaybe it's a weird-\n\nGeneral public's just like-\n\nHumility or something, yeah.\n\nWhen Dario and I went to the White House in 2023, in that meeting, like Harris and Raimondo and stuff basically said, I'll paraphrase, but basically said like, \"We've got our eye on you guys. Like, AI's gonna be a really big deal and we're now actually paying attention,\" which is-\n\nAnd they're right.\n\nThey're right.\n\nThey're absolutely right. Absolutely right.\n\nBut I think in 2018 you wouldn't have been like, \"The President will call you to the White House to tell you they're paying close attention to the development of language models.\"\n\nYeah.\n\nWhich is like a crazy place-\n\nThat was not on the bingo card.\n\nThat was like 2018.\n\nOne thing that I think is interesting, too, just is, I guess, like all of us kind of got into this when it didn't seem like there was-\n\nMm-hmm.\n\nLike we thought that it could happen, but yeah, it was like Fermi being skeptical of the atomic bomb. It was like he was just a good scientist and there was some evidence that it could happen, but there also was a lot of evidence against it happening.\n\nMm-hmm.\n\nAnd he, I guess, decided that it would be worthwhile because if it was true, then it would be a big deal. And I think for all of us, it was like, yeah, like 2015, 2016, 2017, there was some evidence and increasing evidence that this might be a big deal, but I remember in 2016, like talking to all my advisors-\n\nYeah, yeah.\n\nAnd I was like, \"I've done startup stuff. I wanna help out with AI safety, but I'm not great at math. I don't exactly know how I can do it.\" And I think at the time people either were like, \"Well, you need to be super good at decision theory in order to help out.\" And I was like, \"Eh, that's probably not gonna work.\" Or they were like, \"It doesn't really seem like we're gonna get some crazy AI thing,\" and so I had only a few people, basically, that were like, \"Yeah, okay, that seems like a good thing to do.\"\n\nI remember in 2014 making graphs of ImageNet results over time when I was a journalist and trying to get stories published about and people thought I was completely mad. And then I remember in 2015 trying to persuade Bloomberg to let me write a story about NVIDIA, because every AI research paper had started mentioning the use of GPUs, and they said that was completely mad. And then in 2016 when I left journalism to go into AI, I have these emails saying, \"You're making the worst mistake of your life,\" which I now occasionally look back on, but it was like it all seemed crazy at the time, from many perspectives, to go and take this seriously, that scaling was gonna work, and something was maybe different about the technology paradigm.\n\nYou're like Michael Jordan and that coach that didn't believe in him in high school.\n\nHow did you actually make the decision, though? Was it did you feel torn or was it obvious to you?\n\nI did a crazy counter-bet where I said, \"Let me become your full-time AI reporter and double my salary,\" which I knew that they wouldn't say yes to. And then I went to sleep and then I woke up and resigned. It was all fairly relaxed.\n\nYou're just a decisive guy.\n\nIn that instance, I was. I think it's because I was like going to work, reading archive papers, and then printing archive papers off and coming home and reading archive papers, including Dario's papers from the Baidu stuff and being like, \"Something completely crazy is happening here.\" And at some point I thought you should bet with conviction, which I think everyone here has done in their careers, is just betting with conviction that this is gonna work.\n\nYeah.\n\nI definitely was not as decisive of you. I spent, like, six months flip flopping, like, \"Okay, should I, actually? Should I do it? Should I try to do a startup? Should I try to do this thing?\"\n\nBut I also feel like back then, there wasn't as much talk of engineers and the impact that an engineer can have on AI, right?\n\nYeah, yeah, no way.\n\nThat feels so natural to us now. And we're at the same sort of talent raise for engineers of all different types, but at the time, it was like, you're a researcher, and that's the only people that can work on AI.\n\nYeah.\n\nSo I don't think it was crazy that you were spending time thinking about that.\n\nYeah. Yeah, and I think that that was basically the thing that got me to join OpenAI, was like I messaged the people there and they were like, \"Yeah, we actually think that you can help out-\"\n\nYeah.\n\n\"By doing engineering work.\"\n\nYeah.\n\n\"And that you can help out with AI safety in that way.\"\n\nMm-hmm.\n\nWhich I think there hadn't really been an opportunity for that, so that was what-\n\nThat's right.\n\nBrought me there.\n\nYou were my manager at OpenAI.\n\nI was, that's right.\n\nI think I joined after you'd been there for a while.\n\nA little bit.\n\n'Cause I was at Brain for a bit.\n\nYeah.\n\nI don't know if I ever asked you what it was that got you to join?\n\nYeah, so I had been at Stripe for about five and a half years and I knew Greg; he had been my boss. He was my boss at Stripe for a while, and I actually introduced him and Dario, because I said, when he was starting OpenAI, I was like, \"The smartest person that I know is Dario. You would be really lucky to get him.\" So Dario was at OpenAI, I had a few friends from Stripe that had gone there, too. And I think sort of like you, I'd been thinking about what I wanted to do after Stripe. I had gone there just 'cause I wanted to get more skills after working in, you know, nonprofit and international development, and I actually thought I was gonna go back to doing that. Like, essentially, I had always been working. I was like, \"I really wanna help people that have, you know, less than I do,\" but I didn't have the skills when I was doing it before Stripe.\n\nYep.\n\nAnd so I looked at going back to public health. I thought about going back into politics very briefly, but I was also looking around at other tech companies and other sort of ways of having impact, and OpenAI, at the time, felt like it was a really nice intersection. It was a nonprofit, they were working on this really big, lofty mission. I really believed in sort of the AI, you know, potential, because, I mean, I know Dario a little bit, and so he was-\n\nAnd they needed management help.\n\nThe definitely needed help. That is a fact. And so I think that it felt very me-shaped, right? I was like, \"Oh, there's this nonprofit and there's all these really great people with these really good intentions, but it seems like they're a little bit of a mess.\"\n\nYeah. And that felt really exciting to me, to get to come in and even, you know, just I was such a utility player, right? I was running people, but I was also running some of the technical teams-\n\nScaling orgs, yep.\n\nYeah, the scaling org, I worked on the language team, I took over-\n\nYou worked on policy-\n\nI worked on some policy stuff, I worked with Chris, and I felt like there was just so much goodness in so many of the employees there, and I felt a very strong desire to come and sort of just try to help make the company a little more functional.\n\nI remember towards the end, after we'd done GPT-3, you were like, \"Have you guys heard of something called trust and safety?\"\n\nYes, I remember that! That did happen.\n\nYeah.\n\nI said, you know, \"I used to run some trust and safety teams at Stripe. There's a thing called trust and safety that you might wanna consider for a technology like this.\" And it's funny because it's sort of is the intermediary step between, you know, AI safety research, right, which is how do you actually make the model safe to something just much more practical. I do think there was a value in saying, you know, this is gonna be a big thing; we also have to be doing this sort of practical work day to day to build the muscles for when things are gonna be a lot higher stakes.\n\nThat might be a good transition point to talk about things like the responsible scaling policy and how we came up with that, or why we came up with it and how we're using it now, especially given how much trust and safety work we do on today's models. So whose idea was the RSP? Was you and Paul?\n\nSo, yeah, it was me and Paul first talked about it in late, Paul Christiano, in late 2022.\n\nMm-hmm.\n\nFirst it was like, oh, should we cap scaling at a, you know, particular point until we've discovered how to solve certain safety problems? And then it was like, well, you know, it's kind of strange to have this one place where you cap it and then you uncap it, so let's have a bunch of thresholds, and then at each threshold you have to do certain tests to see if the model is capable and you have to take increasing safety and security measures. But originally we had this idea, and then the thought was just look, you know, this'll go better if it's done by some third party. Like, we shouldn't be the ones to do it, right? It shouldn't come from one company, 'cause then other companies are less likely to adopt it. So Paul actually went off and designed it, and, you know, many, many features of it changed and we were kind of, on our side, working on how it should work. And, you know, once Paul had something together, then pretty much immediately after he announced the concept, we announced ours within a month or two. I mean, many of us were heavily involved in it. I remember writing at least one draft of it myself, but there were several drafts of it.\n\nThere were so many drafts.\n\nI think it's gone through the most drafts of any doc.\n\nYeah.\n\nWhich makes sense, right? It's like, I feel like it is in the same way that the US treats like the Constitution, as like the holy document.\n\nYeah.\n\nWhich like, I think is just a big thing that like strengthens the US.\n\nYes.\n\nAnd like we don't expect the US to go off the rails, in part, because just like every single person in the US is like, \"The Constitution is a big deal, and if you tread on that-\"\n\nYeah.\n\n\"Like, I'm mad.\"\n\nYeah, yeah.\n\nLike I think that the RSP is our, like, it holds that thing. It's like the holy document for Anthropic. So it's worth doing a lot of iterations getting it right.\n\nSome of what I think has been so cool to watch about the RSP development at Anthropic, too, is it feels like it has gone through so many different phases and there's so many different skills that are needed to make it work, right? There's like the big ideas, which I feel like Dario and Paul and Sam and Jared and so many others are like, \"What are the principles? Like what are we trying to say? How do we know if we're right?\" But there's also this very operational approach to just iterating where we're like, \"Well, we thought that we were gonna see this at this, you know, safety level, and we didn't, so should we change it so that we're making sure that we're holding ourselves accountable?\" And then there's all kinds of organizational things, right? We just were like, \"Let's change the structure of the RSP organization for clearer accountability.\" And I think my sense is that for a document that's as important as this, right, I love the Constitution analogy, it's like there's all of these bodies and systems that exist in the US to make sure that we follow the Constitution, right? There's the courts, there's the Supreme Court, there's the presidency, there's, you know, both houses of Congress and they do all kinds of other things, of course, but there's like all of this infrastructure that you need around this one document, and I feel like we're also learning that lesson here.\n\nI think it sort of reflects a view a lot of us have about safety, which is that it's a solvable problem.\n\nMm-hmm.\n\nIt's just a very, very hard problem that's gonna take tons and tons of work.\n\nMm-hmm.\n\nYeah.\n\nAll of these institutions that we need to build up, like there's all sorts of institutions built up around like automotive safety, built up over many, many years. But we're like, \"Do we have the time to do that? We've gotta go as fast as we can to figure out what the institutions we need for AI safety are, and build those and try to build them here first, but make it exportable.\"\n\nThat's right.\n\nIt it forces unity also, because if any part of the org is not kind of in line with our safety values, it shows up through kind of the RSP, right? The RSP is gonna block them from doing what they want to do, and so it's a way to remind everyone over and over again, basically, to make safety a product requirement, part of the product planning process. And so, like, it's not just a bunch of kind of like bromides that we repeat; it's something that you actually, if you show up here and you're not aligned, you actually run into it.\n\nYeah.\n\nAnd you either have to learn to get with the program or it doesn't work out.\n\nYeah.\n\nThe RSPs become kind of funny over time because we spend thousands of hours of work on it, and then I go and talk to senators and I explain the RSP, and I'm like, \"We have some stuff that means it's hard to steal what we make, and also that it's safe.\" And they're like, \"Yes, that's a completely normal thing to do. Are you telling me not everyone does this?\" You're like, \"Oh, okay, yeah.\" Yeah.\n\nIt's half true that that not everyone does this.\n\nYeah.\n\nBut that kind of, it's amazing because we've spent so much effort on it here and when you boil it down, they're like, \"Yes, that sounds like a normal way to do that.\"\n\nYeah, that sounds good.\n\nThat's been the goal. Like Daniela was saying, \"Let's make this as boring and normal. Like let's make this a finance thing.\"\n\nYeah, imagine it's like an audit.\n\nYeah, yeah.\n\nRight? Yeah.\n\nNo, boring and normal is what we want, certainly in retrospect.\n\nYeah. Well also, Dario, I think in addition to driving alignment, it also drives clarity-\n\nMm-hmm.\n\nBecause it's written down what we're trying to do and it's legible to everyone in the company, and it's legible externally what we think we're supposed to be aiming towards from a safety perspective. It's not perfect. We're iterating on it, we're making it better, but I think there's some value in saying like, \"This is what we're worried about, this thing over here.\" Like you can't just use this word to sort of derail something in either direction, right? To say, \"Oh, because of safety, we can't do X, or because of safety, we have to do X.\" We're really trying to make it clearer what we mean.\n\nYeah, it prevents you from worrying about every last little thing under the sun.\n\nThat's right.\n\nBecause it's actually the fire drills that damage the cause of safety in the long run.\n\nRight.\n\nI've said like, \"If there's a building, and, you know, the fire alarm goes off every week, like, that's a really unsafe building.\"\n\nMm-hmm.\n\n'Cause when there's like actually a fire, you're just gonna be like-\n\nNo ones gonna care.\n\n\"Oh, it just goes off all the time.\" So-\n\nYeah.\n\nIt's very important to be calibrated.\n\nYeah.\n\nThat's right.\n\nYeah. A slightly different frame that I find kind of clarifying is that I think that RSP creates healthy incentives at a lot of levels.\n\nMm.\n\nSo I think internally it aligns the incentives of every team with safety because it means that if we don't make progress on safety, we're gonna block. I also think that externally it creates a lot of healthier incentives than other possibilities, at least that I see, because it means that, you know, if we at some point have to take some kind of dramatic action, like, if at some point we have to say, \"You know, our model, we've reached some point and we can't yet make a model safe,\" it aligns that with sort of the point where there's evidence that supports that decision and there's sort of a preexisting framework for thinking about it, and it's legible. And so I think there's a lot of levels at which the RSP, I think in ways that maybe I didn't initially understand when we were talking about the early versions of it, it creates a better framework than any of the other ones that I've thought about.\n\nI think this is all true, but I feel like it undersells sort of like how challenging it's been to sort of figure out what the right policies and evaluations and what the lines should be. I think that we have and continue to sort of iterate a lot on that, and I think there is a question also that's difficult of sort of you could be at a point where it's very clear something's dangerous or very clear that something's safe, but with some technology that's so new, there's actually like a big gray area. And so I think that has been, like, all the things that we're saying were things that made me really, really excited about the RSP at the beginning, and still do, but also I think enacting this in a clear way and making it work has been much harder and more complicated than I anticipated.\n\nYeah, I think this is exactly the point. Like-\n\nYeah.\n\nLike the gray areas are impossible to predict. There's so many of them. Like, until you actually try to implement everything, you don't know what's going to go wrong. So what we're trying to do is go and implement everything so we can see as early as possible what's going to go wrong, so-\n\nYeah, you have to-\n\nThe gray areas are-\n\nYou have to do three or four passes before-\n\nYeah.\n\nBefore you really, really get it right. Like, iteration is just very powerful and, you know, you're not gonna get it right on the first time. And so, you know, if the stakes are increasing, you want to get your iterations in early; you don't want to get them in late.\n\nYou're also building the internal institutions and processes, so the specifics might change a lot, but building the muscle of just doing it is the really valuable thing.\n\nI'm responsible for, like, compute at Anthropic, and so-\n\nThat's important.\n\nSo, thank you. I think so. So like for me, like I guess we have to deal with external folks-\n\nYeah.\n\nAnd different external folks kind of are on different spectrums of the, like, how fast do they think stuff is gonna get?\n\nMm-hmm.\n\nAnd like, I think that's also been a thing, where I started out like not thinking stuff would be that fast and have changed over time. And so, I have sympathy for that. And so I think the RSP has been extremely useful for me in communicating with people who think that things might take longer because then we have a thing where it's like, we don't need to do extreme safety measures until stuff gets really intense, and then they might be like, \"I don't think stuff will get intense for a long time.\" And then I'll be like, \"Okay, yeah, we don't have to do extreme safety measures.\" And so that makes it a lot easier to communicate with other folks externally.\n\nYeah, yeah, it makes it like a normal thing you can talk about, rather than something really strange.\n\nYeah. How else is it showing up for people? You are-\n\nEvals, evals, evals.\n\nGood.\n\nIt's all about evals. Everyone's doing evals. Like, your training team is doing evals all the time. We're trying to figure out, like, has this model gotten enough better that it has the potential to be dangerous? So how many teams do we have that are evals teams? You have Frontier Red Team. There must be, I mean there's a lot of people-\n\nEvery team produces evals, basically.\n\nAnd that means you're just measuring against the RSP, like measuring for certain signs of things that would concern you or not concern you.\n\nExactly. Like it's easy to lower bound the abilities of a model, but it's hard to upper bound, so we just put tons and tons of research effort into saying, like, \"Can this model do this dangerous thing or not? Maybe there's some trick that we haven't thought of, like chain of thought or best event or some kind of tool use that's gonna make it so it can help you do something very dangerous.\"\n\nIt's been really useful in policy, because it's been a really abstract concept, what safety is, and when I'm like, \"We have an eval which changes whether we deploy the model or not,\" and then you can go and calibrate with policymakers or experts in national security or some of these CBRN areas that we do, to actually help us build evals that are well-calibrated and that, counter-factually, just wouldn't have happened otherwise, but once you've got the specific thing, people are a lot more motivated to help you make it accurate, so it's been useful for that. How has it shown up for-\n\nThe RSP shows up for me, for sure. Often. I actually think, weirdly, the way that I think about the RSP the most is like what it sounds like-\n\nMm-hmm?\n\nJust like the tone. I think we just did a big rewrite of the tone of the RSP because it felt overly technocratic, and even a little bit adversarial. I spent a lot of time thinking about like, how do you build a system that people just wanna be a part of?\n\nMm-hmm.\n\nRight? It's so much better if the RSP is something that everyone in the company can walk around and tell you, you know, just like with OKRs like we do right now-\n\nYeah.\n\nLike, what are the top goals of the RSP? How do we know if we're meeting them? What AI safety level are we at right now? Are we at ASL-2? Are we at ASL-3? That people know what to look for because that is how you're going to have good, common knowledge of if something's going wrong, right? If it's overly technocratic, and it's something that only particular people in the company feel is accessible to them, it's just like not as productive, right? And I think it's been really cool to watch it sort of transition into this document where I actually think most, if not everybody at the company, regardless of their role, could read it and say, \"This feels really reasonable. I wanna make sure that we're building AI in the following ways, and I see why I would be worried about these things, and I also kind of know what to look for if I bump into something,\" right? It's almost like make it simple enough that if you are working at a manufacturing plant and you're like, \"Huh, it looks like the safety seatbelt on this should connect this way, but it doesn't connect,\" that you can spot it.\n\nMm-hmm.\n\nAnd that there's just like healthy feedback flow between leadership and the board and the rest of the company and the people that are actually building it, because I actually think the way this stuff goes wrong in most cases is just, like, the wires don't connect or like they get crossed, and that would just be like a really sad way for things to go wrong, right? It's just all about operationalizing it, making it easy for people to understand.\n\nYeah, the thing I would say is none of us wanted to found a company. We just felt like it was our duty, right?\n\nIt felt like we had to.\n\nLike, we have to do this thing. This is the way we're gonna make things go better with AI. Like that's also why we did the pledge, right?\n\nYeah.\n\nBecause we're like the reason we're doing this is it feels like our duty.\n\nI wanted to invent and discover things in some kind of beneficial way. That was how I came to it, and that led to working on AI, and AI required a lot of engineering and eventually AI required a lot of capital, but what I found was that if you don't do this in a way where you're setting the environment, where you set up the company, then a lot of it gets done, a lot of it repeats the same mistakes that I found so alienating about the tech community. It's the same people, it's the same attitude, it's the same pattern-matching, And so at some point it just seemed inevitable that we need to do it in a different way.\n\nWhen we were hanging out in graduate school, I remember you had kind of this whole program of trying to figure out how to do science in a way that would sort of advance the public good. And I think that's pretty similar to how we we think about this. I think you had this like Project Vannevar or something, to do that. I was a professor. I think basically I just looked at the situation and I was convinced that AI was on a very, very, very steep trajectory in terms of impact, didn't seem like because of the necessity for capital, and as a physics professor, I could continue doing that and I kind of wanted to work with people that I trusted in building an institution to try to make AI go well. But yeah, I would never recommend founding a company. Or really want to do it. I mean, yeah, I think it's just a means to an end. I mean, I think that's like usually how things go well, though. If you're doing something just to sort of like enrich yourself or gain power or, like, you have to sort of actually care about accomplishing a real goal in the world and then you find whatever means you have to.\n\nWell, something I think about a lot as just a strategic advantage for us is, I mean, it sounds really funny to say, but just like how much trust there is at this table, right?\n\nMm-hmm.\n\nLike I think that's not, I mean, Tom, you were at other startups. I was never a founder before, but it's actually really hard to get a group of, like, a big group of people, to have like the same mission. Right? And I think the thing that I feel like the happiest about when I come into work, and probably the most proud of at Anthropic, is how well that has scaled to a lot of people. It feels to me like in this group and with the rest of leadership, everyone is here for the mission, and our mission is really clear-\n\nYep.\n\nAnd it's very pure, right? And I think that is something that I don't see as often, to Dario's point, in sort of the tech industry. It feels like there's just a wholesomeness to what we're trying to do. Like, no, I agree, none of us were like, \"Let's just go found a company!\" I felt like we had to do it, right? It just felt like we couldn't keep doing what we were doing at the place we were doing it. We had to do it by ourselves.\n\nAnd it felt like with GPT-3, you know, which all of us had like touched or worked on, and scaling laws and everything else, we could see it in front of us in 2020. And it felt like, well, if we don't do something soon, all together, you're gonna hit the point of no return. And you have to do something to have any ability to change the environment.\n\nMm-hmm.\n\nI think, building off Daniela, I do think that there's just like a lot of trust-\n\nMm-hmm.\n\nIn this group. I think each of us knows that we got into this because we wanna help out with the world.\n\nYeah.\n\nWe did the the 80% pledge thing, and that was like a thing that everybody was just like, \"Yes, obviously we're gonna do this.\"\n\nMm-hmm.\n\nYeah, yeah.\n\nAnd yeah, I do think that the trust thing is a special thing that's extremely rare.\n\nYeah.\n\nI credit Daniela with keeping the bar high. I credit you with the fact-\n\nKeeping out the clowns. Keeping out the clowns.\n\nChief clown wrangler! That's my job.\n\nNo, but you're the reason the culture scaled, I think.\n\nYeah. People say how nice people are here.\n\nYeah.\n\nWhich is actually a wildly important thing.\n\nI think Anthropic is really low politics, and of course, we all have a different vantage point than average, and I try to remember that.\n\nIt's because of low ego.\n\nBut it's low ego, and I think I do think our interview process and just the type of people who work here, like, there's almost a like allergic reaction to politics.\n\nAnd unity.\n\nMm-hmm.\n\nUnity is so important. The idea that the product team, the research team-\n\nYes.\n\nThe trust and safety team, you know, the go-to market team, the policy team-\n\nYeah.\n\nLike, the safety folks, they're all trying to contribute to kind of the same goal, the same mission of the company, right?\n\nYes.\n\nI think it's dysfunctional when different parts of the company think they're trying to accomplish different things-\n\nYeah.\n\nThink the company's about different things or think that other parts of the company are trying to undermine what they're doing.\n\nYeah.\n\nAnd I think the most important thing we've managed to preserve is, and again, things like the RSP drive it, this idea that it's not, you know, there's some parts of the company causing damage and other parts of the company trying to repair it, but that there are different parts of the company doing different functions and that they all function under a single theory of change.\n\nExtreme pragmatism, right?\n\nYeah.\n\nYou know, the reason I went to OpenAI in the first place, you know, it was a nonprofit, it was a place where I could go and focus on safety, and I think over time, you know, that maybe wasn't as good a fit and there were some difficult decisions. And I think, in a lot of ways, I really trusted Dario and Daniela on that, but I didn't want to leave. That was something that I think I was actually pretty reluctant to go along with, because I think, for one thing, I didn't know that it was good for the world to have more AI labs. And I think it was something that I was pretty, pretty reluctant for. And I think, as well, when we did leave, I think I was, you know, I was reluctant to start a company. I think I was arguing for a long time that we should do a nonprofit instead, and just focus on safety research.\n\nYes.\n\nAnd I think it really took pragmatism and confronting the constraints and just being honest about what the constraints implied for accomplishing that mission-\n\nMm-hmm.\n\nThat led to Anthropic.\n\nI think just a really important lesson that we were good about early on is make less promises and keep more of them.\n\nYeah.\n\nRight?\n\nYeah.\n\nLike, try to be calibrated, be realistic, confront the trade-offs, because, you know, trust and credibility are more important than any particular policy.\n\nYeah.\n\nIt is so unusual to have what we have, and watching Mike Krieger defend safety things, of like reasons why we shouldn't ship a product yet, but also then to watch Vinay sort of say like, \"Okay, we have to do the right thing for the business. Like how do we get this across the finish line?\"\n\nMm-hmm, yep.\n\nAnd to hear, you know, people like deep in the technical safety org talking about how it's also important that we build things that are practical for people, and hearing, you know, engineers on inference talk about safety. That's amazing. Like, I think that is, again, one of the most special things about working here, is everybody with that unity is prioritizing the pragmatism, the safety, the business. That's wild.\n\nThe safest move-\n\nI think about it as-\n\nYeah.\n\nSpreading the trade-offs-\n\nYeah.\n\nFrom just the leadership of the company to everyone, right?\n\nYeah.\n\nI think the dysfunctional world is like, you have a bunch of people who only see a big, you know, safety is like, \"We always have to do this,\" and product is like, \"We always have to do this,\" and research is like, you know, \"This is the only thing we care about.\" And then you're stuck at the top, right?\n\nYeah.\n\nYou're stuck at the top. You have to decide between you don't have as much information as either of them. That's the dysfunctional world. The functional world is when you're able to communicate to everyone, \"There are these trade-offs we're all facing together.\"\n\nYeah.\n\nThe world is a far from perfect place. There's just trade-offs. Everything you do is gonna be suboptimal. Everything you do is gonna be some attempt to get the best of both worlds that, you know, doesn't work out as well as you thought it was, and everyone is on the same page about confronting those trade-offs together, and they just feel like they're confronting them from a particular post.\n\nMm-hmm.\n\nFrom a particular job, as part of the overall job of confronting all the trade-offs.\n\nIt's a bet on race to the top, right?\n\nIt's a bet on race to the top, yeah.\n\nLike it's not a pure upside bet. Things could go wrong, but-\n\nYeah.\n\nLike, we're all aligned on like, \"This is the bet that we're making.\"\n\nAnd markets are pragmatic, so if the more successful Anthropic becomes as a company, the more incentive there is for people to copy the things that make us successful. And the more that success is tied to actual safety stuff we do, the more it just creates a gravitational force in the industry that will actually get the rest of industry to compete. And it's like, \"Sure, we'll build seat belts and everyone else can copy them.\" That's good. Yeah.\n\nThat's like good world.\n\nThat's really good.\n\nYeah. This is the race to the top, right? But if you're saying, \"Well, we're not gonna build the technology, you're not gonna build it better than someone else,\" that in the end, that just doesn't work because you're not proving that it's possible to get from here to there.\n\nMm-hmm.\n\nWhere the world needs to get, nevermind the industry, nevermind one company, is it needs to get us successfully through from this technology does-doesn't exist to the technology exists in a very powerful way and society has actually managed it. And I think the only way that's gonna happen is that if you have, at the level of a single company, and eventually at the level of the industry, you're actually confronting those trade-offs. You have to find a way to actually be competitive, to actually lead the industry, in some cases, and yet manage to do things safely. And if you can do that, the gravitational pull you exert is so great. There's so many factors, from the regulatory environment, to the kinds of people who wanna work at different places, to, even sometimes, the views of customers-\n\nYeah.\n\nThat kind of drive in the direction of if you can show that you can do well on safety without sacrificing competitiveness, right, if you can find these kind of win-wins, then others are incentivized to do the same thing.\n\nYeah, I mean I think that's why getting things like the RSP right is so important, because I think that we ourselves, seeing where the technology is headed, have often thought, \"Oh wow, we need to be really careful of this thing,\" but at the same time we have to be even more careful not to be crying wolf, saying that like, \"Innovation needs to stop here.\" We need to sort of find a way to make AI useful, innovative, delightful for customers, but also figure out what the constraints really have to be that we can stand behind, that makes systems safe, so that it's possible for others to think that they can do that too, and they can succeed, they can compete with us.\n\nWe're not doomers, right? Like, we wanna build the positive thing.\n\nYeah.\n\nWe wanna like build the good thing.\n\nAnd we've seen it happen in practice. A few months after we came out with our RSP, the three most prominent AI companies had one, right? Interpretability research, that's another area we've done it. Just the focus on safety overall, like collaboration with the AI safety institutes, other areas.\n\nYeah, the Frontier Red Team got cloned almost immediately, which is good. You want all the labs to be testing for like, very, very security-scary risks.\n\nExport the seat belts.\n\nYeah, exactly.\n\nMm-hmm, export the seat belts. Well, Jack also mentioned it earlier, but customers also really care about safety, right? Customers don't want models that are hallucinating. They don't want models that are easy to jailbreak. They want models that are helpful and harmless, right?\n\nYeah.\n\nAnd so a lot of the time, what we hear in customer calls is just, \"We're going with Claude because we know it's safer.\" I think that is also a huge market impact, right, because our ability to have models that are trustworthy and reliable, that matters for the market pressure that it puts on competitors, too.\n\nMaybe to unpack something that Dario said a little bit more, I think there's this narrative or this idea that maybe the virtuous thing is to almost like nobly fail, right? It's like you should go and like put safety, you should go and put things, you should sort of demonstrate like in an impragmatic way so that you can sort of demonstrate your purity to the cause or something like this. And I think if you do that, it's actually very self-defeating. For one thing, it means that you're gonna have the people who are are deciding, making decisions, be self-selected for being people who don't care, and for people who aren't prioritizing safety and who don't care about it. And I think, on the other hand, if you try really hard to find the way to align the incentives and make it so that if there are hard decisions, they happen at the points where there is the most force to go and support making the correct hard decisions, and where there's the most evidence, then you can sort of start to trigger this race to the top that Dario is describing, where instead of going and having, you know, the people who care get pushed out of influence, you instead pull other people to have to go and follow.\n\nSo what are you all excited about when it comes to the next things we'll be working on?\n\nWell, I think there's a bunch of reasons you can be excited about interpretability. One is obviously safety, but there's another one that I think I find, at an emotional level, you know, equally exciting or equally meaningful to me, which is just that I think neural networks are beautiful and I think that there's a lot of beauty in them that we don't see. We treat them like these black boxes that we're not particularly interested in the internal stuff, but when you start to go and look inside them, they're just full of amazing, beautiful structure. You know, it's sort of like if people looked at biology and they were like, \"You know, evolution is really boring. It's just a simple thing that goes and runs for a long time, and then it makes animals,\" and like, instead, it's like, actually, you know, each one of those animals that evolution produces, and I think that, you know, it's an optimization process, like training a neural network. You know, they're full of incredible complexity and structure, and we have an entire sort of artificial biology inside of neural networks. If you're just willing to look inside them, there's all of this amazing stuff. And I think that we're just starting to slowly unpack it, and it's incredible, and there's so much there, but there's just so much we discovered there. We're just starting to crack it open and I think it's gonna be amazing and beautiful. And sometimes I imagine, you know, like a decade in the future, walking into a bookstore and buying, you know, the textbook on neural network interpretability or really, like, on the biology of neural networks, and just the kind of wild things that are gonna be inside of it. And I think that in the next decade, in the next couple of years even, we're gonna go and start to go in and really discover all of those things. And it's gonna be wild and incredible.\n\nIt's also gonna be great that you get to buy your own textbook.\n\nJust have your face on it.\n\nI mean, yeah.\n\nI'm excited that a few years ago if you had said like, \"Governments will set up new bodies to test and evaluate AI systems and they will actually be competent and good,\" you would've not thought that was going to be the case. But it's happened, it's kind of like governments have built these new embassies, almost, to deal with this new kind of class of technology or, like, thing that Chris studies. And I'm just very excited to see where that goes. I think it actually means that we have state capacity to deal with this kind of societal transition, so it's not just companies. And I'm excited to help with that.\n\nI'm already excited about this to, you know, to a certain extent today, but I think just imagining the future world of what AI is going to be able to do for people is it's impossible to not feel excited about that. Dario talks about this a lot, but I think even just the sort of glimmers of Claude being able to help with, you know, vaccine development and cancer research and biological research is crazy, like, just to be able to watch what it can do now, but when I fast forward, you know, three years in the future or five years in the future, imagining that Claude could actually solve so many of the fundamental problems that we just face as humans. Even just from a health perspective alone, even if you sort of take everything else out, feels really exciting to me, just like thinking back to my international development times. It would be amazing if Claude was responsible for helping to do a lot of the work that I was trying to do a lot less effectively when I was, like, 25.\n\nI mean, I guess similarly, I'm excited to build Claude for work. Like, I'm excited to build Claude into the company and into companies all over the world.\n\nI guess I'm excited just for, I guess like, personally, like I like using Claude a lot at work, and so like, definitely, there's been increasing amounts of like home times with like me just like chatting with Claude about stuff. I think the biggest recent thing has been code-\n\nMm-hmm.\n\nWhere like six months ago, I didn't use Claude to do any coding work. Like, our teams didn't really use Claude that much for coding, and now it's like just phase difference. Like, I gave a talk at YCU like week before last, and at the beginning I just asked like, \"Okay, so how many folks here use Claude for coding now?\" And literally 95% of hands-\n\nWow.\n\nLike, all the hands in the room, which just is totally different than how it was four months ago or whatever.\n\nMm-hmm.\n\nYeah.\n\nSo when I think about what I'm excited about, I think about places where, you know, like I said before, where there's this kind of consensus that, again, seems like consensus, seems like what everyone wise thinks, and then it just kind of breaks, and so places where I think that's about to happen and it hasn't happened yet. One of them is interpretability. I think interpretability is both the key to steering and making safe AI systems, and we're about to understand, and interpretability contains insights about intelligent optimization problems and about how the human brain works. I've said, and I'm really not joking, Chris Olah is gonna be a future Nobel Medicine Laureate.\n\nAw, yeah.\n\nI'm serious. I'm serious, because a lot of these, I used to be a neuroscientist, a lot of these mental illnesses, the ones we haven't figured out, right, schizophrenia or the mood disorders, I suspect there's some higher level system thing going on and that it's hard to make sense of those with brains because brains are so mushy and hard to open up and interact with. Neural nets are not like this; they're not a perfect analogy, but as time goes on, they will be a better analogy. That's one area. Second is, related to that, I think just the use of AI for biology. Biology is an incredibly difficult problem. People continue to be skeptical, for a number of reasons. I think that consensus is starting to break. We saw a Nobel Prize in chemistry awarded for AlphaFold; remarkable accomplishment. We should be trying to build things that can help us create a hundred AlphaFolds. And then finally, using AI to enhance democracy. We worry about if AI is built in the wrong way, it can be a tool for authoritarianism. How can AI be a tool for freedom and self-determination? I think that one is earlier than the other two, but it's gonna be just as important.\n\nYeah, I mean, I guess two things that at least connect to what you were saying earlier, I mean, one is I feel like people frequently join Anthropic because they're sort of scientifically really curious about AI and then kind of get convinced by AI progress to sort of share the vision of the need, not just to advance the technology, but to understand it more deeply and to make sure that it's safe. And I feel like it's actually just sort of exciting to have people that you're working with kind of more and more united in their vision for both what AI development looks like and the sort of sense of responsibility associated with it. And I feel like that's been happening a lot due to a lot of advances that have happened in the last year, like what Tom talked about. Another is that, I mean, going back really to concrete problems, I feel like we've done a lot of work on AI safety up until this point. A lot of it's really important, but I think we're now, with some recent developments, really getting a glimmer of what kinds of risks might literally come about from systems that are very, very advanced-\n\nMm-hmm.\n\nSo that we can investigate and study them directly with interpretability, with other kinds of safety mechanisms, and really understand what the risks from very advanced AI might look like. And I think that that's something that is really gonna allow us to sort of further the mission in a really deeply scientific, empirical way. And so I'm excited about sort of the next six months of how we use our understanding of what can go wrong with advanced systems to characterize that and figure out how to avoid those pitfalls.\n\nPerfect. Fin!\n\nYay!\n\nWe did it!\n\nWoo!\n\nGood time.\n\nI know. We gotta do this more often.\n\n"
-  }
+  },
+  "bilingual": [
+    {
+      "en": "Why are we working on AI in the first place? I'm just gonna arbitrarily pick Jared. Why are you doing AI at all?",
+      "zh": "我们为什么要做AI？我随便点一个人吧，Jared。你为什么要做AI？"
+    },
+    {
+      "en": "I mean, I was working on physics for a long time and I got bored, and I wanted to hang out with more of my friends, so yeah.",
+      "zh": "我做了很长时间物理学，做烦了，想跟朋友们多待在一起，就这样。"
+    },
+    {
+      "en": "Yeah, I thought Dario pitched you on it.",
+      "zh": "我记得是Dario把你拉进来的。"
+    },
+    {
+      "en": "I don't think I explicitly pitched you at any point. I just kind of, like, showed you results of, like, AI models and then was trying to make the point that, like, they're very general and they don't only apply to one thing and then just at some point, after I showed you enough of them, you were like, \"Oh yeah, that seems like it's right.\"",
+      "zh": "我觉得我并没有在某个具体时刻\"拉\"过你。我只是不断给你看AI模型的结果，试图说明这些东西非常通用，不只是适用于某一个领域。然后看了足够多之后，你某一天就说：\"哦对，看起来确实是这样。\""
+    },
+    {
+      "en": "How long had you been a professor before? Like, when you started?",
+      "zh": "你开始转行之前做了多久的教授？"
+    },
+    {
+      "en": "I think like six years or so. I think I helped recruit Sam.",
+      "zh": "大概六年吧。我记得是我帮忙招的Sam。"
+    },
+    {
+      "en": "I talked to you and you were like, \"I think I've created a good bubble here-\"\n\nYeah.\n\n\"And like my goal is to get Tom to come back.\" That worked.",
+      "zh": "我当时跟你聊，你说：\"我觉得我在这里已经建了一个不错的小圈子——我的目标是把Tom拉回来。\"后来确实成了。"
+    },
+    {
+      "en": "And did you meet everyone through Google when you were doing the interpretability stuff, Chris?",
+      "zh": "Chris，你是在Google做 interpretability（可解释性）研究时认识大家的吗？"
+    },
+    {
+      "en": "No. So I guess I actually met a bunch of you when I was 19 and I was visiting-\n\nOh yeah?\n\nIn the Bay Area for the first time. So I guess I met Dario and Jared then, and I guess they were postdocs, which I thought was very cool at the time. And then I was working at Google Brain and Dario joined and we sat side by side, actually, for a while. We had desks beside each other, and I worked with Tom there as well. And then, of course, I got to work with all of you at OpenAI when I went there.\n\nYeah.\n\nSo I guess I've known a lot of you for, like, more than a decade, which is kind of wild.",
+      "zh": "不是。实际上我19岁第一次来湾区的时候就见过你们中的好几位。我见了Dario和Jared，他们当时是博士后，我觉得特别酷。后来我在Google Brain工作，Dario加入后我们实际上坐在一起——桌子紧挨着。我在那也跟Tom合作过。当然后来我去了OpenAI，跟你们所有人一起共事。所以我认识你们很多人已经超过十年了，想想挺疯狂的。"
+    },
+    {
+      "en": "If I remember correctly, I met Dario in 2015 when I went to a conference you were at and I tried to interview you and Google PR said I would've read all of your research papers that you needed to-",
+      "zh": "如果我没记错，我是2015年在一个会议上认识Dario的，当时我想采访你，Google公关说我得先把你所有的研究论文都读了才行——"
+    },
+    {
+      "en": "Uh, yeah, I think I was writing \"Concrete problems in AI safety\" when I was at Google.",
+      "zh": "对，我记得那时我在Google写那篇\"Concrete Problems in AI Safety\"（AI安全中的具体问题）。"
+    },
+    {
+      "en": "I think you wrote a story about that paper.",
+      "zh": "我记得你写过一篇关于那篇论文的报道。"
+    },
+    {
+      "en": "I did.",
+      "zh": "是的。"
+    },
+    {
+      "en": "I remember right before I started working with you, I think you invited me to the office and I got to like come chat and just like tell me everything about AI. And you like explained, I remember afterwards being like, \"Oh, I guess this stuff is much more serious than I realized. And you were, like, probably explaining the big blob of compute and like parameter counting and how many neurons are in the brain and everything.",
+      "zh": "我记得在正式开始跟你一起工作之前，你邀请我去办公室，跟我讲了一大堆关于AI的事情。我记得当时的感觉是：\"哦，原来这些东西比我之前以为的严肃得多。\"你大概在讲那个巨大的计算集群、参数数量、人脑有多少神经元之类的。"
+    },
+    {
+      "en": "And I feel like Dario often has that effect on people; \"This is much more serious than I realized.\"",
+      "zh": "我觉得Dario经常对人产生这种效果：\"这比我之前以为的严肃得多。\""
+    },
+    {
+      "en": "Yeah, I'm the bringer of happy tidings.",
+      "zh": "对，我是带来\"好消息\"的人。"
+    },
+    {
+      "en": "But I remember when we were at OpenAI when there was the scaling law stuff and just making things bigger and it started to feel like it was working, and then it kind of kept on eerily working on a bunch of different projects, which I think is how we all ended up working closely together, 'cause it was first GPT-2 and then scaling laws and GPT-3 and we ended up-",
+      "zh": "但我记得我们在OpenAI的时候，当时在做 scaling law（缩放定律）的研究，就是不断把模型做大，然后它开始表现得越来越好，而且在各种不同项目上都诡异地越来越好用。我想这就是我们最终紧密合作的原因——先是GPT-2，然后是 scaling laws，再是GPT-3，我们就这样一路走来——"
+    },
+    {
+      "en": "Yeah, we were the blob of people that were making things work.",
+      "zh": "对，我们就是那群让东西跑起来的人。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "That's right.",
+      "zh": "没错。"
+    },
+    {
+      "en": "I think we're also excited about safety, 'cause in that era there was sort of this idea that AI would become very powerful but, like, potentially not understand human values or not even be able to communicate with us. And so I think we were all pretty excited about language models as a way to kind of guarantee that AI systems would have to understand kind of implicit knowledge that-",
+      "zh": "我觉得我们对安全也很兴奋，因为那个时代有一种观点：AI会变得非常强大，但可能不理解人类的价值观，甚至无法与我们交流。所以我们都对语言模型很兴奋，把它看作一种保证AI系统必须理解人类隐性知识的方式——"
+    },
+    {
+      "en": "And RL from human feedback on top of language models, which was the whole reason for scaling these models up was that, you know, the models weren't smart enough to do RLHF on top of, so that's the kind of intertwinement of safety and scaling of the models that we, you know, still believe in today.",
+      "zh": "再加上在语言模型之上做 RLHF（基于人类反馈的强化学习），这正是我们一开始要把模型做大的原因：模型不够聪明就没法在上面做RLHF。所以安全和模型规模本来就是交织在一起的，我们到今天还是这么认为。"
+    },
+    {
+      "en": "Yeah, I think there was also an element of like the scaling work was done as part of the safety team that, you know-\n\nMm-hmm.\n\nDario started at OpenAI, because we thought that forecasting AI trends was important to be able to have us taken seriously and take safety seriously as a problem.",
+      "zh": "对，还有一个因素：scaling相关的研究本身就是安全团队在做的——Dario在OpenAI创建的安全团队——因为我们认为预测AI趋势很重要，这样才能让人认真对待我们、认真对待安全问题。"
+    },
+    {
+      "en": "Correct.",
+      "zh": "没错。"
+    },
+    {
+      "en": "Yeah, and we took, I remember being in some airport in England sampling from GPT-2 and using it to write fake news articles and Slacking Dario and being like, \"Oh, this stuff actually works. It might have, like, huge policy implications.\" I think Dario said something like, \"Yes.\" His typical way. But then we worked on that a bunch as well as the release stuff, which was kind of wild.",
+      "zh": "对。我记得有一次在英国某个机场，我在用GPT-2做采样、写假新闻文章，然后在Slack上跟Dario说：\"这玩意儿真的能用了，可能会有巨大的政策影响。\"我记得Dario回了一句\"是的\"之类的，很典型的他的风格。然后我们围绕这个做了很多工作，也参与了发布相关的事情，那段时间挺疯狂的。"
+    },
+    {
+      "en": "Yeah, I remember the release stuff. I think that was when we first started working together.",
+      "zh": "对，我记得那个发布的事。我想那是我们第一次开始合作。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "That was a fun time.",
+      "zh": "那段时间很有意思。"
+    },
+    {
+      "en": "Yes.\n\nThe GPT-2 launch.",
+      "zh": "是。GPT-2发布。"
+    },
+    {
+      "en": "Yeah. But I think it was good for us 'cause we did a kind of slightly strange, safety-oriented thing altogether, and then we ended up doing Anthropic, which is a much larger, slightly strange, safety-oriented thing-",
+      "zh": "对。但我觉得那对我们很好，因为我们一起做了一件有点奇怪的、以安全为导向的事，最后我们做了Anthropic，这是一件更大的、同样有点奇怪的、以安全为导向的事——"
+    },
+    {
+      "en": "That's right.",
+      "zh": "没错。"
+    },
+    {
+      "en": "Together.",
+      "zh": "一起做的。"
+    },
+    {
+      "en": "So I guess just like going back to the concrete problems, 'cause I remember, so I joined OpenAI in like 2016, like one of the first 20 employees or whatever with you, Dario, and I remember at that time the concrete problems in AI safety seemed like it was like the first mainstream AI safety-\n\nYes.\n\nPaper, I guess? I don't really know if I ever asked you what the story was for how that came about.",
+      "zh": "说到 concrete problems（具体问题），我记得我是2016年左右加入OpenAI的，跟你在一起，Dario，大概是前20个员工之一。我记得那时候\"Concrete Problems in AI Safety\"这篇论文好像是第一篇主流的AI安全论文。我想我从来没问过你这篇论文的来龙去脉。"
+    },
+    {
+      "en": "Chris knows the story, 'cause he was involved in it. I think, you know, we were both at Google. I forget what other project I was working on, but like with many things, it was my attempt to kind of procrastinate from whatever other project I was working on that I've now completely forgotten what it was. But I think it was like Chris and I decided to write down what are some open problems in terms of AI safety, and also AI safety you usually talked about in this very kind of abstruse, abstract way. Can we kind of ground it in the ML that was going on at the time? I mean, now there's been, like, you know, six, seven years of work in that vein, but it was almost a strange idea at the time.",
+      "zh": "Chris知道这个故事，因为他参与了。我觉得当时我们都在Google。我忘了我当时在做什么别的项目了，但跟很多事情一样，这其实是我在拖延那个我现在已经完全忘了的项目。基本就是Chris和我决定写下AI安全方面有哪些开放问题——而且AI安全通常被讨论得非常抽象、晦涩。我们能不能把它落实到当时正在进行的机器学习研究中？现在已经有六七年的相关工作了，但在那个时候这几乎是个很奇怪的想法。"
+    },
+    {
+      "en": "Yeah, I think there's a way in which it was almost a kind of political project, where at the time, a lot of people didn't take safety seriously. So I think that there was sort of this goal to collate a list of problems that sort of people agreed were reasonable, often already existed in literature, and then get a bunch of people across different institutions who are credible to be authors. And like, I remember I had this whole long period where I just talked to 20 different researchers at Brain to build support for publishing the paper. Like in some ways, if you look at it in terms of the problems and a lot of things that emphasized, I think it, you know, hasn't held up that well in that it's, you know, I think it's not really the right problems, but I think if you sort of see it instead as a consensus-building exercise, that there's something here that is real and that is worth taking seriously, then it was a pretty important moment.",
+      "zh": "对，我觉得某种程度上这几乎是一个政治项目。那时候很多人不认真对待安全问题。所以我们的目标是整理出一系列大家都认为合理的问题——很多其实已经存在于文献中——然后找来不同机构的一批有信誉的人来当作者。我记得我花了很长一段时间跟Brain的20个不同研究员沟通，为发表这篇论文争取支持。从某种意义上说，如果你从它强调的具体问题来看，我觉得它经受住时间考验的程度不高——那些可能不是真正对的问题。但如果你把它看作一个共识建设的努力——说明这里确实有些真实的、值得认真对待的东西——那它确实是个很重要的时刻。"
+    },
+    {
+      "en": "I mean, you end up in this really weird sci-fi world where I remember at the start of Anthropic, we were talking about constitutional AI and I think Jared said, \"Oh, we're just gonna write a constitution for a language model and that'll change all of its behavior.\" And I remember that sounded incredibly crazy at the time, but why did you guys think that was gonna work? Because I remember that was one of the first early, like, big research ideas we had at the company.",
+      "zh": "我的意思是，你最终进入了这个非常科幻的世界。我记得在Anthropic刚成立时，我们在讨论 Constitutional AI（宪法式AI），我记得Jared说：\"哦，我们就给语言模型写一部宪法，就能改变它所有的行为。\"我记得那时候听起来简直不可思议。但你们为什么觉得这能行？因为我记得这是我们公司最早的大研究想法之一。"
+    },
+    {
+      "en": "Yeah, I mean, I think Dario and I had talked about it for a while. I guess I think simple things just work really, really well in AI. And so like, I think the first versions of that were quite complicated, but then we kind of like whittled away into, like, just use the fact that AI systems are good at solving multiple choice exams and give them a prompt that tells them what they're looking for and that was kind of a lot of what we needed.",
+      "zh": "对，我和Dario讨论了很久。我想简单的方法在AI里就是效果特别好。最早的版本相当复杂，但后来我们不断简化，最后本质上就是：利用AI系统擅长做选择题的特性，给它一个提示词告诉它要找什么东西——这基本就够了。"
+    },
+    {
+      "en": "And then we were able to just write down these principles.",
+      "zh": "然后我们就能把这些原则写下来。"
+    },
+    {
+      "en": "I mean, it goes back to, like, the big blob of compute or the bitter lesson or the scaling hypothesis. If you can identify, you know, something that you can give the AI data for and that's kind of a clear target, you'll get it to do it. So like here's this set of instructions, here's this set of principles. AI language models can like read that set of principles and they can compare it to the behavior that they themselves are engaging in. And so like you've got your training target there, so once you know that, I think my view and Jared's view is there's a way to get it to work; you just have to fiddle with enough of the details.",
+      "zh": "本质上还是回到那个计算大块头、那个苦涩教训（bitter lesson）、那个 scaling 假说。如果你能找到一样东西给AI提供数据、而且目标足够清晰，你就能让它做到。所以这里有这一套指令、这一套原则，AI语言模型能阅读这些原则，能把原则跟它自己的行为做比较。训练目标就有了。一旦知道了这一点，我和Jared的看法就是：总有办法让它工作，你只需要调整够多的细节。"
+    },
+    {
+      "en": "Yeah. I think it was always weird for me, especially in these early eras, 'cause like I was in physics and then coming from physics, and I think now we forget about this 'cause everyone's excited about AI, but like, I remember talking to Dario about concrete problems and other things, and I just got the sense that AI researchers were very, very kind of psychologically damaged by the AI winter where they just kind of felt like having really ambitious ideas or ambitious visions was, like, very disallowed. And that's kind of how I imagine it was in terms of talking about safety. In order to care about safety, you have to believe that AI systems could actually be really powerful and really useful, and I think that there was kind of a prohibition against being ambitious.",
+      "zh": "对。我觉得对我来说一直有点奇怪，特别是在早期阶段。因为我是从物理学过来的，我记得跟Dario讨论concrete problems和其他事情时的感觉——AI研究者被AI寒冬（AI winter）严重伤害了心理：他们觉得有雄心壮志、有宏大愿景是被\"禁止\"的。在安全方面也是如此：你要关心安全，首先得相信AI系统可能真的会变得很强大、很有用，但当时恰恰有一种反对雄心壮志的禁忌。"
+    },
+    {
+      "en": "And I think one of the benefits is that physicists are very arrogant and so they're constantly doing really ambitious things and talking about things in terms of grand schemes, and so-",
+      "zh": "我觉得物理学家的好处就是他们非常自大，所以他们总是在做很有雄心的事情、总是用宏大叙事来谈论问题——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "I mean, I think that's definitely true. Like I remember in 2014, it was like there were just like, I don't know, there were just some things you couldn't say, right? But I actually think it was kind of an extension of problems that exist across academia, other than maybe theoretical physics, where they've kind of evolved into very risk-averse institutions for a number of reasons. And even the industrial parts of AI had kind of transplanted or fork lifted that mentality. And it took a long time. I think it took it until like 2022 to get out of that mentality.",
+      "zh": "我觉得确实如此。我记得2014年的时候，有些话你就是不能说。但我其实觉得这是整个学术界普遍问题的延伸——除了理论物理之外，学术界已经演变成非常规避风险的机构，有各种原因。而AI的产业界也基本移植了那种心态。这用了很久才摆脱——我觉得一直到2022年左右才真正走出来。"
+    },
+    {
+      "en": "There's a weird thing about like, what does it mean to be conservative and respectful, where you might think like, one version you could have is that what it means to be conservative is to take the risks or the potential harms of what you're doing really seriously and worry about that. But another kind of conservatism is to be like, \"Ah, you know, taking an idea too seriously and believing that it might succeed is sort of like scientific arrogance.\" And so I think there's like kind of two different kinds of conservatism or caution, and I think we were sort of in a regime that was very controlled by that one. I mean, you see it historically, right? Like if you look at the early discussions in 1939 between, you know, people involved in nuclear physics about what the nuclear bombs were, sort of a serious concern. You see exactly the same thing with Fermi resisting these ideas, because it just seemed kind of like a crazy thing. And other people, like Szilard or Teller, taking the ideas seriously because they were worried about the risks.",
+      "zh": "有一个很奇怪的事情：什么叫\"保守\"和\"尊重\"？一种理解是：保守意味着认真对待你所做事情的风险或潜在危害。但另一种保守是说：\"太当回事一个想法、相信它可能成功，这本身就是一种科学上的傲慢。\"所以这里有两种不同的保守或谨慎，而我觉得我们当时所处的环境被后一种主导了。从历史上看也是这样，对吧？比如1939年核物理学家之间关于核弹是否值得担忧的早期讨论——你能看到Fermi也在抵制这些想法，因为这看起来太疯狂了。而其他人，比如Szilard或Teller，却在认真对待这些想法，因为他们担心风险。"
+    },
+    {
+      "en": "Yeah. Perhaps the deepest lesson that I've learned in the last 10 years, and probably, you know, all of you have learned some form of it as well, is there can be this kind of seeming consensus, these things that kind of everyone knows, that, I don't know, seem sort of wise, seem like they're common sense, but really, they're just kind of herding behavior masquerading as maturity and sophistication.\n\nMm-hmm.\n\nAnd when you've seen the consensus can change overnight- And when you've seen it happen a number of times, you suspected but you didn't really bet on it and you're like, \"Oh man, I kind of thought this, but what do I know?\" You know, \"How how can I be right and all these people are wrong?\" You see that a few times, then you just start saying, \"Nope, this is the bet we're gonna make. I don't know for sure if we're right, but like, just ignore all this other stuff, see it happen, and, I don't know, even if you're right 50% of the time being right 50% of the time contributes so much,\" right? You're adding so much that is not being added by anyone else.",
+      "zh": "对。我在过去十年学到的也许是最深刻的教训——大概你们每个人也都以某种方式学到了——就是：看似有共识的东西、看起来人人都知道的东西、看似成熟和老练的判断，其实很多时候只是从众行为伪装成了成熟与深思。当你看到这个共识一夜之间就可以翻转——当你看了好几次之后，你之前怀疑但没真正去赌的东西，你会想：\"天，我当时就是这么想的，但我凭什么觉得自己是对的、所有人都是错的？\"看了几次之后，你就开始说：\"不，这就是我们要做的赌注。我不确定我们是否正确，但忽略其他所有噪音吧。哪怕你只有50%的时候是对的，那50%的贡献也是巨大的。\"因为你在添加别人完全没有添加的东西。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "And it feels like that's where we are today with some safety stuff, where there's like a consensus view that a lot of this safety stuff is unusual or doesn't naturally fall out of the technology. And then at Anthropic, we do all of this research where weird safety misalignment problems fall out as a natural dividend of the tech we're building, so it feels like we're in that counter-consensus view right now.",
+      "zh": "我觉得现在安全方面就是这种状况：主流观点认为很多安全工作是不寻常的、不会自然从技术中涌现的。但在Anthropic，我们做的研究中，那些奇怪的安全对齐问题确实作为我们所构建技术的自然副产品出现了。所以感觉我们现在就是处在那个反共识的位置上。"
+    },
+    {
+      "en": "But I feel like that has been shifting over the past, even just like 18-",
+      "zh": "但我觉得这种情况在过去18个月里一直在转变——"
+    },
+    {
+      "en": "We've been helping to shift-",
+      "zh": "我们一直在帮助推动这个转变——"
+    },
+    {
+      "en": "We've definitely been helping.",
+      "zh": "我们确实在帮助推动。"
+    },
+    {
+      "en": "No, I mean-",
+      "zh": "不，我是说——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "By publishing and doing research.",
+      "zh": "通过发表论文和做研究。"
+    },
+    {
+      "en": "Constant publishing.",
+      "zh": "不断地发表。"
+    },
+    {
+      "en": "This constant force. Yeah.",
+      "zh": "这种持续的力量。对。"
+    },
+    {
+      "en": "But I also think, just, world sentiment around AI has shifted really dramatically, and, you know, it's more common in the user research that we do to hear just customers, regular people say, \"I'm really worried about what the impact of AI on the world more broadly is going to be.\" And sometimes that means, you know, jobs or bias or toxicity, but it also sometimes means like, is this just gonna mess up the world, right? How is this gonna contribute to fundamentally changing how humans work together, operate? Which is, I wouldn't have predicted that actually, you know?",
+      "zh": "但我也觉得，整个世界对AI的看法已经发生了很大变化。在我们做的用户研究中，越来越多地听到普通客户说：\"我真的很担心AI对世界的广泛影响。\"有时候这意味着工作、偏见或有害内容，但有时候也意味着：这东西会不会把世界搞砸？它会如何从根本上改变人类协作和运作的方式？说实话，我之前没有预料到这一点。"
+    },
+    {
+      "en": "Oh yeah. But yeah, for whatever reason, it seems like people in the ML research sphere have always been more pessimistic about AI becoming very powerful-",
+      "zh": "对啊。但不知为什么，ML研究圈的人对AI变得非常强大这件事，一直比普通公众更悲观——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Than the general public.",
+      "zh": "普通公众反而就是——"
+    },
+    {
+      "en": "Maybe it's a weird-",
+      "zh": "可能是某种奇怪的谦虚吧。"
+    },
+    {
+      "en": "General public's just like-\n\nHumility or something, yeah.\n\nWhen Dario and I went to the White House in 2023, in that meeting, like Harris and Raimondo and stuff basically said, I'll paraphrase, but basically said like, \"We've got our eye on you guys. Like, AI's gonna be a really big deal and we're now actually paying attention,\" which is-",
+      "zh": "对。2023年Dario和我去白宫的那次会议上，Harris和Raimondo基本上说了——我大致复述一下——\"我们在盯着你们。AI将是一件非常重大的事，我们现在真的在关注了。\"而且——"
+    },
+    {
+      "en": "And they're right.",
+      "zh": "他们说得对。"
+    },
+    {
+      "en": "They're right.",
+      "zh": "他们是对的。"
+    },
+    {
+      "en": "They're absolutely right. Absolutely right.",
+      "zh": "完全正确。完全正确。"
+    },
+    {
+      "en": "But I think in 2018 you wouldn't have been like, \"The President will call you to the White House to tell you they're paying close attention to the development of language models.\"",
+      "zh": "但在2018年你不会想到：\"总统会把你叫到白宫，跟你说他们在密切关注语言模型的发展。\""
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Which is like a crazy place-",
+      "zh": "这太疯狂了——"
+    },
+    {
+      "en": "That was not on the bingo card.",
+      "zh": "这不在我的预测清单上。"
+    },
+    {
+      "en": "That was like 2018.",
+      "zh": "那是2018年。"
+    },
+    {
+      "en": "One thing that I think is interesting, too, just is, I guess, like all of us kind of got into this when it didn't seem like there was-",
+      "zh": "有一件事我觉得很有趣：我们当初进入这个领域的时候，看起来并没有——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Like we thought that it could happen, but yeah, it was like Fermi being skeptical of the atomic bomb. It was like he was just a good scientist and there was some evidence that it could happen, but there also was a lot of evidence against it happening.",
+      "zh": "我们觉得这件事可能会发生，但就像Fermi对原子弹持怀疑态度一样。他只是一个好科学家，有一些证据说明它可能发生，但也有很多证据说明不会。他最终决定值得去做，因为如果它是真的，那就是件大事。对我们所有人来说也是一样：2015、2016、2017年，有些证据而且证据在增加，表明这可能是件大事。但我记得2016年跟我所有的导师聊——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "对对。"
+    },
+    {
+      "en": "And he, I guess, decided that it would be worthwhile because if it was true, then it would be a big deal. And I think for all of us, it was like, yeah, like 2015, 2016, 2017, there was some evidence and increasing evidence that this might be a big deal, but I remember in 2016, like talking to all my advisors-\n\nYeah, yeah.",
+      "zh": "我说：\"我做过创业方面的事。我想帮助AI安全，但我数学不太行。我不知道怎么才能帮上忙。\"当时人们要么说：\"你得精通决策理论才能帮忙。\"我想那对我可能不行。要么他们说：\"看起来我们不会遇到什么疯狂的AI。\"所以只有少数几个人跟我说：\"行，这看起来值得做。\""
+    },
+    {
+      "en": "And I was like, \"I've done startup stuff. I wanna help out with AI safety, but I'm not great at math. I don't exactly know how I can do it.\" And I think at the time people either were like, \"Well, you need to be super good at decision theory in order to help out.\" And I was like, \"Eh, that's probably not gonna work.\" Or they were like, \"It doesn't really seem like we're gonna get some crazy AI thing,\" and so I had only a few people, basically, that were like, \"Yeah, okay, that seems like a good thing to do.\"\n\nI remember in 2014 making graphs of ImageNet results over time when I was a journalist and trying to get stories published about and people thought I was completely mad. And then I remember in 2015 trying to persuade Bloomberg to let me write a story about NVIDIA, because every AI research paper had started mentioning the use of GPUs, and they said that was completely mad. And then in 2016 when I left journalism to go into AI, I have these emails saying, \"You're making the worst mistake of your life,\" which I now occasionally look back on, but it was like it all seemed crazy at the time, from many perspectives, to go and take this seriously, that scaling was gonna work, and something was maybe different about the technology paradigm.",
+      "zh": "我记得2014年的时候，我作为记者画了ImageNet结果随时间变化的图表，想发表相关报道，人们觉得我完全疯了。然后2015年我试图说服Bloomberg让我写一篇关于NVIDIA的报道，因为每篇AI研究论文都开始提到使用GPU，他们说这完全是疯的。然后2016年我离开新闻业进入AI，我现在还保留着那些邮件说：\"你在犯你人生中最大的错误。\"我偶尔会回头看看。但在当时，从很多角度来看，认真对待这件事、相信scaling会奏效、相信技术范式可能正在发生某种变化——这些看起来都很疯狂。"
+    },
+    {
+      "en": "You're like Michael Jordan and that coach that didn't believe in him in high school.",
+      "zh": "你就像Michael Jordan和那个高中教练——那个不相信他的教练。"
+    },
+    {
+      "en": "How did you actually make the decision, though? Was it did you feel torn or was it obvious to you?",
+      "zh": "但你当时是怎么做出决定的？你纠结过吗，还是很明显？"
+    },
+    {
+      "en": "I did a crazy counter-bet where I said, \"Let me become your full-time AI reporter and double my salary,\" which I knew that they wouldn't say yes to. And then I went to sleep and then I woke up and resigned. It was all fairly relaxed.",
+      "zh": "我做了一个疯狂的反向赌注：我说\"让我当你们的全职AI记者，工资翻倍\"——我知道他们不会答应。然后我去睡觉了，第二天醒来就辞职了。整个过程很轻松。"
+    },
+    {
+      "en": "You're just a decisive guy.",
+      "zh": "你就是个果断的人。"
+    },
+    {
+      "en": "In that instance, I was. I think it's because I was like going to work, reading archive papers, and then printing archive papers off and coming home and reading archive papers, including Dario's papers from the Baidu stuff and being like, \"Something completely crazy is happening here.\" And at some point I thought you should bet with conviction, which I think everyone here has done in their careers, is just betting with conviction that this is gonna work.\n\nYeah.",
+      "zh": "在那个时候是的。我觉得是因为我每天上班看arXiv论文，回家打印arXiv论文继续看——包括Dario在百度做的那些研究——然后觉得：\"这里正在发生一些完全疯狂的事情。\"到某个时候你就该带着信念去下注，我觉得这里每个人在职业生涯中都这么做了：带着信念下注，相信这会成功。"
+    },
+    {
+      "en": "I definitely was not as decisive of you. I spent, like, six months flip flopping, like, \"Okay, should I, actually? Should I do it? Should I try to do a startup? Should I try to do this thing?\"",
+      "zh": "对。我绝对没有你那么果断。我花了六个月在那纠结：\"我到底该不该做？该不该真的做？该去创业吗？该去做这件事吗？\""
+    },
+    {
+      "en": "But I also feel like back then, there wasn't as much talk of engineers and the impact that an engineer can have on AI, right?",
+      "zh": "但那时候也没那么多关于工程师能对AI产生多大影响的讨论，对吧？"
+    },
+    {
+      "en": "Yeah, yeah, no way.",
+      "zh": "对对，完全没有。"
+    },
+    {
+      "en": "That feels so natural to us now. And we're at the same sort of talent raise for engineers of all different types, but at the time, it was like, you're a researcher, and that's the only people that can work on AI.",
+      "zh": "这对我们现在来说很自然了。我们现在同样在大力招各种类型的工程师。但那时候的感觉是：你是研究员，只有研究员才能做AI。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "So I don't think it was crazy that you were spending time thinking about that.",
+      "zh": "所以你花时间纠结这事并不奇怪。"
+    },
+    {
+      "en": "Yeah. Yeah, and I think that that was basically the thing that got me to join OpenAI, was like I messaged the people there and they were like, \"Yeah, we actually think that you can help out-\"\n\nYeah.\n\n\"By doing engineering work.\"",
+      "zh": "对。我觉得那基本就是让我加入OpenAI的原因：我联系了那边的人，他们说\"对，我们确实觉得你可以通过做工程工作来帮忙\"——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "\"And that you can help out with AI safety in that way.\"",
+      "zh": "\"你可以通过这种方式帮助AI安全。\""
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Which I think there hadn't really been an opportunity for that, so that was what-\n\nThat's right.",
+      "zh": "之前从来没有过这种机会，所以那就是把我带去的原因。"
+    },
+    {
+      "en": "Brought me there.\n\nYou were my manager at OpenAI.",
+      "zh": "你是我在OpenAI的经理。"
+    },
+    {
+      "en": "I was, that's right.",
+      "zh": "是的，没错。"
+    },
+    {
+      "en": "I think I joined after you'd been there for a while.",
+      "zh": "我想我是在你去了之后才加入的。"
+    },
+    {
+      "en": "A little bit.",
+      "zh": "是晚了一点。"
+    },
+    {
+      "en": "'Cause I was at Brain for a bit.",
+      "zh": "因为我之前在Brain待了一段。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "I don't know if I ever asked you what it was that got you to join?",
+      "zh": "我不知道我有没有问过你，是什么让你决定加入的？"
+    },
+    {
+      "en": "Yeah, so I had been at Stripe for about five and a half years and I knew Greg; he had been my boss. He was my boss at Stripe for a while, and I actually introduced him and Dario, because I said, when he was starting OpenAI, I was like, \"The smartest person that I know is Dario. You would be really lucky to get him.\" So Dario was at OpenAI, I had a few friends from Stripe that had gone there, too. And I think sort of like you, I'd been thinking about what I wanted to do after Stripe. I had gone there just 'cause I wanted to get more skills after working in, you know, nonprofit and international development, and I actually thought I was gonna go back to doing that. Like, essentially, I had always been working. I was like, \"I really wanna help people that have, you know, less than I do,\" but I didn't have the skills when I was doing it before Stripe.",
+      "zh": "我在Stripe待了大约五年半，我认识Greg——他曾经是我在Stripe的老板。实际上是我把他和Dario介绍给对方的，因为他开始做OpenAI的时候，我跟他说：\"我认识的最聪明的人是Dario。你能找到他是你的运气。\"所以Dario在OpenAI，我还有几个从Stripe过去的朋友也在那。我觉得跟你差不多，我也一直在想离开Stripe之后要做什么。我去Stripe本来就是为了积累更多技能——之前做的是非营利和国际发展方面的工作——其实我本来以为我会回去做那些事。本质上，我一直觉得\"我真的想帮助那些不如我幸运的人\"，但我之前做的时候还没有足够的能力。"
+    },
+    {
+      "en": "Yep.",
+      "zh": "对。"
+    },
+    {
+      "en": "And so I looked at going back to public health. I thought about going back into politics very briefly, but I was also looking around at other tech companies and other sort of ways of having impact, and OpenAI, at the time, felt like it was a really nice intersection. It was a nonprofit, they were working on this really big, lofty mission. I really believed in sort of the AI, you know, potential, because, I mean, I know Dario a little bit, and so he was-",
+      "zh": "所以我看了看回到公共卫生的可能性。我很短暂地想过回到政治领域。但我也在看其他科技公司和产生影响的方式。当时的OpenAI感觉像是一个很好的交叉点——它是非营利组织，在做一个很宏大的使命。我真的相信AI的潜力，因为我多少了解Dario——"
+    },
+    {
+      "en": "And they needed management help.",
+      "zh": "而且他们需要管理方面的帮助。"
+    },
+    {
+      "en": "The definitely needed help. That is a fact. And so I think that it felt very me-shaped, right? I was like, \"Oh, there's this nonprofit and there's all these really great people with these really good intentions, but it seems like they're a little bit of a mess.\"",
+      "zh": "他们确实需要帮助。这是事实。所以我觉得它非常适合我：这里有个非营利组织，有一群很棒的人、很好的意图，但看起来有点乱。"
+    },
+    {
+      "en": "Yeah. And that felt really exciting to me, to get to come in and even, you know, just I was such a utility player, right? I was running people, but I was also running some of the technical teams-",
+      "zh": "对。我觉得那很令人兴奋，能进去帮忙。我当时完全是个多面手：管人事，但也管一些技术团队——"
+    },
+    {
+      "en": "Scaling orgs, yep.",
+      "zh": "负责扩展组织，对。"
+    },
+    {
+      "en": "Yeah, the scaling org, I worked on the language team, I took over-",
+      "zh": "对，扩展组织，我做了语言团队，我接管了——"
+    },
+    {
+      "en": "You worked on policy-",
+      "zh": "你还做了政策方面的事——"
+    },
+    {
+      "en": "I worked on some policy stuff, I worked with Chris, and I felt like there was just so much goodness in so many of the employees there, and I felt a very strong desire to come and sort of just try to help make the company a little more functional.",
+      "zh": "对，我做了些政策工作，跟Chris合作过。我觉得那里很多员工身上都有很多善意，我有强烈的愿望进去帮这个公司变得更有序一些。"
+    },
+    {
+      "en": "I remember towards the end, after we'd done GPT-3, you were like, \"Have you guys heard of something called trust and safety?\"",
+      "zh": "我记得后来做完GPT-3，你问我们：\"你们听说过'信任与安全'（trust and safety）这个东西吗？\""
+    },
+    {
+      "en": "Yes, I remember that! That did happen.",
+      "zh": "对！我记得！确实发生过。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "I said, you know, \"I used to run some trust and safety teams at Stripe. There's a thing called trust and safety that you might wanna consider for a technology like this.\" And it's funny because it's sort of is the intermediary step between, you know, AI safety research, right, which is how do you actually make the model safe to something just much more practical. I do think there was a value in saying, you know, this is gonna be a big thing; we also have to be doing this sort of practical work day to day to build the muscles for when things are gonna be a lot higher stakes.",
+      "zh": "我说：\"我以前在Stripe管过一些信任与安全团队。有个叫信任与安全的东西，对于这种技术你们可能需要考虑一下。\"这事现在想想挺有趣的，因为它算是AI安全研究——即如何让模型本身安全——和更实际工作之间的中间步骤。我确实觉得有意义的是：这件事会变得很大，我们也得做这些日常实操工作来锻炼肌肉，为未来风险更高的时候做准备。"
+    },
+    {
+      "en": "That might be a good transition point to talk about things like the responsible scaling policy and how we came up with that, or why we came up with it and how we're using it now, especially given how much trust and safety work we do on today's models. So whose idea was the RSP? Was you and Paul?",
+      "zh": "这也许是个好的过渡点，来谈谈 RSP（负责任扩展政策）之类的事：我们为什么提出它、怎么提出的、现在怎么用的，特别是考虑到我们今天在模型上做了多少信任与安全的工作。那RSP是谁的主意？你和Paul？"
+    },
+    {
+      "en": "So, yeah, it was me and Paul first talked about it in late, Paul Christiano, in late 2022.\n\nMm-hmm.\n\nFirst it was like, oh, should we cap scaling at a, you know, particular point until we've discovered how to solve certain safety problems? And then it was like, well, you know, it's kind of strange to have this one place where you cap it and then you uncap it, so let's have a bunch of thresholds, and then at each threshold you have to do certain tests to see if the model is capable and you have to take increasing safety and security measures. But originally we had this idea, and then the thought was just look, you know, this'll go better if it's done by some third party. Like, we shouldn't be the ones to do it, right? It shouldn't come from one company, 'cause then other companies are less likely to adopt it. So Paul actually went off and designed it, and, you know, many, many features of it changed and we were kind of, on our side, working on how it should work. And, you know, once Paul had something together, then pretty much immediately after he announced the concept, we announced ours within a month or two. I mean, many of us were heavily involved in it. I remember writing at least one draft of it myself, but there were several drafts of it.",
+      "zh": "对，是我和Paul Christiano在2022年底第一次讨论的。最初的想法是：我们是否应该在某个特定点限制scaling，直到解决了某些安全问题？然后我们想：在一个地方设一个硬限然后又解除，这很奇怪。不如设多个阈值，每个阈值都要做一些测试看模型是否具备某些能力，并且要采取递增的安全和安保措施。但最初有了这个想法后，我们觉得：如果由某个第三方来做会更好，不应该由一家公司来制定，因为那样其他公司更不愿意采纳。所以Paul去独立设计了它，很多细节都改了。我们这边也在研究它应该怎么运作。Paul拿出方案后，基本上在他宣布概念的一两个月内，我们就宣布了自己的版本。我们很多人都深度参与了。我记得我自己就写过至少一稿，但总共有好多稿。"
+    },
+    {
+      "en": "There were so many drafts.",
+      "zh": "好多稿。"
+    },
+    {
+      "en": "I think it's gone through the most drafts of any doc.",
+      "zh": "我觉得这是我们经历过草稿最多的一份文件。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Which makes sense, right? It's like, I feel like it is in the same way that the US treats like the Constitution, as like the holy document.",
+      "zh": "这很合理，对吧？我觉得它对Anthropic的意义，就像宪法对美国的意义——那份神圣的文件。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Which like, I think is just a big thing that like strengthens the US.\n\nYes.\n\nAnd like we don't expect the US to go off the rails, in part, because just like every single person in the US is like, \"The Constitution is a big deal, and if you tread on that-\"",
+      "zh": "这是一件让美国强大的大事。我们不担心美国会失控，部分原因就是每个美国人都觉得：\"宪法是大事，如果你践踏它——\""
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "\"Like, I'm mad.\"",
+      "zh": "\"我就不高兴了。\""
+    },
+    {
+      "en": "Yeah, yeah.",
+      "zh": "对对。"
+    },
+    {
+      "en": "Like I think that the RSP is our, like, it holds that thing. It's like the holy document for Anthropic. So it's worth doing a lot of iterations getting it right.",
+      "zh": "我觉得RSP就是我们的那个东西。它是Anthropic的神圣文件。所以花大量迭代来把它做对是值得的。"
+    },
+    {
+      "en": "Some of what I think has been so cool to watch about the RSP development at Anthropic, too, is it feels like it has gone through so many different phases and there's so many different skills that are needed to make it work, right? There's like the big ideas, which I feel like Dario and Paul and Sam and Jared and so many others are like, \"What are the principles? Like what are we trying to say? How do we know if we're right?\" But there's also this very operational approach to just iterating where we're like, \"Well, we thought that we were gonna see this at this, you know, safety level, and we didn't, so should we change it so that we're making sure that we're holding ourselves accountable?\" And then there's all kinds of organizational things, right? We just were like, \"Let's change the structure of the RSP organization for clearer accountability.\" And I think my sense is that for a document that's as important as this, right, I love the Constitution analogy, it's like there's all of these bodies and systems that exist in the US to make sure that we follow the Constitution, right? There's the courts, there's the Supreme Court, there's the presidency, there's, you know, both houses of Congress and they do all kinds of other things, of course, but there's like all of this infrastructure that you need around this one document, and I feel like we're also learning that lesson here.",
+      "zh": "我觉得看RSP在Anthropic的发展过程特别酷。它经历了很多不同阶段，需要很多不同技能才能让它运作。有大想法层面的——Dario、Paul、Sam、Jared等很多人在思考\"原则是什么？我们想表达什么？怎么知道我们是否正确？\"但也有非常操作性的迭代工作——\"我们原以为在这个安全级别会看到某个东西，但没看到，是否应该调整以确保我们在真正问责自己？\"还有各种组织层面的事——我们刚刚调整了RSP组织的架构以实现更清晰的问责。我觉得对于这么重要的一份文件——用宪法的类比来说——美国有那么多机构和系统来确保遵守宪法：法院、最高法院、总统、两院国会——它们当然还做其他很多事，但围绕这一份文件需要所有这些基础设施。我觉得我们也在学习同样的教训。"
+    },
+    {
+      "en": "I think it sort of reflects a view a lot of us have about safety, which is that it's a solvable problem.",
+      "zh": "我觉得这反映了我们很多人对安全的看法：它是一个可以解决的问题。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "It's just a very, very hard problem that's gonna take tons and tons of work.",
+      "zh": "只不过是一个非常非常难的问题，需要大量的工作。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "All of these institutions that we need to build up, like there's all sorts of institutions built up around like automotive safety, built up over many, many years. But we're like, \"Do we have the time to do that? We've gotta go as fast as we can to figure out what the institutions we need for AI safety are, and build those and try to build them here first, but make it exportable.\"",
+      "zh": "所有这些我们需要建设的制度——就像汽车安全方面已经建设了很多年的制度一样。但问题是：我们有足够的时间吗？我们得尽可能快地弄清楚AI安全需要什么制度，建设它们，先在这里试行，但要让它可以输出。"
+    },
+    {
+      "en": "That's right.",
+      "zh": "没错。"
+    },
+    {
+      "en": "It it forces unity also, because if any part of the org is not kind of in line with our safety values, it shows up through kind of the RSP, right? The RSP is gonna block them from doing what they want to do, and so it's a way to remind everyone over and over again, basically, to make safety a product requirement, part of the product planning process. And so, like, it's not just a bunch of kind of like bromides that we repeat; it's something that you actually, if you show up here and you're not aligned, you actually run into it.",
+      "zh": "它也迫使团队统一，因为如果组织的任何部分不符合我们的安全价值观，通过RSP就会显现出来。RSP会阻止他们做想做的事。所以它是一种反复提醒所有人的方式：让安全成为产品需求，成为产品规划流程的一部分。所以它不只是一堆我们重复的空话——你要是来这里不认同安全，你真的会撞上它。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "And you either have to learn to get with the program or it doesn't work out.",
+      "zh": "你要么学会适应，要么就行不通。"
+    },
+    {
+      "en": "Yeah.\n\nThe RSPs become kind of funny over time because we spend thousands of hours of work on it, and then I go and talk to senators and I explain the RSP, and I'm like, \"We have some stuff that means it's hard to steal what we make, and also that it's safe.\" And they're like, \"Yes, that's a completely normal thing to do. Are you telling me not everyone does this?\" You're like, \"Oh, okay, yeah.\" Yeah.",
+      "zh": "对。RSP随着时间推移变得有些有趣，因为我们花了几千小时的工作。然后我去跟参议员们解释RSP，我说：\"我们有一些东西确保别人很难偷走我们做的东西，而且保证它是安全的。\"然后他们说：\"是啊，这完全是正常的事情嘛。你是在告诉我不是所有人都在这么做吗？\"你就：\"哦，好吧，对。\""
+    },
+    {
+      "en": "It's half true that that not everyone does this.",
+      "zh": "确实不是所有人都在这么做，这话说了一半是真的。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "But that kind of, it's amazing because we've spent so much effort on it here and when you boil it down, they're like, \"Yes, that sounds like a normal way to do that.\"",
+      "zh": "但这挺神奇的，因为我们在内部花了这么多精力，当你精简地讲出来，他们就觉得：\"对，听起来像是做事的正常方式。\""
+    },
+    {
+      "en": "Yeah, that sounds good.",
+      "zh": "对，听起来不错。"
+    },
+    {
+      "en": "That's been the goal. Like Daniela was saying, \"Let's make this as boring and normal. Like let's make this a finance thing.\"",
+      "zh": "这本来就是我们的目标。就像Daniela说的：\"让它尽量无聊和正常。让它像个财务流程一样。\""
+    },
+    {
+      "en": "Yeah, imagine it's like an audit.",
+      "zh": "对，想象它就是个审计。"
+    },
+    {
+      "en": "Yeah, yeah.",
+      "zh": "对对。"
+    },
+    {
+      "en": "Right? Yeah.",
+      "zh": "对吧？对。"
+    },
+    {
+      "en": "No, boring and normal is what we want, certainly in retrospect.",
+      "zh": "不，无聊和正常就是我们想要的，回头来看确实如此。"
+    },
+    {
+      "en": "Yeah. Well also, Dario, I think in addition to driving alignment, it also drives clarity-",
+      "zh": "对。还有，Dario，我觉得除了推动对齐，它还推动了清晰性——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Because it's written down what we're trying to do and it's legible to everyone in the company, and it's legible externally what we think we're supposed to be aiming towards from a safety perspective. It's not perfect. We're iterating on it, we're making it better, but I think there's some value in saying like, \"This is what we're worried about, this thing over here.\" Like you can't just use this word to sort of derail something in either direction, right? To say, \"Oh, because of safety, we can't do X, or because of safety, we have to do X.\" We're really trying to make it clearer what we mean.",
+      "zh": "因为我们想做的事情被写了下来，公司里每个人都能看懂，外部也能看到我们认为从安全角度应该追求什么。它不完美，我们在迭代、在改进，但我觉得有价值的是说清楚：\"我们担心的是这个东西。\"这样你就不能随便用\"安全\"这个词来打断事情——不能说\"因为安全，我们不能做X\"或\"因为安全，我们必须做X\"。我们真正在做的是让含义更清晰。"
+    },
+    {
+      "en": "Yeah, it prevents you from worrying about every last little thing under the sun.",
+      "zh": "对，它让你不用对太阳底下每一件小事都担心。"
+    },
+    {
+      "en": "That's right.",
+      "zh": "没错。"
+    },
+    {
+      "en": "Because it's actually the fire drills that damage the cause of safety in the long run.",
+      "zh": "因为实际上是那些\"假警报演习\"在长期损害安全的事业。"
+    },
+    {
+      "en": "Right.",
+      "zh": "对。"
+    },
+    {
+      "en": "I've said like, \"If there's a building, and, you know, the fire alarm goes off every week, like, that's a really unsafe building.\"",
+      "zh": "我说过：\"如果有栋楼，火警每周都响一次——那就是一栋非常不安全的楼。\""
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "'Cause when there's like actually a fire, you're just gonna be like-",
+      "zh": "因为真的着火了，你只会觉得——"
+    },
+    {
+      "en": "No ones gonna care.",
+      "zh": "没人会在意了。"
+    },
+    {
+      "en": "\"Oh, it just goes off all the time.\" So-",
+      "zh": "\"哦，它总是响。\"所以——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "It's very important to be calibrated.",
+      "zh": "校准很重要。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "That's right.",
+      "zh": "没错。"
+    },
+    {
+      "en": "Yeah. A slightly different frame that I find kind of clarifying is that I think that RSP creates healthy incentives at a lot of levels.\n\nMm.",
+      "zh": "对。一个稍微不同的角度，我觉得很有启发：RSP在很多层面上创造了健康的激励机制。在内部，它让每个团队的激励跟安全对齐，因为如果我们在安全上没有进展，就会被阻塞。在外部，它也比我能想到的其他方式创造了更健康的激励——因为如果我们某天不得不采取某种激烈行动，比如说\"我们的模型达到了某个点但我们还不能让它安全\"，这个决定跟支撑这个决定的证据是对齐的，有一个预先存在的思考框架，而且是可理解的。所以RSP在很多层面上——也许是我最初讨论早期版本时没有完全理解的方式——创造了比我想过的其他任何方案都更好的框架。"
+    },
+    {
+      "en": "So I think internally it aligns the incentives of every team with safety because it means that if we don't make progress on safety, we're gonna block. I also think that externally it creates a lot of healthier incentives than other possibilities, at least that I see, because it means that, you know, if we at some point have to take some kind of dramatic action, like, if at some point we have to say, \"You know, our model, we've reached some point and we can't yet make a model safe,\" it aligns that with sort of the point where there's evidence that supports that decision and there's sort of a preexisting framework for thinking about it, and it's legible. And so I think there's a lot of levels at which the RSP, I think in ways that maybe I didn't initially understand when we were talking about the early versions of it, it creates a better framework than any of the other ones that I've thought about.",
+      "zh": "我觉得这些都对，但我感觉这有点低估了弄清楚正确的政策、评估和边界线到底在哪里有多难。我觉得我们一直在大量迭代。还有一个很难的问题：你可能处在一种非常明确某东西是危险的状态，或者非常明确某东西是安全的状态，但对于这么新的技术，实际上有一个很大的灰色地带。"
+    },
+    {
+      "en": "I think this is all true, but I feel like it undersells sort of like how challenging it's been to sort of figure out what the right policies and evaluations and what the lines should be. I think that we have and continue to sort of iterate a lot on that, and I think there is a question also that's difficult of sort of you could be at a point where it's very clear something's dangerous or very clear that something's safe, but with some technology that's so new, there's actually like a big gray area. And so I think that has been, like, all the things that we're saying were things that made me really, really excited about the RSP at the beginning, and still do, but also I think enacting this in a clear way and making it work has been much harder and more complicated than I anticipated.",
+      "zh": "所以我觉得RSP在早期让我非常兴奋的那些方面现在仍然如此，但实际上要把它清晰地制定出来、让它运作，比我预期的要难得多、复杂得多。"
+    },
+    {
+      "en": "Yeah, I think this is exactly the point. Like-",
+      "zh": "对，我觉得这正是关键。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Like the gray areas are impossible to predict. There's so many of them. Like, until you actually try to implement everything, you don't know what's going to go wrong. So what we're trying to do is go and implement everything so we can see as early as possible what's going to go wrong, so-",
+      "zh": "灰色地带是无法预测的。太多了。你不真正去实施所有东西，就不知道什么会出问题。所以我们要做的就是尽早去实施所有东西，这样才能尽早看到什么会出问题——"
+    },
+    {
+      "en": "Yeah, you have to-",
+      "zh": "对，你得——"
+    },
+    {
+      "en": "The gray areas are-",
+      "zh": "灰色地带——"
+    },
+    {
+      "en": "You have to do three or four passes before-",
+      "zh": "你得做三四遍才能——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Before you really, really get it right. Like, iteration is just very powerful and, you know, you're not gonna get it right on the first time. And so, you know, if the stakes are increasing, you want to get your iterations in early; you don't want to get them in late.",
+      "zh": "才能真正做对。迭代本身就非常强大。你不可能第一次就做对。所以如果风险在升高，你就得早点开始迭代，不能等到晚了再来。"
+    },
+    {
+      "en": "You're also building the internal institutions and processes, so the specifics might change a lot, but building the muscle of just doing it is the really valuable thing.",
+      "zh": "你同时也在建设内部制度和流程。具体细节可能变化很大，但不断去做这件事本身——锻炼这块肌肉——才是真正有价值的。"
+    },
+    {
+      "en": "I'm responsible for, like, compute at Anthropic, and so-",
+      "zh": "我在Anthropic负责计算资源（compute），所以——"
+    },
+    {
+      "en": "That's important.",
+      "zh": "这很重要。"
+    },
+    {
+      "en": "So, thank you. I think so. So like for me, like I guess we have to deal with external folks-",
+      "zh": "谢谢。我也觉得是。所以对我来说，我们得跟外部人员打交道——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "And different external folks kind of are on different spectrums of the, like, how fast do they think stuff is gonna get?",
+      "zh": "不同的外部人员对技术发展速度的判断差别很大。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "And like, I think that's also been a thing, where I started out like not thinking stuff would be that fast and have changed over time. And so, I have sympathy for that. And so I think the RSP has been extremely useful for me in communicating with people who think that things might take longer because then we have a thing where it's like, we don't need to do extreme safety measures until stuff gets really intense, and then they might be like, \"I don't think stuff will get intense for a long time.\" And then I'll be like, \"Okay, yeah, we don't have to do extreme safety measures.\" And so that makes it a lot easier to communicate with other folks externally.",
+      "zh": "我觉得这也是一个事情：我自己一开始也不觉得发展会这么快，但随着时间推移改变了看法。所以我对那些人是有同理心的。RSP对我来说在跟那些认为事情还很遥远的人沟通时特别有用——因为RSP说的是：在东西变得真正紧迫之前，我们不需要采取极端安全措施。然后他们可能会说：\"我觉得很长时间内不会变得紧迫。\"我就说：\"好，那我们就不需要采取极端安全措施。\"这让跟外部人员的沟通容易多了。"
+    },
+    {
+      "en": "Yeah, yeah, it makes it like a normal thing you can talk about, rather than something really strange.",
+      "zh": "对对，它让安全变成一件你可以正常讨论的事，而不是一件很奇怪的事。"
+    },
+    {
+      "en": "Yeah. How else is it showing up for people? You are-",
+      "zh": "对。那它在其他方面是怎么体现的？你们——"
+    },
+    {
+      "en": "Evals, evals, evals.",
+      "zh": "evals（评估），评估，评估。"
+    },
+    {
+      "en": "Good.",
+      "zh": "好。"
+    },
+    {
+      "en": "It's all about evals. Everyone's doing evals. Like, your training team is doing evals all the time. We're trying to figure out, like, has this model gotten enough better that it has the potential to be dangerous? So how many teams do we have that are evals teams? You have Frontier Red Team. There must be, I mean there's a lot of people-",
+      "zh": "全是评估。所有人都在做评估。训练团队一直在做评估。我们在想弄清楚：这个模型是不是已经进步到有潜力变得危险了？我们有多少团队是做评估的？有 Frontier Red Team（前沿红队），肯定还有……很多人——"
+    },
+    {
+      "en": "Every team produces evals, basically.",
+      "zh": "基本上每个团队都在产出评估。"
+    },
+    {
+      "en": "And that means you're just measuring against the RSP, like measuring for certain signs of things that would concern you or not concern you.",
+      "zh": "也就是说你在对照RSP做测量——测量某些让你担心或不担心的迹象。"
+    },
+    {
+      "en": "Exactly. Like it's easy to lower bound the abilities of a model, but it's hard to upper bound, so we just put tons and tons of research effort into saying, like, \"Can this model do this dangerous thing or not? Maybe there's some trick that we haven't thought of, like chain of thought or best event or some kind of tool use that's gonna make it so it can help you do something very dangerous.\"",
+      "zh": "没错。给一个模型能力的下界很容易，但给上界很难。所以我们投入大量研究来问：\"这个模型能不能做某个危险的事？也许有某种我们没想到的技巧——比如思维链（chain of thought）、最佳尝试（best event）、某种工具使用——会让它能够帮助你做非常危险的事情。\""
+    },
+    {
+      "en": "It's been really useful in policy, because it's been a really abstract concept, what safety is, and when I'm like, \"We have an eval which changes whether we deploy the model or not,\" and then you can go and calibrate with policymakers or experts in national security or some of these CBRN areas that we do, to actually help us build evals that are well-calibrated and that, counter-factually, just wouldn't have happened otherwise, but once you've got the specific thing, people are a lot more motivated to help you make it accurate, so it's been useful for that. How has it shown up for-",
+      "zh": "它在政策方面也非常有用。因为\"安全\"一直是个很抽象的概念。当我说\"我们有一个 eval（评估）会决定我们是否部署模型\"的时候，然后你可以跟政策制定者或国家安全专家或CBRN（化学、生物、放射性、核）领域的专家一起来校准——帮我们建设有良好校准的评估。如果不是因为有了这个具体的东西，这种合作根本不会发生。但一旦你有了具体的东西，人们就更有动力帮你做得准确。所以很有用。它在你那是怎么体现的——"
+    },
+    {
+      "en": "The RSP shows up for me, for sure. Often. I actually think, weirdly, the way that I think about the RSP the most is like what it sounds like-",
+      "zh": "RSP确实经常出现在我的工作中。实际上我觉得，说来奇怪，我对RSP想得最多的是它的语调——"
+    },
+    {
+      "en": "Mm-hmm?",
+      "zh": "嗯？"
+    },
+    {
+      "en": "Just like the tone. I think we just did a big rewrite of the tone of the RSP because it felt overly technocratic, and even a little bit adversarial. I spent a lot of time thinking about like, how do you build a system that people just wanna be a part of?",
+      "zh": "就是措辞的感觉。我们刚完成了一次大规模的语调重写，因为之前感觉太技术官僚了，甚至有点对抗性。我花了很多时间思考：怎么建设一个让人们愿意主动参与的系统？"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Right? It's so much better if the RSP is something that everyone in the company can walk around and tell you, you know, just like with OKRs like we do right now-\n\nYeah.\n\nLike, what are the top goals of the RSP? How do we know if we're meeting them? What AI safety level are we at right now? Are we at ASL-2? Are we at ASL-3? That people know what to look for because that is how you're going to have good, common knowledge of if something's going wrong, right? If it's overly technocratic, and it's something that only particular people in the company feel is accessible to them, it's just like not as productive, right? And I think it's been really cool to watch it sort of transition into this document where I actually think most, if not everybody at the company, regardless of their role, could read it and say, \"This feels really reasonable. I wanna make sure that we're building AI in the following ways, and I see why I would be worried about these things, and I also kind of know what to look for if I bump into something,\" right? It's almost like make it simple enough that if you are working at a manufacturing plant and you're like, \"Huh, it looks like the safety seatbelt on this should connect this way, but it doesn't connect,\" that you can spot it.",
+      "zh": "如果RSP是公司里每个人都能理解并且愿意跟你聊的东西——就像我们现在用OKR一样——那就好太多了：RSP的首要目标是什么？我们怎么知道是否达标？我们现在处于哪个AI安全等级？是 ASL-2（AI安全等级2）吗？是ASL-3吗？让人们知道该关注什么——因为这样才能形成对\"是否有什么出问题了\"的良好共识。如果它太技术官僚、只有特定的人觉得能看懂，那就没那么有用了。看着它逐渐变成一份几乎所有人——不论岗位——都能读懂并且说\"这很合理，我想确保我们以这些方式构建AI，我理解为什么要担心这些东西，如果我碰到什么问题我大概知道该看什么\"的文件——这真的很酷。就像让它简单到：如果你在一个制造工厂工作，你看到\"嗯，这个安全带好像应该这样连接，但它没有连上\"——你能发现问题。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "And that there's just like healthy feedback flow between leadership and the board and the rest of the company and the people that are actually building it, because I actually think the way this stuff goes wrong in most cases is just, like, the wires don't connect or like they get crossed, and that would just be like a really sad way for things to go wrong, right? It's just all about operationalizing it, making it easy for people to understand.",
+      "zh": "就是让领导层和董事会和公司其他人以及真正在建设的人之间有健康的信息反馈流。因为我实际上觉得在大多数情况下，出问题的方式就是线路没接上或者接错了——那将是一种非常遗憾的出错方式，对吧？关键就是把它操作化、让人们容易理解。"
+    },
+    {
+      "en": "Yeah, the thing I would say is none of us wanted to found a company. We just felt like it was our duty, right?",
+      "zh": "对。我要说的是：我们当中没有人想创办一家公司。我们只是觉得这是我们的责任。"
+    },
+    {
+      "en": "It felt like we had to.",
+      "zh": "感觉我们必须这么做。"
+    },
+    {
+      "en": "Like, we have to do this thing. This is the way we're gonna make things go better with AI. Like that's also why we did the pledge, right?",
+      "zh": "我们必须做这件事。这是我们让AI发展得更好的方式。这也是我们做那个承诺（pledge）的原因，对吧？"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Because we're like the reason we're doing this is it feels like our duty.",
+      "zh": "因为我们觉得这是我们的责任。"
+    },
+    {
+      "en": "I wanted to invent and discover things in some kind of beneficial way. That was how I came to it, and that led to working on AI, and AI required a lot of engineering and eventually AI required a lot of capital, but what I found was that if you don't do this in a way where you're setting the environment, where you set up the company, then a lot of it gets done, a lot of it repeats the same mistakes that I found so alienating about the tech community. It's the same people, it's the same attitude, it's the same pattern-matching, And so at some point it just seemed inevitable that we need to do it in a different way.",
+      "zh": "我想做的是以某种有益的方式发明和发现东西。这是我的出发点，然后走向了AI。AI需要大量工程、最终也需要大量资金。但我发现，如果你不以一种你来设定环境、设立公司的方式来做，很多工作虽然会完成，但会重复我在科技圈中觉得非常疏离的那些错误——同样的人、同样的态度、同样的模式匹配。所以到某个时候，用不同的方式来做似乎就变得不可避免了。"
+    },
+    {
+      "en": "When we were hanging out in graduate school, I remember you had kind of this whole program of trying to figure out how to do science in a way that would sort of advance the public good. And I think that's pretty similar to how we we think about this. I think you had this like Project Vannevar or something, to do that. I was a professor. I think basically I just looked at the situation and I was convinced that AI was on a very, very, very steep trajectory in terms of impact, didn't seem like because of the necessity for capital, and as a physics professor, I could continue doing that and I kind of wanted to work with people that I trusted in building an institution to try to make AI go well. But yeah, I would never recommend founding a company. Or really want to do it. I mean, yeah, I think it's just a means to an end. I mean, I think that's like usually how things go well, though. If you're doing something just to sort of like enrich yourself or gain power or, like, you have to sort of actually care about accomplishing a real goal in the world and then you find whatever means you have to.",
+      "zh": "我们在研究生院的时候，我记得你有一整套计划，想弄清楚如何以推进公共利益的方式做科学。我觉得这跟我们现在思考的方式很相似。你好像有个叫\"Project Vannevar\"的东西。我当时是教授。我基本上就是看了整体形势，确信AI在影响力方面正走在一条非常非常陡峭的轨迹上。考虑到对资本的需求，作为一个物理学教授我做不了什么——我想跟我信任的人一起建立一个机构，让AI朝好的方向发展。但说实话，我永远不会推荐别人去创办公司，也不是真的想做这件事。它只是达成目的的手段。我觉得通常事情就是这样才能做好的：如果你做一件事只是为了让自己致富或获取权力，那不行——你得真正关心在世界上实现一个真实的目标，然后去找任何必要的手段。"
+    },
+    {
+      "en": "Well, something I think about a lot as just a strategic advantage for us is, I mean, it sounds really funny to say, but just like how much trust there is at this table, right?",
+      "zh": "我经常想的一个对我们的战略优势是——说出来可能听起来很好笑——就是这张桌子上有多少信任。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Like I think that's not, I mean, Tom, you were at other startups. I was never a founder before, but it's actually really hard to get a group of, like, a big group of people, to have like the same mission. Right? And I think the thing that I feel like the happiest about when I come into work, and probably the most proud of at Anthropic, is how well that has scaled to a lot of people. It feels to me like in this group and with the rest of leadership, everyone is here for the mission, and our mission is really clear-",
+      "zh": "我觉得这很不寻常。Tom，你待过其他创业公司。我之前从没当过创始人，但让一大群人拥有相同的使命确实非常难。我觉得最让我每天来上班时感到开心的、也是让我对Anthropic最自豪的，就是这种信任扩展到了很多人。我觉得在这个群体和整个领导层中，每个人都是为了使命而来。我们的使命非常清晰——"
+    },
+    {
+      "en": "Yep.",
+      "zh": "对。"
+    },
+    {
+      "en": "And it's very pure, right? And I think that is something that I don't see as often, to Dario's point, in sort of the tech industry. It feels like there's just a wholesomeness to what we're trying to do. Like, no, I agree, none of us were like, \"Let's just go found a company!\" I felt like we had to do it, right? It just felt like we couldn't keep doing what we were doing at the place we were doing it. We had to do it by ourselves.",
+      "zh": "非常纯粹。我觉得这在科技行业并不常见——回应Dario说的。我们做的事有一种朴实的善意。对，我同意，我们当中没有人是\"来，我们去创办一家公司吧！\"我觉得是不得不做的。就是感觉我们不能再在原来的地方继续做原来的事了。我们必须自己来。"
+    },
+    {
+      "en": "And it felt like with GPT-3, you know, which all of us had like touched or worked on, and scaling laws and everything else, we could see it in front of us in 2020. And it felt like, well, if we don't do something soon, all together, you're gonna hit the point of no return. And you have to do something to have any ability to change the environment.",
+      "zh": "而且在做了GPT-3之后——我们所有人都参与或接触过——加上 scaling laws 和其他所有事情，2020年我们就能看到眼前的未来。感觉如果我们不尽快一起做点什么，就会错过不可逆转的时间点。你必须做点什么才能有能力改变环境。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "I think, building off Daniela, I do think that there's just like a lot of trust-",
+      "zh": "接着Daniela说的，我确实觉得这个群体里有很多信任。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "In this group. I think each of us knows that we got into this because we wanna help out with the world.",
+      "zh": "我觉得我们每个人都知道，我们进入这个领域是因为想为世界做好事。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "We did the the 80% pledge thing, and that was like a thing that everybody was just like, \"Yes, obviously we're gonna do this.\"",
+      "zh": "我们做了那个80%的承诺（80% pledge），而且那是一件每个人都觉得\"是啊，当然我们要做这个\"的事。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Yeah, yeah.",
+      "zh": "对对。"
+    },
+    {
+      "en": "And yeah, I do think that the trust thing is a special thing that's extremely rare.",
+      "zh": "而且我确实觉得这种信任是极其罕见的、特别的东西。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "I credit Daniela with keeping the bar high. I credit you with the fact-",
+      "zh": "我把文化能够扩展的功劳归于Daniela。你的功劳在于——"
+    },
+    {
+      "en": "Keeping out the clowns. Keeping out the clowns.",
+      "zh": "把小丑挡在外面。把小丑挡在外面。"
+    },
+    {
+      "en": "Chief clown wrangler! That's my job.",
+      "zh": "首席驯丑师！这就是我的工作。"
+    },
+    {
+      "en": "No, but you're the reason the culture scaled, I think.",
+      "zh": "不是，但你才是文化能扩展的原因，我觉得。"
+    },
+    {
+      "en": "Yeah. People say how nice people are here.",
+      "zh": "对。大家都说这里的人很友善。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Which is actually a wildly important thing.",
+      "zh": "这其实是一件极其重要的事。"
+    },
+    {
+      "en": "I think Anthropic is really low politics, and of course, we all have a different vantage point than average, and I try to remember that.",
+      "zh": "我觉得Anthropic的内部政治很少。当然，我们每个人的视角都跟普通员工不同，我会提醒自己这一点。"
+    },
+    {
+      "en": "It's because of low ego.",
+      "zh": "因为大家自我意识（ego）很低。"
+    },
+    {
+      "en": "But it's low ego, and I think I do think our interview process and just the type of people who work here, like, there's almost a like allergic reaction to politics.",
+      "zh": "对，ego低。我觉得我们的面试流程和这里工作的人的类型，对政治几乎有一种过敏反应。"
+    },
+    {
+      "en": "And unity.",
+      "zh": "还有统一性（unity）。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Unity is so important. The idea that the product team, the research team-",
+      "zh": "统一性非常重要。产品团队、研究团队——"
+    },
+    {
+      "en": "Yes.",
+      "zh": "对。"
+    },
+    {
+      "en": "The trust and safety team, you know, the go-to market team, the policy team-",
+      "zh": "信任与安全团队、市场团队、政策团队——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Like, the safety folks, they're all trying to contribute to kind of the same goal, the same mission of the company, right?",
+      "zh": "安全研究的人——他们都在为同一个目标、同一个公司使命而努力，对吧？"
+    },
+    {
+      "en": "Yes.",
+      "zh": "对。"
+    },
+    {
+      "en": "I think it's dysfunctional when different parts of the company think they're trying to accomplish different things-",
+      "zh": "我觉得当公司不同部门觉得自己在追求不同的目标——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Think the company's about different things or think that other parts of the company are trying to undermine what they're doing.",
+      "zh": "觉得公司是关于不同事情的，或者觉得其他部门在试图破坏自己的工作——那就是功能失调。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "And I think the most important thing we've managed to preserve is, and again, things like the RSP drive it, this idea that it's not, you know, there's some parts of the company causing damage and other parts of the company trying to repair it, but that there are different parts of the company doing different functions and that they all function under a single theory of change.",
+      "zh": "我觉得我们成功保留的最重要的东西是——同样，RSP也在驱动这一点——不是公司的某些部分在制造伤害、另一些部分在修补伤害，而是公司的不同部分在执行不同功能，它们都在同一个变革理论下运作。"
+    },
+    {
+      "en": "Extreme pragmatism, right?",
+      "zh": "极端的务实主义，对吧？"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "You know, the reason I went to OpenAI in the first place, you know, it was a nonprofit, it was a place where I could go and focus on safety, and I think over time, you know, that maybe wasn't as good a fit and there were some difficult decisions. And I think, in a lot of ways, I really trusted Dario and Daniela on that, but I didn't want to leave. That was something that I think I was actually pretty reluctant to go along with, because I think, for one thing, I didn't know that it was good for the world to have more AI labs. And I think it was something that I was pretty, pretty reluctant for. And I think, as well, when we did leave, I think I was, you know, I was reluctant to start a company. I think I was arguing for a long time that we should do a nonprofit instead, and just focus on safety research.",
+      "zh": "我当初去OpenAI，就是因为它是非营利、是我可以专注做安全的地方。随着时间推移，那里可能不再那么适合了，有些困难的决定要做。在很多方面我非常信任Dario和Daniela，但我其实不想离开。我觉得我当时相当不愿意。一方面，我不确定世界上再多一个AI实验室是好事。我确实很犹豫。而且我们离开之后，我曾经很长时间主张我们应该做一个非营利组织，专注于安全研究。"
+    },
+    {
+      "en": "Yes.",
+      "zh": "是的。"
+    },
+    {
+      "en": "And I think it really took pragmatism and confronting the constraints and just being honest about what the constraints implied for accomplishing that mission-",
+      "zh": "我觉得真正需要的是务实主义：正视约束条件，诚实面对这些约束对完成使命意味着什么——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "That led to Anthropic.",
+      "zh": "这才导向了Anthropic。"
+    },
+    {
+      "en": "I think just a really important lesson that we were good about early on is make less promises and keep more of them.",
+      "zh": "我觉得我们早期做得好的一个很重要的教训是：少做承诺、多兑现承诺。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Right?",
+      "zh": "对吧？"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Like, try to be calibrated, be realistic, confront the trade-offs, because, you know, trust and credibility are more important than any particular policy.",
+      "zh": "尽量校准、现实面对、正视取舍——因为信任和信誉比任何具体的政策都重要。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "It is so unusual to have what we have, and watching Mike Krieger defend safety things, of like reasons why we shouldn't ship a product yet, but also then to watch Vinay sort of say like, \"Okay, we have to do the right thing for the business. Like how do we get this across the finish line?\"",
+      "zh": "看到Mike Krieger站出来捍卫安全的理由——说为什么我们还不应该发某个产品——但同时看到Vinay说\"好，我们得为业务做正确的事，怎么才能把它推过终点线？\"——这太不寻常了。"
+    },
+    {
+      "en": "Mm-hmm, yep.",
+      "zh": "嗯，对。"
+    },
+    {
+      "en": "And to hear, you know, people like deep in the technical safety org talking about how it's also important that we build things that are practical for people, and hearing, you know, engineers on inference talk about safety. That's amazing. Like, I think that is, again, one of the most special things about working here, is everybody with that unity is prioritizing the pragmatism, the safety, the business. That's wild.",
+      "zh": "然后听到技术安全组深处的人也在谈论我们建设实用产品的重要性，听到推理（inference）团队的工程师在谈论安全——这太棒了。我觉得这又是在这里工作最特别的事之一：每个人在那种统一性下都在同时优先考虑务实性、安全性和商业——这太不寻常了。"
+    },
+    {
+      "en": "The safest move-",
+      "zh": "最安全的做法——"
+    },
+    {
+      "en": "I think about it as-",
+      "zh": "我把这想象成——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Spreading the trade-offs-\n\nYeah.\n\nFrom just the leadership of the company to everyone, right?",
+      "zh": "把取舍从只在公司领导层面讨论，扩展到让每个人都参与，对吧？"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "I think the dysfunctional world is like, you have a bunch of people who only see a big, you know, safety is like, \"We always have to do this,\" and product is like, \"We always have to do this,\" and research is like, you know, \"This is the only thing we care about.\" And then you're stuck at the top, right?",
+      "zh": "我觉得功能失调的世界是这样的：你有一群人只看到\"安全，我们必须做这个\"；产品说\"我们必须做那个\"；研究说\"这是我们唯一在乎的事\"。然后你就卡在顶层了——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "You're stuck at the top. You have to decide between you don't have as much information as either of them. That's the dysfunctional world. The functional world is when you're able to communicate to everyone, \"There are these trade-offs we're all facing together.\"",
+      "zh": "卡在顶层，你得在他们之间做决定，但你掌握的信息比他们每个人都少。这是功能失调的世界。功能正常的世界是你能传达给每个人：\"我们大家一起面对这些取舍。\""
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "The world is a far from perfect place. There's just trade-offs. Everything you do is gonna be suboptimal. Everything you do is gonna be some attempt to get the best of both worlds that, you know, doesn't work out as well as you thought it was, and everyone is on the same page about confronting those trade-offs together, and they just feel like they're confronting them from a particular post.",
+      "zh": "世界远不是完美的。到处都是取舍。你做的每件事都会是次优的。你做的每件事都是某种试图两全其美但不如预期的尝试。而每个人都在同一页面上一起面对这些取舍——只是从各自的岗位、各自的工作出发，作为整体面对所有取舍的一部分。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "From a particular job, as part of the overall job of confronting all the trade-offs.\n\nIt's a bet on race to the top, right?",
+      "zh": "这是对\"向上竞争\"（race to the top）的赌注，对吧？"
+    },
+    {
+      "en": "It's a bet on race to the top, yeah.",
+      "zh": "对，是对向上竞争的赌注。"
+    },
+    {
+      "en": "Like it's not a pure upside bet. Things could go wrong, but-",
+      "zh": "这不是一个纯粹只有上行空间的赌注。事情可能出错，但——"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "Like, we're all aligned on like, \"This is the bet that we're making.\"",
+      "zh": "我们都认同：\"这就是我们在做的赌注。\""
+    },
+    {
+      "en": "And markets are pragmatic, so if the more successful Anthropic becomes as a company, the more incentive there is for people to copy the things that make us successful. And the more that success is tied to actual safety stuff we do, the more it just creates a gravitational force in the industry that will actually get the rest of industry to compete. And it's like, \"Sure, we'll build seat belts and everyone else can copy them.\" That's good. Yeah.",
+      "zh": "而且市场是务实的。所以Anthropic作为公司越成功，其他人就越有动力去复制让我们成功的东西。我们的成功越是跟我们真正在做的安全工作捆绑在一起，它在行业中产生的引力就越大——会让行业其他人开始竞争。就像：\"当然，我们会造安全带，其他人可以复制。\"这是好事。"
+    },
+    {
+      "en": "That's like good world.",
+      "zh": "这就是好的世界。"
+    },
+    {
+      "en": "That's really good.",
+      "zh": "确实很好。"
+    },
+    {
+      "en": "Yeah. This is the race to the top, right? But if you're saying, \"Well, we're not gonna build the technology, you're not gonna build it better than someone else,\" that in the end, that just doesn't work because you're not proving that it's possible to get from here to there.",
+      "zh": "对。这就是向上竞争。但如果你说\"我们不打算去做这个技术，你不会比别人做得更好\"——到最后这是行不通的，因为你没有证明从这里到那里是可能的。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Where the world needs to get, nevermind the industry, nevermind one company, is it needs to get us successfully through from this technology does-doesn't exist to the technology exists in a very powerful way and society has actually managed it. And I think the only way that's gonna happen is that if you have, at the level of a single company, and eventually at the level of the industry, you're actually confronting those trade-offs. You have to find a way to actually be competitive, to actually lead the industry, in some cases, and yet manage to do things safely. And if you can do that, the gravitational pull you exert is so great. There's so many factors, from the regulatory environment, to the kinds of people who wanna work at different places, to, even sometimes, the views of customers-\n\nYeah.\n\nThat kind of drive in the direction of if you can show that you can do well on safety without sacrificing competitiveness, right, if you can find these kind of win-wins, then others are incentivized to do the same thing.",
+      "zh": "世界需要做到的——不仅是行业、不仅是一家公司——是让我们成功地从\"这项技术存在/不存在\"过渡到\"这项技术以非常强大的方式存在而且社会成功地管理了它\"。我认为这只有在你——先在单个公司层面，最终在行业层面——真正面对那些取舍时才能发生。你必须找到一种方式真正具有竞争力，在某些情况下甚至引领行业，同时做到安全。如果你能做到，你施加的引力就是巨大的。有很多因素——从监管环境，到什么样的人想在不同地方工作，到有时候客户的观点——都会在这个方向上推动：如果你能证明你可以在不牺牲竞争力的情况下做好安全——如果你能找到这些双赢——那其他人就有动力去做同样的事。"
+    },
+    {
+      "en": "Yeah, I mean I think that's why getting things like the RSP right is so important, because I think that we ourselves, seeing where the technology is headed, have often thought, \"Oh wow, we need to be really careful of this thing,\" but at the same time we have to be even more careful not to be crying wolf, saying that like, \"Innovation needs to stop here.\" We need to sort of find a way to make AI useful, innovative, delightful for customers, but also figure out what the constraints really have to be that we can stand behind, that makes systems safe, so that it's possible for others to think that they can do that too, and they can succeed, they can compete with us.",
+      "zh": "对，我觉得这就是为什么把RSP做对那么重要。因为我觉得我们自己看到技术走向的时候，经常会想\"哇，我们需要对这个东西非常小心\"。但同时我们必须更加小心不要\"狼来了\"——不要说\"创新必须在这里停止\"。我们需要找到一种方式让AI有用、创新、让客户喜欢，但同时弄清楚真正必须坚持的约束是什么——那些让系统安全的约束——好让其他人也觉得他们能做到，他们也能成功，他们能跟我们竞争。"
+    },
+    {
+      "en": "We're not doomers, right? Like, we wanna build the positive thing.",
+      "zh": "我们不是末日论者（doomers），对吧？我们想构建正面的东西。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "We wanna like build the good thing.",
+      "zh": "我们想做好的事。"
+    },
+    {
+      "en": "And we've seen it happen in practice. A few months after we came out with our RSP, the three most prominent AI companies had one, right? Interpretability research, that's another area we've done it. Just the focus on safety overall, like collaboration with the AI safety institutes, other areas.",
+      "zh": "而且我们已经在实践中看到了效果。在我们发布RSP几个月后，三家最著名的AI公司都有了自己的版本。interpretability（可解释性）研究也是我们引领的另一个领域。还有对安全的整体关注、与AI安全研究所的合作，等等。"
+    },
+    {
+      "en": "Yeah, the Frontier Red Team got cloned almost immediately, which is good. You want all the labs to be testing for like, very, very security-scary risks.",
+      "zh": "对，Frontier Red Team（前沿红队）几乎立刻就被复制了——这是好事。你希望所有实验室都在测试那些非常非常令人担忧的安全风险。"
+    },
+    {
+      "en": "Export the seat belts.",
+      "zh": "输出安全带。"
+    },
+    {
+      "en": "Yeah, exactly.",
+      "zh": "对，正是如此。"
+    },
+    {
+      "en": "Mm-hmm, export the seat belts. Well, Jack also mentioned it earlier, but customers also really care about safety, right? Customers don't want models that are hallucinating. They don't want models that are easy to jailbreak. They want models that are helpful and harmless, right?",
+      "zh": "嗯，输出安全带。Jack刚才也提到了，但客户也真的很在意安全，对吧？客户不想要会产生幻觉（hallucinating）的模型。他们不想要容易被越狱（jailbreak）的模型。他们想要有用且无害的模型，对吧？"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "And so a lot of the time, what we hear in customer calls is just, \"We're going with Claude because we know it's safer.\" I think that is also a huge market impact, right, because our ability to have models that are trustworthy and reliable, that matters for the market pressure that it puts on competitors, too.",
+      "zh": "所以我们在客户电话中经常听到的是：\"我们选择Claude是因为我们知道它更安全。\"我觉得这也是巨大的市场影响，因为我们的模型是可信赖和可靠的——这对竞争对手造成的市场压力也很重要。"
+    },
+    {
+      "en": "Maybe to unpack something that Dario said a little bit more, I think there's this narrative or this idea that maybe the virtuous thing is to almost like nobly fail, right? It's like you should go and like put safety, you should go and put things, you should sort of demonstrate like in an impragmatic way so that you can sort of demonstrate your purity to the cause or something like this. And I think if you do that, it's actually very self-defeating. For one thing, it means that you're gonna have the people who are are deciding, making decisions, be self-selected for being people who don't care, and for people who aren't prioritizing safety and who don't care about it. And I think, on the other hand, if you try really hard to find the way to align the incentives and make it so that if there are hard decisions, they happen at the points where there is the most force to go and support making the correct hard decisions, and where there's the most evidence, then you can sort of start to trigger this race to the top that Dario is describing, where instead of going and having, you know, the people who care get pushed out of influence, you instead pull other people to have to go and follow.",
+      "zh": "也许把Dario说的展开一点：有这样一种叙事或观点，认为\"高尚\"的事是几乎要\"高贵地失败\"——你应该去把安全放在前面，你应该以一种不务实的方式去展示你对事业的纯洁性。但如果你这么做，实际上是自我打败的。一方面，这意味着做决策的人会自我筛选为那些不在乎安全的人——不优先考虑安全的人。另一方面，如果你真的很努力地去对齐激励机制，让艰难决定发生在最有力量支持做出正确决定的时刻、有最多证据的时刻——那你就能开始触发Dario描述的向上竞争：不是让在乎的人被排除在影响力之外，而是把其他人拉过来跟随。"
+    },
+    {
+      "en": "So what are you all excited about when it comes to the next things we'll be working on?",
+      "zh": "那你们对接下来要做的事有什么期待？"
+    },
+    {
+      "en": "Well, I think there's a bunch of reasons you can be excited about interpretability. One is obviously safety, but there's another one that I think I find, at an emotional level, you know, equally exciting or equally meaningful to me, which is just that I think neural networks are beautiful and I think that there's a lot of beauty in them that we don't see. We treat them like these black boxes that we're not particularly interested in the internal stuff, but when you start to go and look inside them, they're just full of amazing, beautiful structure. You know, it's sort of like if people looked at biology and they were like, \"You know, evolution is really boring. It's just a simple thing that goes and runs for a long time, and then it makes animals,\" and like, instead, it's like, actually, you know, each one of those animals that evolution produces, and I think that, you know, it's an optimization process, like training a neural network. You know, they're full of incredible complexity and structure, and we have an entire sort of artificial biology inside of neural networks. If you're just willing to look inside them, there's all of this amazing stuff. And I think that we're just starting to slowly unpack it, and it's incredible, and there's so much there, but there's just so much we discovered there. We're just starting to crack it open and I think it's gonna be amazing and beautiful. And sometimes I imagine, you know, like a decade in the future, walking into a bookstore and buying, you know, the textbook on neural network interpretability or really, like, on the biology of neural networks, and just the kind of wild things that are gonna be inside of it. And I think that in the next decade, in the next couple of years even, we're gonna go and start to go in and really discover all of those things. And it's gonna be wild and incredible.",
+      "zh": "我觉得有很多理由对 interpretability（可解释性）感到兴奋。一个显然是安全。但还有另一个在情感层面让我同样兴奋或同样有意义的原因：我觉得神经网络是美丽的。里面有很多我们没有看到的美。我们把它们当作黑箱，对内部的东西没什么兴趣。但当你开始往里面看，它们充满了惊人的、美丽的结构。就好比如果人们看着生物学说：\"进化很无聊，就是一个简单的东西运行很长时间，然后产出动物。\"但实际上，进化产出的每一种动物——它是一个优化过程，就像训练神经网络——里面充满了令人难以置信的复杂性和结构。我们的神经网络里有一整套人造生物学。如果你愿意看进去，里面有这么多令人惊叹的东西。我觉得我们刚刚开始慢慢揭开它，太不可思议了。还有太多东西等待发现。我们才刚刚把它撬开，我觉得它会令人惊叹和美丽。有时候我会想象，十年后走进一家书店，买到那本关于神经网络可解释性的教科书——或者说真正的\"神经网络生物学\"——里面会有多么狂野的东西。我觉得在接下来的十年甚至几年内，我们就会开始深入地发现所有这些东西。这将会很狂野、很不可思议。"
+    },
+    {
+      "en": "It's also gonna be great that you get to buy your own textbook.",
+      "zh": "而且到时候你还能买到自己写的教科书呢。"
+    },
+    {
+      "en": "Just have your face on it.",
+      "zh": "封面上还有你的照片。"
+    },
+    {
+      "en": "I mean, yeah.",
+      "zh": "我是说，对。"
+    },
+    {
+      "en": "I'm excited that a few years ago if you had said like, \"Governments will set up new bodies to test and evaluate AI systems and they will actually be competent and good,\" you would've not thought that was going to be the case. But it's happened, it's kind of like governments have built these new embassies, almost, to deal with this new kind of class of technology or, like, thing that Chris studies. And I'm just very excited to see where that goes. I think it actually means that we have state capacity to deal with this kind of societal transition, so it's not just companies. And I'm excited to help with that.",
+      "zh": "让我兴奋的是：几年前如果你说\"政府会成立新机构来测试和评估AI系统，而且这些机构会是称职和优秀的\"——你不会觉得这会发生。但它发生了。有点像政府建了这些新的\"大使馆\"来应对这类新技术——或者说Chris研究的那类东西。我很期待看到它往哪发展。我觉得这意味着我们确实有国家能力来应对这种社会转型——不只是公司在做。我很兴奋能参与其中。"
+    },
+    {
+      "en": "I'm already excited about this to, you know, to a certain extent today, but I think just imagining the future world of what AI is going to be able to do for people is it's impossible to not feel excited about that. Dario talks about this a lot, but I think even just the sort of glimmers of Claude being able to help with, you know, vaccine development and cancer research and biological research is crazy, like, just to be able to watch what it can do now, but when I fast forward, you know, three years in the future or five years in the future, imagining that Claude could actually solve so many of the fundamental problems that we just face as humans. Even just from a health perspective alone, even if you sort of take everything else out, feels really exciting to me, just like thinking back to my international development times. It would be amazing if Claude was responsible for helping to do a lot of the work that I was trying to do a lot less effectively when I was, like, 25.",
+      "zh": "我已经在某种程度上对此感到兴奋了，但我想象一下AI未来能为人们做什么——你不可能不感到兴奋。Dario经常谈到这个，但我觉得哪怕只是现在Claude能帮助疫苗开发、癌症研究和生物学研究的那些微光——就已经很疯狂了。当我快进到三年后或五年后，想象Claude实际上能解决那么多我们作为人类面临的根本问题——哪怕只从健康角度来看、把其他一切都抛开——都让我非常兴奋。回想我做国际发展工作的那段时间：如果Claude能帮助做到我25岁时效率低得多地试图做到的那些工作，那将太棒了。"
+    },
+    {
+      "en": "I mean, I guess similarly, I'm excited to build Claude for work. Like, I'm excited to build Claude into the company and into companies all over the world.",
+      "zh": "我也差不多。我很兴奋能为工作场景构建Claude。把Claude构建到我们公司里、构建到全世界的公司里。"
+    },
+    {
+      "en": "I guess I'm excited just for, I guess like, personally, like I like using Claude a lot at work, and so like, definitely, there's been increasing amounts of like home times with like me just like chatting with Claude about stuff. I think the biggest recent thing has been code-",
+      "zh": "我想我个人就是很兴奋。我很喜欢在工作中使用Claude。而且最近越来越多地在家也跟Claude聊各种事。我觉得最近最大的变化是代码——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Where like six months ago, I didn't use Claude to do any coding work. Like, our teams didn't really use Claude that much for coding, and now it's like just phase difference. Like, I gave a talk at YCU like week before last, and at the beginning I just asked like, \"Okay, so how many folks here use Claude for coding now?\" And literally 95% of hands-",
+      "zh": "六个月前我完全不用Claude写代码。我们的团队也不怎么用Claude写代码。但现在完全是相变级别的变化。我前不久在YC做了个演讲，一开始我就问：\"你们有多少人现在用Claude写代码？\"字面上95%的人举手——"
+    },
+    {
+      "en": "Wow.",
+      "zh": "哇。"
+    },
+    {
+      "en": "Like, all the hands in the room, which just is totally different than how it was four months ago or whatever.",
+      "zh": "全场所有人。这跟四个月前完全不同。"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "Yeah.",
+      "zh": "对。"
+    },
+    {
+      "en": "So when I think about what I'm excited about, I think about places where, you know, like I said before, where there's this kind of consensus that, again, seems like consensus, seems like what everyone wise thinks, and then it just kind of breaks, and so places where I think that's about to happen and it hasn't happened yet. One of them is interpretability. I think interpretability is both the key to steering and making safe AI systems, and we're about to understand, and interpretability contains insights about intelligent optimization problems and about how the human brain works. I've said, and I'm really not joking, Chris Olah is gonna be a future Nobel Medicine Laureate.",
+      "zh": "所以当我想我对什么兴奋的时候，我想的是那些地方——就像我之前说的——有这种看似共识的东西，看起来像所有聪明人的共同看法，然后它突然崩塌的地方。我觉得即将发生但还没发生的有几个领域。一个是 interpretability（可解释性）。我觉得可解释性既是引导AI系统和让其安全的关键，同时可解释性包含着关于智能优化问题和人脑运作方式的洞见。我说过——而且我不是在开玩笑——Chris Olah将来会是诺贝尔医学奖得主。"
+    },
+    {
+      "en": "Aw, yeah.",
+      "zh": "哇，对。"
+    },
+    {
+      "en": "I'm serious. I'm serious, because a lot of these, I used to be a neuroscientist, a lot of these mental illnesses, the ones we haven't figured out, right, schizophrenia or the mood disorders, I suspect there's some higher level system thing going on and that it's hard to make sense of those with brains because brains are so mushy and hard to open up and interact with. Neural nets are not like this; they're not a perfect analogy, but as time goes on, they will be a better analogy. That's one area. Second is, related to that, I think just the use of AI for biology. Biology is an incredibly difficult problem. People continue to be skeptical, for a number of reasons. I think that consensus is starting to break. We saw a Nobel Prize in chemistry awarded for AlphaFold; remarkable accomplishment. We should be trying to build things that can help us create a hundred AlphaFolds. And then finally, using AI to enhance democracy. We worry about if AI is built in the wrong way, it can be a tool for authoritarianism. How can AI be a tool for freedom and self-determination? I think that one is earlier than the other two, but it's gonna be just as important.",
+      "zh": "我是认真的。我是认真的。因为很多这些——我以前是神经科学家——很多我们还没弄明白的精神疾病，比如精神分裂症或情绪障碍，我怀疑有某种更高层次的系统性问题在发生。用大脑来研究这些很难，因为大脑太软糊、太难打开和交互了。神经网络不是这样的——它们不是完美的类比，但随着时间推移会越来越好。这是一个领域。第二个相关的是：AI用于生物学。生物学是一个极其困难的问题，人们因为各种原因继续持怀疑态度。我觉得这个共识正在瓦解。我们看到了诺贝尔化学奖授予了AlphaFold——了不起的成就。我们应该努力构建能帮助创造一百个AlphaFold的东西。最后是：用AI增强民主。我们担心如果AI以错误的方式被构建，它可能成为威权主义的工具。AI如何能成为自由和自决的工具？我觉得这个比前两个更早期，但它会同样重要。"
+    },
+    {
+      "en": "Yeah, I mean, I guess two things that at least connect to what you were saying earlier, I mean, one is I feel like people frequently join Anthropic because they're sort of scientifically really curious about AI and then kind of get convinced by AI progress to sort of share the vision of the need, not just to advance the technology, but to understand it more deeply and to make sure that it's safe. And I feel like it's actually just sort of exciting to have people that you're working with kind of more and more united in their vision for both what AI development looks like and the sort of sense of responsibility associated with it. And I feel like that's been happening a lot due to a lot of advances that have happened in the last year, like what Tom talked about. Another is that, I mean, going back really to concrete problems, I feel like we've done a lot of work on AI safety up until this point. A lot of it's really important, but I think we're now, with some recent developments, really getting a glimmer of what kinds of risks might literally come about from systems that are very, very advanced-",
+      "zh": "对，我想至少有两件事跟你之前说的相关。一个是我觉得人们经常加入Anthropic是因为他们对AI有科学好奇心，然后被AI的进展说服了——开始分享那个愿景：不仅是推进技术，还要更深入地理解它、确保它是安全的。我觉得跟越来越在愿景上统一的人一起工作——无论是对AI开发的愿景还是与之相关的责任感——本身就令人兴奋。而且由于过去一年的很多进展——比如Tom谈到的——这种统一一直在加深。另一个是，回到 concrete problems（具体问题）：我觉得到目前为止我们在AI安全方面做了很多工作，很多都很重要。但我觉得现在随着一些最近的发展，我们正在真正看到一丝端倪——那些非常非常先进的系统可能会带来什么样的风险——"
+    },
+    {
+      "en": "Mm-hmm.",
+      "zh": "嗯。"
+    },
+    {
+      "en": "So that we can investigate and study them directly with interpretability, with other kinds of safety mechanisms, and really understand what the risks from very advanced AI might look like. And I think that that's something that is really gonna allow us to sort of further the mission in a really deeply scientific, empirical way. And so I'm excited about sort of the next six months of how we use our understanding of what can go wrong with advanced systems to characterize that and figure out how to avoid those pitfalls.",
+      "zh": "这样我们就能用可解释性、用其他安全机制直接去调查和研究它们，真正理解非常先进的AI可能的风险长什么样。我觉得这将让我们以一种真正深度科学化、经验化的方式去推进使命。所以我很期待接下来六个月里，我们如何利用对先进系统可能出错之处的理解来描述这些问题、弄清楚如何避免那些陷阱。"
+    },
+    {
+      "en": "Perfect. Fin!",
+      "zh": "完美。结束！"
+    },
+    {
+      "en": "Yay!",
+      "zh": "耶！"
+    },
+    {
+      "en": "We did it!",
+      "zh": "我们做到了！"
+    },
+    {
+      "en": "Woo!",
+      "zh": "哇！"
+    },
+    {
+      "en": "Good time.",
+      "zh": "不错的体验。"
+    },
+    {
+      "en": "I know. We gotta do this more often.",
+      "zh": "对。我们得多做几次这样的对话。"
+    }
+  ]
 }
