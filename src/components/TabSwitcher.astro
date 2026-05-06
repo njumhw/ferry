@@ -4,17 +4,15 @@ import BilingualPanel from './BilingualPanel.astro';
 interface Props {
   memoHtml: string;
   translationHtml: string;
-  originalHtml: string;
   bilingualPairs?: Array<{ zh: string; en: string }>;
 }
 
-const { memoHtml, translationHtml, originalHtml, bilingualPairs } = Astro.props;
+const { memoHtml, translationHtml, bilingualPairs } = Astro.props;
 ---
 <div class="tab-container">
   <div class="tab-nav">
     <button class="tab-btn active" data-tab="memo">纪要</button>
     <button class="tab-btn" data-tab="translation">双语对照</button>
-    <button class="tab-btn" data-tab="original">英文原文</button>
   </div>
   <div class="tab-panels">
     <div class="tab-panel active" id="panel-memo" set:html={memoHtml} />
@@ -24,7 +22,6 @@ const { memoHtml, translationHtml, originalHtml, bilingualPairs } = Astro.props;
         : <Fragment set:html={translationHtml} />
       }
     </div>
-    <div class="tab-panel" id="panel-original" set:html={originalHtml} />
   </div>
 </div>
 
@@ -102,7 +99,7 @@ const { memoHtml, translationHtml, originalHtml, bilingualPairs } = Astro.props;
     });
 
     const hash = window.location.hash.slice(1);
-    if (hash && ['memo', 'translation', 'original'].includes(hash)) {
+    if (hash && ['memo', 'translation'].includes(hash)) {
       switchTab(hash);
     }
   });
