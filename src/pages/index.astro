@@ -20,11 +20,7 @@ for (const video of sorted) {
   byChannel.get(channel_slug)!.videos.push(video);
 }
 const channelGroups = [...byChannel.entries()]
-  .sort((a, b) => {
-    const aLatest = a[1].videos[0].data.metadata.published_at;
-    const bLatest = b[1].videos[0].data.metadata.published_at;
-    return bLatest.localeCompare(aLatest);
-  });
+  .sort((a, b) => b[1].videos.length - a[1].videos.length);
 
 // Group by guest, sort by most recent appearance
 const byGuest = new Map<string, { name: string; videos: typeof sorted }>();
@@ -48,11 +44,7 @@ for (const video of sorted) {
   }
 }
 const guestGroups = [...byGuest.entries()]
-  .sort((a, b) => {
-    const aLatest = a[1].videos[0].data.metadata.published_at;
-    const bLatest = b[1].videos[0].data.metadata.published_at;
-    return bLatest.localeCompare(aLatest);
-  });
+  .sort((a, b) => b[1].videos.length - a[1].videos.length);
 ---
 <Base title="首页">
   <div class="home">
