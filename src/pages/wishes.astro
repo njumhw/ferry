@@ -101,8 +101,10 @@ const videoIndex = allVideos.map(v => ({
     font-size: 13px;
     color: #c5c5be;
   }
+</style>
 
-  .wish-item {
+<style is:global>
+  #wishes-list .wish-item {
     display: flex;
     align-items: flex-start;
     gap: 12px;
@@ -114,20 +116,20 @@ const videoIndex = allVideos.map(v => ({
     box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
     transition: border-color 0.2s;
   }
-  .wish-item.done {
+  #wishes-list .wish-item.done {
     border-left: 2px solid #7cb07e;
   }
-  .wish-item.pending {
+  #wishes-list .wish-item.pending {
     border-left: 2px solid rgba(0, 0, 0, 0.06);
   }
-  .wish-body { flex: 1; min-width: 0; }
-  .wish-url-row {
+  #wishes-list .wish-body { flex: 1; min-width: 0; }
+  #wishes-list .wish-url-row {
     display: flex;
     align-items: center;
     gap: 8px;
     margin-bottom: 4px;
   }
-  .wish-url {
+  #wishes-list .wish-url {
     font-size: 13px;
     font-weight: 500;
     color: #1a1a18;
@@ -135,21 +137,21 @@ const videoIndex = allVideos.map(v => ({
     text-overflow: ellipsis;
     white-space: nowrap;
   }
-  .wish-url a {
+  #wishes-list .wish-url a {
     color: inherit;
     text-decoration: none;
   }
-  .wish-url a:hover { text-decoration: underline; }
-  .wish-note-text {
+  #wishes-list .wish-url a:hover { text-decoration: underline; }
+  #wishes-list .wish-note-text {
     font-size: 12px;
     color: #8b8b85;
     margin-bottom: 4px;
   }
-  .wish-time {
+  #wishes-list .wish-time {
     font-size: 11px;
     color: #c5c5be;
   }
-  .wish-status {
+  #wishes-list .wish-status {
     flex-shrink: 0;
     font-size: 11px;
     font-weight: 600;
@@ -159,37 +161,35 @@ const videoIndex = allVideos.map(v => ({
     white-space: nowrap;
     margin-top: 2px;
   }
-  .status-done {
+  #wishes-list .status-done {
     background: rgba(124, 176, 126, 0.12);
     color: #5a9a5c;
   }
-  .status-pending {
+  #wishes-list .status-pending {
     background: rgba(0, 0, 0, 0.03);
     color: #a3a39e;
   }
-  .wish-video-link {
+  #wishes-list .wish-video-link {
     display: inline-block;
     font-size: 12px;
     color: #5a9a5c;
     margin-top: 4px;
   }
-  .wish-video-link:hover { text-decoration: underline; }
-
-  .wishes-empty {
+  #wishes-list .wish-video-link:hover { text-decoration: underline; }
+  #wishes-list .wishes-empty {
     text-align: center;
     padding: 40px 0;
     font-size: 13px;
     color: #c5c5be;
   }
-
-  .wishes-stats {
+  #wishes-list .wishes-stats {
     display: flex;
     gap: 16px;
     margin-bottom: 16px;
     font-size: 12px;
     color: #a3a39e;
   }
-  .stat-num {
+  #wishes-list .stat-num {
     font-weight: 600;
     color: #1a1a18;
   }
