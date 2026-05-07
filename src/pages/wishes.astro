@@ -1,0 +1,303 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+
+const allVideos = await getCollection('videos');
+const videoIndex = allVideos.map(v => ({
+  id: v.data.metadata.video_id,
+  title: v.data.metadata.title,
+  slug: v.id,
+}));
+---
+<Base title="点播">
+  <div class="wishes-page">
+    <div class="wishes-header">
+      <h1 class="wishes-title">点播</h1>
+      <p class="wishes-desc">提交你想看的视频链接，猫头鹰会帮你翻译整理</p>
+    </div>
+
+    <div class="wish-form-card">
+      <input class="wish-input" id="wish-url" type="url" placeholder="粘贴 YouTube 链接" />
+      <div class="wish-form-row">
+        <input class="wish-input wish-note-inline" id="wish-note" placeholder="备注（可选）" />
+        <button class="wish-submit" id="wish-submit">提交</button>
+      </div>
+    </div>
+
+    <div class="wishes-list" id="wishes-list">
+      <div class="wishes-loading">加载中...</div>
+    </div>
+  </div>
+</Base>
+
+<style>
+  .wishes-page { padding-top: 28px; max-width: 720px; margin: 0 auto; }
+
+  .wishes-header { margin-bottom: 28px; }
+  .wishes-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1a1a18;
+    letter-spacing: 0.3px;
+    margin-bottom: 6px;
+  }
+  .wishes-desc {
+    font-size: 13px;
+    color: #8b8b85;
+  }
+
+  .wish-form-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 12px;
+    padding: 16px 18px;
+    margin-bottom: 32px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+  }
+  .wish-form-card .wish-input {
+    width: 100%;
+    font-family: inherit;
+    font-size: 13px;
+    padding: 10px 12px;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 8px;
+    outline: none;
+    color: #2d2d2a;
+    background: #fafaf8;
+    margin-bottom: 10px;
+    transition: border-color 0.2s;
+  }
+  .wish-form-card .wish-input:focus { border-color: rgba(0, 0, 0, 0.15); }
+  .wish-form-card .wish-input::placeholder { color: #c5c5be; }
+  .wish-form-row {
+    display: flex;
+    gap: 10px;
+  }
+  .wish-note-inline {
+    flex: 1;
+    margin-bottom: 0 !important;
+  }
+  .wish-submit {
+    font-family: inherit;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 8px;
+    background: #1a1a18;
+    color: #fff;
+    cursor: pointer;
+    letter-spacing: 0.3px;
+    transition: opacity 0.2s;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+  .wish-submit:hover { opacity: 0.85; }
+  .wish-submit:disabled { opacity: 0.4; cursor: default; }
+
+  .wishes-loading {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 13px;
+    color: #c5c5be;
+  }
+
+  .wish-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.04);
+    border-radius: 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+    transition: border-color 0.2s;
+  }
+  .wish-item.done {
+    border-left: 2px solid #7cb07e;
+  }
+  .wish-item.pending {
+    border-left: 2px solid rgba(0, 0, 0, 0.06);
+  }
+  .wish-body { flex: 1; min-width: 0; }
+  .wish-url-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 4px;
+  }
+  .wish-url {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1a1a18;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .wish-url a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .wish-url a:hover { text-decoration: underline; }
+  .wish-note-text {
+    font-size: 12px;
+    color: #8b8b85;
+    margin-bottom: 4px;
+  }
+  .wish-time {
+    font-size: 11px;
+    color: #c5c5be;
+  }
+  .wish-status {
+    flex-shrink: 0;
+    font-size: 11px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.3px;
+    white-space: nowrap;
+    margin-top: 2px;
+  }
+  .status-done {
+    background: rgba(124, 176, 126, 0.12);
+    color: #5a9a5c;
+  }
+  .status-pending {
+    background: rgba(0, 0, 0, 0.03);
+    color: #a3a39e;
+  }
+  .wish-video-link {
+    display: inline-block;
+    font-size: 12px;
+    color: #5a9a5c;
+    margin-top: 4px;
+  }
+  .wish-video-link:hover { text-decoration: underline; }
+
+  .wishes-empty {
+    text-align: center;
+    padding: 40px 0;
+    font-size: 13px;
+    color: #c5c5be;
+  }
+
+  .wishes-stats {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    color: #a3a39e;
+  }
+  .stat-num {
+    font-weight: 600;
+    color: #1a1a18;
+  }
+</style>
+
+<script is:inline define:vars={{ videoIndex }}>
+  var WORKER = 'https://owl-counter.njumwh.workers.dev';
+  var listEl = document.getElementById('wishes-list');
+
+  function extractVideoId(url) {
+    try {
+      var u = new URL(url);
+      if (u.hostname === 'youtu.be') return u.pathname.slice(1);
+      if (u.hostname.includes('youtube.com')) return u.searchParams.get('v');
+    } catch(e) {}
+    return null;
+  }
+
+  var idToVideo = {};
+  videoIndex.forEach(function(v) { idToVideo[v.id] = v; });
+
+  function findMatch(url) {
+    var vid = extractVideoId(url);
+    if (vid && idToVideo[vid]) return idToVideo[vid];
+    return null;
+  }
+
+  function formatTime(iso) {
+    try {
+      var d = new Date(iso);
+      return d.getFullYear() + '-' +
+        String(d.getMonth()+1).padStart(2,'0') + '-' +
+        String(d.getDate()).padStart(2,'0') + ' ' +
+        String(d.getHours()).padStart(2,'0') + ':' +
+        String(d.getMinutes()).padStart(2,'0');
+    } catch(e) { return iso; }
+  }
+
+  function displayUrl(url) {
+    try {
+      var u = new URL(url);
+      var path = u.pathname + u.search;
+      if (path.length > 50) path = path.slice(0, 47) + '...';
+      return u.hostname + path;
+    } catch(e) { return url; }
+  }
+
+  function render(wishes) {
+    if (!wishes.length) {
+      listEl.innerHTML = '<div class="wishes-empty">还没有点播，来提交第一个吧</div>';
+      return;
+    }
+
+    var reversed = wishes.slice().reverse();
+    var doneCount = 0;
+    reversed.forEach(function(w) { if (findMatch(w.url)) doneCount++; });
+
+    var html = '<div class="wishes-stats">' +
+      '<span>共 <span class="stat-num">' + reversed.length + '</span> 条</span>' +
+      '<span>已完成 <span class="stat-num">' + doneCount + '</span></span>' +
+      '<span>排队中 <span class="stat-num">' + (reversed.length - doneCount) + '</span></span>' +
+      '</div>';
+
+    reversed.forEach(function(w) {
+      var match = findMatch(w.url);
+      var isDone = !!match;
+      html += '<div class="wish-item ' + (isDone ? 'done' : 'pending') + '">';
+      html += '<div class="wish-body">';
+      html += '<div class="wish-url-row"><span class="wish-url"><a href="' + w.url + '" target="_blank" rel="noopener">' + displayUrl(w.url) + '</a></span></div>';
+      if (w.note) html += '<div class="wish-note-text">' + w.note.replace(/</g, '&lt;') + '</div>';
+      if (isDone) html += '<a class="wish-video-link" href="/v/' + match.slug + '">→ ' + match.title.replace(/</g, '&lt;') + '</a>';
+      html += '<div class="wish-time">' + formatTime(w.time) + '</div>';
+      html += '</div>';
+      html += '<span class="wish-status ' + (isDone ? 'status-done' : 'status-pending') + '">' + (isDone ? '已完成' : '排队中') + '</span>';
+      html += '</div>';
+    });
+
+    listEl.innerHTML = html;
+  }
+
+  fetch(WORKER + '/wishes')
+    .then(function(r) { return r.json(); })
+    .then(render)
+    .catch(function() {
+      listEl.innerHTML = '<div class="wishes-empty">加载失败，请刷新重试</div>';
+    });
+
+  document.getElementById('wish-submit').addEventListener('click', function() {
+    var urlEl = document.getElementById('wish-url');
+    var noteEl = document.getElementById('wish-note');
+    var urlVal = urlEl.value.trim();
+    if (!urlVal) { urlEl.focus(); return; }
+    var btn = this;
+    btn.disabled = true;
+    btn.textContent = '提交中...';
+    fetch(WORKER + '/wishes', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ url: urlVal, note: noteEl.value.trim() })
+    }).then(function() {
+      urlEl.value = '';
+      noteEl.value = '';
+      btn.disabled = false;
+      btn.textContent = '提交';
+      return fetch(WORKER + '/wishes').then(function(r) { return r.json(); }).then(render);
+    }).catch(function() {
+      btn.disabled = false;
+      btn.textContent = '提交';
+    });
+  });
+</script>

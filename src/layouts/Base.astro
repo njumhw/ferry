@@ -180,62 +180,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       border-radius: 10px;
     }
 
-    .wish-input {
-      width: 100%;
-      font-family: inherit;
-      font-size: 13px;
-      padding: 10px 12px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 8px;
-      outline: none;
-      color: #2d2d2a;
-      background: #fafaf8;
-      margin-bottom: 10px;
-      transition: border-color 0.2s;
-    }
-    .wish-input:focus { border-color: rgba(0, 0, 0, 0.15); }
-    .wish-input::placeholder { color: #c5c5be; }
-    .wish-note {
-      width: 100%;
-      font-family: inherit;
-      font-size: 12px;
-      padding: 8px 12px;
-      border: 1px solid rgba(0, 0, 0, 0.08);
-      border-radius: 8px;
-      outline: none;
-      color: #2d2d2a;
-      background: #fafaf8;
-      margin-bottom: 16px;
-      resize: none;
-      height: 48px;
-      transition: border-color 0.2s;
-    }
-    .wish-note:focus { border-color: rgba(0, 0, 0, 0.15); }
-    .wish-note::placeholder { color: #c5c5be; }
-    .wish-submit {
-      width: 100%;
-      font-family: inherit;
-      font-size: 13px;
-      font-weight: 600;
-      padding: 10px;
-      border: none;
-      border-radius: 8px;
-      background: #1a1a18;
-      color: #fff;
-      cursor: pointer;
-      letter-spacing: 0.3px;
-      transition: opacity 0.2s;
-    }
-    .wish-submit:hover { opacity: 0.85; }
-    .wish-submit:disabled { opacity: 0.4; cursor: default; }
-    .wish-ok {
-      text-align: center;
-      font-size: 13px;
-      color: #8b8b85;
-      padding: 20px 0;
-      display: none;
-    }
-
     .owl-eye {
       transition: r 0.15s ease;
     }
@@ -324,7 +268,7 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         <span class="owl-count" id="owl-count"></span>
       </a>
       <nav>
-        <button class="nav-contact" id="wish-btn">点播</button>
+        <a href="/wishes" class="nav-contact">点播</a>
         <button class="nav-contact" id="contact-btn">联系作者</button>
       </nav>
     </div>
@@ -345,19 +289,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         <p class="modal-label">感谢打赏</p>
         <img src="/tip.png" alt="打赏码" class="modal-qr" />
       </div>
-    </div>
-  </div>
-
-  <div class="modal-overlay" id="wish-modal">
-    <div class="modal">
-      <button class="modal-close" id="wish-close">&times;</button>
-      <p class="modal-quote">告诉猫头鹰你想看什么</p>
-      <div id="wish-form">
-        <input class="wish-input" id="wish-url" type="url" placeholder="粘贴 YouTube 链接" />
-        <textarea class="wish-note" id="wish-note" placeholder="备注（可选）"></textarea>
-        <button class="wish-submit" id="wish-submit">提交</button>
-      </div>
-      <div class="wish-ok" id="wish-ok">已收到，谢谢 🦉</div>
     </div>
   </div>
 
@@ -390,20 +321,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       if (e.target === this) this.classList.remove('open');
     });
 
-    var wishModal = document.getElementById('wish-modal');
-    var wishForm = document.getElementById('wish-form');
-    var wishOk = document.getElementById('wish-ok');
-    document.getElementById('wish-btn').addEventListener('click', function() {
-      wishForm.style.display = ''; wishOk.style.display = 'none';
-      wishModal.classList.add('open');
-    });
-    document.getElementById('wish-close').addEventListener('click', function() {
-      wishModal.classList.remove('open');
-    });
-    wishModal.addEventListener('click', function(e) {
-      if (e.target === this) this.classList.remove('open');
-    });
-
     var WORKER = 'https://owl-counter.njumwh.workers.dev';
     var owlBtn = document.getElementById('owl-btn');
     var owlCount = document.getElementById('owl-count');
@@ -425,23 +342,6 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       });
     });
 
-    document.getElementById('wish-submit').addEventListener('click', function() {
-      var urlVal = document.getElementById('wish-url').value.trim();
-      var noteVal = document.getElementById('wish-note').value.trim();
-      if (!urlVal) return;
-      this.disabled = true;
-      fetch(WORKER + '/wishes', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ url: urlVal, note: noteVal })
-      }).then(function() {
-        wishForm.style.display = 'none';
-        wishOk.style.display = 'block';
-        document.getElementById('wish-url').value = '';
-        document.getElementById('wish-note').value = '';
-        document.getElementById('wish-submit').disabled = false;
-      });
-    });
   </script>
 </body>
 </html>
