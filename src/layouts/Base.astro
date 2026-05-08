@@ -172,11 +172,81 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
       color: #1a1a18;
       letter-spacing: 0.5px;
     }
-    .modal-tip { text-align: center; }
-    .modal-tip .modal-label { margin-bottom: 12px; }
-    .modal-qr {
+    .tip-trigger {
+      display: flex;
+      align-items: center;
+      gap: 8px;
       width: 100%;
-      max-width: 180px;
+      padding: 10px 14px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      border-radius: 10px;
+      background: #fafaf8;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-family: inherit;
+    }
+    .tip-trigger:hover {
+      background: #f0efeb;
+      border-color: rgba(0, 0, 0, 0.1);
+    }
+    .tip-trigger:hover .tip-owl {
+      transform: rotate(-8deg);
+    }
+    .tip-trigger.tapped .tip-owl {
+      animation: tipBounce 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    @keyframes tipBounce {
+      0% { transform: rotate(0deg) scale(1); }
+      20% { transform: rotate(-12deg) scale(1.15); }
+      40% { transform: rotate(8deg) scale(1.1); }
+      60% { transform: rotate(-4deg) scale(1.05); }
+      80% { transform: rotate(2deg) scale(1); }
+      100% { transform: rotate(0deg) scale(1); }
+    }
+    .tip-owl {
+      flex-shrink: 0;
+      color: #a3a39e;
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), color 0.2s;
+    }
+    .tip-trigger:hover .tip-owl { color: #1a1a18; }
+    .tip-eye { transition: r 0.15s ease; }
+    .tip-trigger.tapped .tip-eye {
+      animation: tipWink 0.4s ease;
+    }
+    @keyframes tipWink {
+      0% { r: 0.8; }
+      30% { r: 0; }
+      60% { r: 1.1; }
+      100% { r: 0.8; }
+    }
+    .tip-text {
+      font-size: 12px;
+      color: #a3a39e;
+      transition: color 0.2s;
+    }
+    .tip-trigger:hover .tip-text { color: #2d2d2a; }
+    .tip-reveal {
+      text-align: center;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+                  opacity 0.25s ease,
+                  margin-top 0.35s ease;
+      margin-top: 0;
+    }
+    .tip-reveal.open {
+      max-height: 220px;
+      opacity: 1;
+      margin-top: 16px;
+    }
+    .tip-thanks {
+      font-size: 12px;
+      color: #a3a39e;
+      margin-bottom: 10px;
+    }
+    .tip-qr {
+      width: 140px;
       border-radius: 10px;
     }
 
@@ -285,9 +355,25 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
         <span class="modal-label">微信</span>
         <span class="modal-value">njumwh</span>
       </div>
-      <div class="modal-tip">
-        <p class="modal-label">感谢打赏</p>
-        <img src="/tip.png" alt="打赏码" class="modal-qr" />
+      <button class="tip-trigger" id="tip-trigger">
+        <svg class="tip-owl" width="20" height="20" viewBox="2 3 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M4 9L6.5 4L9 8" />
+          <path d="M15 8L17.5 4L20 9" />
+          <path d="M4 9C3 11 3 13 4 15C5 17 7 18.5 12 18.5C17 18.5 19 17 20 15C21 13 21 11 20 9" />
+          <circle cx="9" cy="12" r="2.2" />
+          <circle cx="15" cy="12" r="2.2" />
+          <circle class="tip-eye" cx="9" cy="12" r="0.8" fill="currentColor" stroke="none" />
+          <circle class="tip-eye" cx="15" cy="12" r="0.8" fill="currentColor" stroke="none" />
+          <path d="M6.5 9.5L9 10.8" />
+          <path d="M17.5 9.5L15 10.8" />
+          <path d="M11 15L12 16.5L13 15" />
+          <path d="M7 18.5C7 21 9 22 12 22C15 22 17 21 17 18.5" />
+        </svg>
+        <span class="tip-text">产品不错，请猫头鹰喝杯奶茶吧</span>
+      </button>
+      <div class="tip-reveal" id="tip-reveal">
+        <p class="tip-thanks">谢谢你 🧋</p>
+        <img src="/tip.png" alt="打赏码" class="tip-qr" />
       </div>
     </div>
   </div>
@@ -319,6 +405,15 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     });
     document.getElementById('contact-modal').addEventListener('click', function(e) {
       if (e.target === this) this.classList.remove('open');
+    });
+
+    var tipBtn = document.getElementById('tip-trigger');
+    var tipReveal = document.getElementById('tip-reveal');
+    tipBtn.addEventListener('click', function() {
+      tipBtn.classList.remove('tapped');
+      void tipBtn.offsetWidth;
+      tipBtn.classList.add('tapped');
+      tipReveal.classList.toggle('open');
     });
 
     var WORKER = 'https://owl-counter.njumwh.workers.dev';
